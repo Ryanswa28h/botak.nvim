@@ -85,13 +85,13 @@ Command:
 ```
 :Codeium Auth
 ```
-A browser page will be opened (https://windsurf.com/vim-show-auth-token?state=a) and you are required to enter the auth token.
+A browser page will be opened and you are required to enter the auth token.
 
 Optionally, if you don't want AI features, you can comment:
 ```
 require("plugins.codeium")
 ```
-inside of ```ini.lua```.
+inside of ```init.lua```.
 
 ---
 
