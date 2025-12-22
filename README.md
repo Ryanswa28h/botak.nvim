@@ -45,10 +45,10 @@ Optional LSPs and tools installed via Mason.nvim (`mason.lua`):
 
 Lazy.nvim + Mason.nvim will automatically install most of these.
 
-## 📦 Installation Requirements
+## 📦 Install Requirements
 
 <details>
-<summary><strong>🪟 Windows</strong></summary>
+<summary><strong>Windows</strong></summary>
 
 ### Requirements
 
@@ -104,28 +104,12 @@ Needed for some LSP servers and plugins.
 winget install OpenJS.NodeJS
 ```
 
----
-
-### Install Botakvim
-
-```powershell
-git clone https://github.com/Ryanswa28h/botak.nvim.git $env:LOCALAPPDATA\nvim
-```
-
-Then launch:
-
-```powershell
-nvim
-```
-
-Lazy.nvim will automatically install plugins and LSPs.
-
 </details>
 
 ---
 
 <details>
-<summary><strong>🐧 Linux / 🍎 macOS</strong></summary>
+<summary><strong>Linux / macOS</strong></summary>
 
 ### Requirements
 
@@ -186,22 +170,6 @@ sudo pacman -S nodejs npm
 sudo apt install nodejs npm
 brew install node
 ```
-
----
-
-### Install Botakvim
-
-```bash
-git clone https://github.com/Ryanswa28h/botak.nvim.git ~/.config/nvim
-```
-
-Launch Neovim:
-
-```bash
-nvim
-```
-
-Lazy.nvim + Mason.nvim will handle plugin and LSP installation automatically.
 
 </details>
 
