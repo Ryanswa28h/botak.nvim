@@ -106,16 +106,17 @@ nvim filename
 * Use **`<leader>`** keymaps for LSP, snippets, navigation, and code execution.
 * Common keymaps:
 
-| Action                        | Keymap       |
-| ----------------------------- | ------------ |
-| Go to definition              | `gd`         |
-| Find references               | `gr`         |
-| Rename symbol                 | `<leader>rn` |
-| Execute code action           | `<leader>ca` |
-| Toggle inlay hints            | `<leader>th` |
-| Send code to REPL (Iron.nvim) | `<leader>sr` |
-| Fuzzy find files              | `<leader>ff` |
-| Fuzzy find workspace symbols  | `<leader>ws` |
+| Action                         | Keymap       |
+| ------------------------------ | ------------ |
+| Go to definition               | `gd`         |
+| Find references                | `gr`         |
+| Rename symbol                  | `<leader>rn` |
+| Execute code action            | `<leader>ca` |
+| Toggle inlay hints             | `<leader>th` |
+| Send code to REPL (Iron.nvim)  | `<leader>sr` |
+| Fuzzy find files               | `<leader>ff` |
+| Fuzzy find workspace symbols   | `<leader>ws` |
+| Toggle background (Nord theme) | `<leader>ws` |
 
 *(Refer to `lua/core/keymaps.lua` and the `lua/plugins/` modules for full keymap and plugin details.)*
 
