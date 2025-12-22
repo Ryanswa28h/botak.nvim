@@ -118,11 +118,13 @@ nvim filename
 | Go to definition               | `gd`         |
 | Find references                | `gr`         |
 | Rename symbol                  | `<leader>rn` |
-| Execute code action            | `<leader>r ` |
+| Execute code in file           | `<leader>r ` |
 | Toggle inlay hints             | `<leader>th` |
-| Fuzzy find files               | `<leader>ff` |
 | Fuzzy find workspace symbols   | `<leader>ws` |
+| Accept AI code                 | `<ctrl>g`    |
 | Toggle background (Nord theme) | `<leader>bg` |
+| Open diagnostics list          | `<leader>q`  |
+| View diagnostics               | `<leader>d`  |
 
 *(Refer to `lua/core/keymaps.lua` and the `lua/plugins/` modules for full keymap and plugin details.)*
 
