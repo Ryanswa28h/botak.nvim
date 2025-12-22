@@ -24,8 +24,8 @@ Designed for speed, ease of use, and out-of-the-box functionality with a curated
 
 Before installing Botakvim, make sure you have the following installed:
 
-* **Neovim 0.9+**
-* **Git**
+* **Neovim 0.9+** ([Install Neovim](https://github.com/neovim/neovim/releases))
+* **Git** ([Install Git](https://git-scm.com/install/))
 * **Python 3** (optional, for `pyright` LSP)
 * **Node.js / npm** (optional, for some LSPs and plugins)
 * **make** (optional, for building some plugins)
