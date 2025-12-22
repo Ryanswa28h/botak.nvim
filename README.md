@@ -93,13 +93,13 @@ require("plugins.codeium")
 ```
 inside of ```init.lua```.
 
----
-
 ### 6. Delete ```lazy-lock.json``` (Optional)
 
 Deleting the ```lazy-lock``` file will allow Neovim to update plugins.
 
 As a result, you will get newer features at the price of stability.
+
+---
 
 ## 🚀 Usage
 
