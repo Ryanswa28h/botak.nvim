@@ -94,19 +94,32 @@ nvim --version
 
 **3. (Optional) Python 3**
 
+Linux:
+
 ```bash
 sudo pacman -S python    # Arch
-sudo apt install python3
-brew install python
+sudo apt install python3 # Debian/Ubuntu
 ```
 
+macOS:
+
+```bash
+brew install python
+```
 ---
 
 **4. (Optional) Node.js**
 
+Linux:
+
 ```bash
 sudo pacman -S nodejs npm
 sudo apt install nodejs npm
+```
+
+macOS:
+
+```bash
 brew install node
 ```
 
