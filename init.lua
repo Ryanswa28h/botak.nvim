@@ -36,7 +36,6 @@ require("lazy").setup({
 	require("plugins.codeium"),
 	-- require("plugins.animations"),
 	require("plugins.prelive"),
-	require("plugins.image"),
 	require("plugins.mason"),
 	require("plugins.lsp"),
 	require("plugins.autoformatting"),
