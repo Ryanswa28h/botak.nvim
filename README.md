@@ -50,7 +50,7 @@ Lazy.nvim + Mason.nvim will automatically install most of these.
 ## 💻 Installation
 
 <details>
-<summary>🐧 Linux / 🍎 macOS</summary>
+<summary>Linux / macOS</summary>
 
 ### 1. Backup old Neovim config (optional)
 
@@ -91,13 +91,7 @@ Command:
 
 A browser page will be opened and you are required to enter the auth token.
 
-Optionally, if you don't want AI features, you can comment:
-
-```
-require("plugins.codeium")
-```
-
-inside of `init.lua`.
+Optionally, if you don't want AI features, you can comment `require("plugins.codeium")` inside of `init.lua`.
 
 ### 6. Delete `lazy-lock.json` (Optional)
 
@@ -110,7 +104,7 @@ As a result, you will get newer features at the price of stability.
 ---
 
 <details>
-<summary>🪟 Windows</summary>
+<summary>Windows</summary>
 
 ### 1. Backup old Neovim config (optional)
 
@@ -148,16 +142,9 @@ Inside Neovim:
 ```vim
 :Codeium Auth
 ```
-
 A browser window will open asking for authentication.
 
-To disable AI features, comment:
-
-```lua
-require("plugins.codeium")
-```
-
-inside `init.lua`.
+Optionally, if you don't want AI features, you can comment `require("plugins.codeium")` inside of `init.lua`.
 
 ### 6. Delete `lazy-lock.json` (Optional)
 
