@@ -48,7 +48,7 @@ Lazy.nvim + Mason.nvim will automatically install most of these.
 ## 📦 Install Requirements
 
 <details>
-<summary><strong>Linux / macOS</strong></summary>
+<summary>Linux / macOS</summary>
 
 ### Requirements
 
@@ -113,7 +113,7 @@ brew install node
 </details>
 
 <details>
-<summary><strong>Windows</strong></summary>
+<summary>Windows</summary>
 
 ### Requirements
 
