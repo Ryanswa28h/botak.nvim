@@ -26,7 +26,7 @@ Before installing Botakvim, make sure you have the following installed:
 
 * **Neovim 0.9+**
 * **Git**
-* **Python 3** (for `pyright` LSP)
+* **Python 3** (optional, for `pyright` LSP)
 * **Node.js / npm** (optional, for some LSPs and plugins)
 * **make** (optional, for building some plugins)
 
@@ -125,6 +125,7 @@ nvim filename
 | Toggle background (Nord theme) | `<leader>bg` |
 | Open diagnostics list          | `<leader>q`  |
 | View diagnostics               | `<leader>d`  |
+| Open Neotree                   | `<leader>e`  |
 
 *(Refer to `lua/core/keymaps.lua` and the `lua/plugins/` modules for full keymap and plugin details.)*
 
