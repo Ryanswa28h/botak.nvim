@@ -113,8 +113,8 @@ brew install python
 Linux:
 
 ```bash
-sudo pacman -S nodejs npm
-sudo apt install nodejs npm
+sudo pacman -S nodejs npm    # Arch
+sudo apt install nodejs npm  # Debian/Ubuntu
 ```
 
 macOS:
@@ -169,7 +169,7 @@ nvim --version
 Required only if you want Python LSP (`pyright`).
 
 ```powershell
-winget install Python.Python.3
+winget install --id Python.Python.3.11 --scope machine -e
 ```
 
 ---
