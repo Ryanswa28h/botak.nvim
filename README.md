@@ -1,4 +1,5 @@
-# botak.nvim
+[![image.png](https://i.postimg.cc/QNJCfmdJ/image.png)](https://postimg.cc/Cddw1jDR)
+[![image.png](https://i.postimg.cc/Gmy153xF/image.png)](https://postimg.cc/68tS7XSq)
 
 A minimal and modern Neovim configuration focused on productivity, LSP, autocompletion, animations, and a clean Lua-based setup.
 Designed for speed, ease of use, and out-of-the-box functionality with a curated plugin set.
