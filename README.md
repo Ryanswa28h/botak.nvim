@@ -49,6 +49,9 @@ Lazy.nvim + Mason.nvim will automatically install most of these.
 
 ## 💻 Installation
 
+<details>
+<summary>🐧 Linux / 🍎 macOS</summary>
+
 ### 1. Backup old Neovim config (optional)
 
 ```bash
@@ -78,27 +81,89 @@ Run inside Neovim:
 :Lazy sync
 ```
 
-This ensures all plugins and LSP servers are correctly installed.
-
 ### 5. Codeium Auth
 
 Command:
+
 ```
 :Codeium Auth
 ```
+
 A browser page will be opened and you are required to enter the auth token.
 
 Optionally, if you don't want AI features, you can comment:
+
 ```
 require("plugins.codeium")
 ```
-inside of ```init.lua```.
 
-### 6. Delete ```lazy-lock.json``` (Optional)
+inside of `init.lua`.
 
-Deleting the ```lazy-lock``` file will allow Neovim to update plugins.
+### 6. Delete `lazy-lock.json` (Optional)
+
+Deleting the `lazy-lock.json` file will allow Neovim to update plugins.
 
 As a result, you will get newer features at the price of stability.
+
+</details>
+
+---
+
+<details>
+<summary>🪟 Windows</summary>
+
+### 1. Backup old Neovim config (optional)
+
+Open **PowerShell**:
+
+```powershell
+Rename-Item $env:LOCALAPPDATA\nvim nvim_backup
+```
+
+### 2. Clone the botak.nvim repository
+
+```powershell
+git clone https://github.com/Ryanswa28h/botak.nvim.git $env:LOCALAPPDATA\nvim
+```
+
+### 3. Open Neovim
+
+```powershell
+nvim
+```
+
+* Lazy.nvim will automatically install all plugins and LSP servers defined in your config.
+* First startup may take a few minutes.
+
+### 4. Verify plugin installation
+
+Inside Neovim:
+
+```vim
+:Lazy sync
+```
+
+### 5. Codeium Auth
+
+```vim
+:Codeium Auth
+```
+
+A browser window will open asking for authentication.
+
+To disable AI features, comment:
+
+```lua
+require("plugins.codeium")
+```
+
+inside `init.lua`.
+
+### 6. Delete `lazy-lock.json` (Optional)
+
+Deleting `lazy-lock.json` allows plugin updates at the cost of stability.
+
+</details>
 
 ---
 
