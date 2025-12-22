@@ -111,9 +111,8 @@ nvim filename
 | Go to definition               | `gd`         |
 | Find references                | `gr`         |
 | Rename symbol                  | `<leader>rn` |
-| Execute code action            | `<leader>ca` |
+| Execute code action            | `<leader>r ` |
 | Toggle inlay hints             | `<leader>th` |
-| Send code to REPL (Iron.nvim)  | `<leader>sr` |
 | Fuzzy find files               | `<leader>ff` |
 | Fuzzy find workspace symbols   | `<leader>ws` |
 | Toggle background (Nord theme) | `<leader>bg` |
