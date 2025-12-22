@@ -45,6 +45,166 @@ Optional LSPs and tools installed via Mason.nvim (`mason.lua`):
 
 Lazy.nvim + Mason.nvim will automatically install most of these.
 
+## 📦 Installation Requirements
+
+<details>
+<summary><strong>🪟 Windows</strong></summary>
+
+### Requirements
+
+Install the following before using Botakvim:
+
+**1. Git**
+
+Using Winget (recommended):
+
+```powershell
+winget install --id Git.Git -e
+```
+
+Or download manually from:
+[https://git-scm.com/download/win](https://git-scm.com/download/win)
+
+---
+
+**2. Neovim (0.9+)**
+
+Using Winget:
+
+```powershell
+winget install Neovim.Neovim
+```
+
+Or download manually:
+[https://neovim.io](https://neovim.io)
+
+Make sure `nvim` is available in PowerShell:
+
+```powershell
+nvim --version
+```
+
+---
+
+**3. (Optional) Python 3**
+
+Required only if you want Python LSP (`pyright`).
+
+```powershell
+winget install Python.Python.3
+```
+
+---
+
+**4. (Optional) Node.js**
+
+Needed for some LSP servers and plugins.
+
+```powershell
+winget install OpenJS.NodeJS
+```
+
+---
+
+### Install Botakvim
+
+```powershell
+git clone https://github.com/Ryanswa28h/botak.nvim.git $env:LOCALAPPDATA\nvim
+```
+
+Then launch:
+
+```powershell
+nvim
+```
+
+Lazy.nvim will automatically install plugins and LSPs.
+
+</details>
+
+---
+
+<details>
+<summary><strong>🐧 Linux / 🍎 macOS</strong></summary>
+
+### Requirements
+
+**1. Git**
+
+Linux:
+
+```bash
+sudo pacman -S git        # Arch
+sudo apt install git     # Debian/Ubuntu
+```
+
+macOS:
+
+```bash
+brew install git
+```
+
+---
+
+**2. Neovim (0.9+)**
+
+Linux:
+
+```bash
+sudo pacman -S neovim    # Arch
+sudo apt install neovim # Debian/Ubuntu
+```
+
+macOS:
+
+```bash
+brew install neovim
+```
+
+Verify:
+
+```bash
+nvim --version
+```
+
+---
+
+**3. (Optional) Python 3**
+
+```bash
+sudo pacman -S python    # Arch
+sudo apt install python3
+brew install python
+```
+
+---
+
+**4. (Optional) Node.js**
+
+```bash
+sudo pacman -S nodejs npm
+sudo apt install nodejs npm
+brew install node
+```
+
+---
+
+### Install Botakvim
+
+```bash
+git clone https://github.com/Ryanswa28h/botak.nvim.git ~/.config/nvim
+```
+
+Launch Neovim:
+
+```bash
+nvim
+```
+
+Lazy.nvim + Mason.nvim will handle plugin and LSP installation automatically.
+
+</details>
+
 ---
 
 ## 💻 Installation
