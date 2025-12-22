@@ -79,12 +79,19 @@ Run inside Neovim:
 
 This ensures all plugins and LSP servers are correctly installed.
 
-### 5. Enable animations (Optional)
+### 5. Codeium Auth
 
-Go inside ```init.lua``` and uncomment 
+Command:
 ```
-require("plugins.animations")
+:Codeium Auth
 ```
+A browser page will be opened (https://windsurf.com/vim-show-auth-token?state=a) and you are required to enter the auth token.
+
+Optionally, if you don't want AI features, you can comment:
+```
+require("plugins.codeium")
+```
+inside of ```ini.lua```.
 
 ---
 
@@ -116,4 +123,6 @@ nvim filename
 
 ## 📝 License
 
-This configuration is open-source under the **GPL-3.0 License**.
+This configuration is open-source under the **MIT License**.
+
+Copyright (c) 2025 Ryan Alvaro Emmyson
