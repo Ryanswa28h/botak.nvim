@@ -116,7 +116,7 @@ nvim filename
 | Send code to REPL (Iron.nvim)  | `<leader>sr` |
 | Fuzzy find files               | `<leader>ff` |
 | Fuzzy find workspace symbols   | `<leader>ws` |
-| Toggle background (Nord theme) | `<leader>ws` |
+| Toggle background (Nord theme) | `<leader>bg` |
 
 *(Refer to `lua/core/keymaps.lua` and the `lua/plugins/` modules for full keymap and plugin details.)*
 
