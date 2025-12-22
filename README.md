@@ -16,7 +16,6 @@ Designed for speed, ease of use, and out-of-the-box functionality with a curated
 * Custom dashboard (`dashboard.lua`) and prelive setup (`prelive.lua`)
 * File explorer (`neotree.lua`), statusline (`lualine.lua`), and bufferline (`bufferline.lua`)
 * Git integration (`gitsigns.lua`) and commenting utilities (`comment.lua`)
-* Indent guides (`indent-blankline.lua`) and miscellaneous tweaks (`misc.lua`)
 
 ---
 
@@ -315,6 +314,7 @@ nvim filename
 | Open diagnostics list          | `<leader>q`  |
 | View diagnostics               | `<leader>d`  |
 | Open Neotree                   | `<leader>e`  |
+| Find the first reference of ...| `s`          |
 
 *(Refer to `lua/core/keymaps.lua` and the `lua/plugins/` modules for full keymap and plugin details.)*
 
