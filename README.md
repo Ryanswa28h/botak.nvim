@@ -101,8 +101,6 @@ As a result, you will get newer features at the price of stability.
 
 </details>
 
----
-
 <details>
 <summary>Windows</summary>
 
