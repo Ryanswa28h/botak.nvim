@@ -5,7 +5,7 @@ return {
 	config = function()
 		vim.g.nord_contrast = true
 		vim.g.nord_borders = false
-		vim.g.nord_disable_background = false
+		vim.g.nord_disable_background = false -- set to true for transparent background on startup
 		vim.g.nord_italic = false
 		vim.g.nord_uniform_diff_background = true
 		vim.g.nord_bold = false
@@ -13,7 +13,7 @@ return {
 		-- Load the colorscheme
 		require("nord").set()
 
-		local bg_transparent = false
+		local bg_transparent = vim.g.nord_disable_background
 
 		-- Toggle background transparency
 		local toggle_transparency = function()
