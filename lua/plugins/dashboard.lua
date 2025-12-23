@@ -42,6 +42,11 @@ return {
 				{ name = "f  Find File", action = telescope("find_files"), section = "Files" },
 				{ name = "n  New File", action = "ene | startinsert", section = "Files" },
 				{ name = "r  Recent Files", action = telescope("oldfiles"), section = "Files" },
+				{
+					name = "p  Projects",
+					action = "lua require'telescope'.extensions.projects.projects{}",
+					section = "Files",
+				},
 				{ name = "g  Find Text", action = telescope("live_grep"), section = "Search" },
 				{
 					name = "c  Config",

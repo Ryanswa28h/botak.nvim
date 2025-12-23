@@ -28,25 +28,6 @@ return {
 			cursor = { enable = false },
 		},
 	},
-
-	---------------------------------------------------------------------------
-	-- Yank animation (highlight flash)
-	---------------------------------------------------------------------------
-	{
-		"echasnovski/mini.hipatterns",
-		event = "VeryLazy",
-		config = function()
-			vim.api.nvim_create_autocmd("TextYankPost", {
-				callback = function()
-					vim.highlight.on_yank({
-						higroup = "IncSearch",
-						timeout = 120,
-					})
-				end,
-			})
-		end,
-	},
-
 	---------------------------------------------------------------------------
 	-- Notifications only
 	---------------------------------------------------------------------------

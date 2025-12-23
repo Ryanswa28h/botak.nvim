@@ -312,10 +312,5 @@ return {
 				},
 			},
 		})
-
-		vim.cmd([[nnoremap \ :Neotree reveal<cr>]])
-		vim.keymap.set("n", "<leader>e", function()
-			vim.cmd("Neotree reveal toggle=true position=left dir=%:p:h")
-		end, { silent = true, desc = "Neo-tree (root = current file)" })
 	end,
 }
