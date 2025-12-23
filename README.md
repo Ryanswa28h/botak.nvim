@@ -309,11 +309,12 @@ nvim filename
 | Execute code in file           | `<leader>r ` |
 | Toggle inlay hints             | `<leader>th` |
 | Fuzzy find workspace symbols   | `<leader>ws` |
-| Accept AI code                 | `<ctrl>g`    |
+| Accept AI autocomplete         | `<ctrl>g`    |
 | Toggle background (Nord theme) | `<leader>bg` |
 | Open diagnostics list          | `<leader>q`  |
 | View diagnostics               | `<leader>d`  |
-| Open nvim file explorer        | `<leader>e`  |
+| Open nvim files                | `<leader>e`  |
+| Open neotree                   | `<leader>E`  |
 | Find the first reference of ...| `s`          |
 
 *(Refer to `lua/core/keymaps.lua` and the `lua/plugins/` modules for full keymap and plugin details.)*
