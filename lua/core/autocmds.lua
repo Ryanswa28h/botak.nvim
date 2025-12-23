@@ -21,7 +21,7 @@ vim.api.nvim_create_autocmd("User", {
 	end,
 })
 
-local neotree = false -- set to true to enable neotree in nvim <dirname>
+local neotree = false
 vim.api.nvim_create_autocmd("VimEnter", {
 	once = true,
 	callback = function(data)

@@ -38,7 +38,6 @@ require("lazy").setup({
 	require("plugins.ui"),
 	require("plugins.navigation"),
 	require("plugins.diagnostics"),
-	-- require("plugins.animations"),
 	require("plugins.prelive"),
 	require("plugins.image"),
 	require("plugins.mason"),
