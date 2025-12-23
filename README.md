@@ -313,7 +313,7 @@ nvim filename
 | Toggle background (Nord theme) | `<leader>bg` |
 | Open diagnostics list          | `<leader>q`  |
 | View diagnostics               | `<leader>d`  |
-| Open Neotree                   | `<leader>e`  |
+| Open nvim file explorer        | `<leader>e`  |
 | Find the first reference of ...| `s`          |
 
 *(Refer to `lua/core/keymaps.lua` and the `lua/plugins/` modules for full keymap and plugin details.)*
