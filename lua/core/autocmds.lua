@@ -21,13 +21,16 @@ vim.api.nvim_create_autocmd("User", {
 	end,
 })
 
+local neotree = false -- set to true to enable neotree in nvim <dirname>
 vim.api.nvim_create_autocmd("VimEnter", {
 	once = true,
 	callback = function(data)
 		if vim.fn.isdirectory(data.file) == 1 then
-			vim.cmd("cd " .. data.file)
-			require("lazy").load({ plugins = { "neo-tree.nvim" } })
-			vim.cmd("Neotree reveal position=left")
+			if neotree then
+				vim.cmd("cd " .. data.file)
+				require("lazy").load({ plugins = { "neo-tree.nvim" } })
+				vim.cmd("Neotree reveal position=left")
+			end
 		end
 	end,
 })
