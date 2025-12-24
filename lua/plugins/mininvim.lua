@@ -2,9 +2,11 @@ return {
 	"nvim-mini/mini.nvim",
 	version = false,
 	config = function()
+		require("mini.icons").setup()
+		MiniIcons.mock_nvim_web_devicons() -- Hijack nvim-web-devicons
 		require("mini.ai").setup()
-		require("mini.completion").setup()
 		require("mini.surround").setup()
 		require("mini.files").setup()
+		require("mini.cursorword").setup()
 	end,
 }

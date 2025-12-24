@@ -39,17 +39,17 @@ return {
 			]],
 			-- Keybindings are the first letter of the name (e.g., 'f' for Find File)
 			items = {
-				{ name = "f  Find File", action = telescope("find_files"), section = "Files" },
-				{ name = "n  New File", action = "ene | startinsert", section = "Files" },
-				{ name = "r  Recent Files", action = telescope("oldfiles"), section = "Files" },
+				{ name = "f   Find File", action = telescope("find_files"), section = "Files" },
+				{ name = "n   New File", action = "ene | startinsert", section = "Files" },
+				{ name = "r   Recent Files", action = telescope("oldfiles"), section = "Files" },
 				{
-					name = "p  Projects",
+					name = "p   Projects",
 					action = "lua require'telescope'.extensions.projects.projects{}",
 					section = "Files",
 				},
-				{ name = "g  Find Text", action = telescope("live_grep"), section = "Search" },
+				{ name = "g   Find Text", action = telescope("live_grep"), section = "Search" },
 				{
-					name = "c  Config",
+					name = "c   Config",
 					action = function()
 						require("telescope.builtin").find_files({
 							cwd = vim.fn.stdpath("config"),
@@ -58,20 +58,25 @@ return {
 					section = "Config",
 				},
 				{
-					name = "s  Restore Session",
+					name = "s   Restore Session",
 					action = function()
 						require("persistence").load({ last = true })
 					end,
 					section = "Search",
 				},
-				{ name = "l  Lazy", action = "Lazy", section = "Config" },
-				{ name = "q  Quit", action = "qa", section = "Quit" },
-			},
-			content_hooks = {
-				starter.gen_hook.adding_bullet(""),
-				starter.gen_hook.aligning("center", "center"),
+				{ name = "l  󰒲 Lazy", action = "Lazy", section = "Config" },
+				{ name = "q   Quit", action = "qa", section = "Quit" },
 			},
 			footer = get_footer(),
+		})
+
+		vim.api.nvim_create_autocmd("User", {
+			pattern = "MiniStarterOpened",
+			callback = function(args)
+				local buf = args.buf
+				vim.keymap.set("n", "j", [[<Cmd>lua MiniStarter.update_current_item('next')<CR>]], { buffer = buf })
+				vim.keymap.set("n", "k", [[<Cmd>lua MiniStarter.update_current_item('prev')<CR>]], { buffer = buf })
+			end,
 		})
 
 		-- Colors

@@ -1,7 +1,10 @@
 return {
 	"folke/persistence.nvim",
 	lazy = false,
-	opts = {
-		options = { "buffers", "curdir", "tabpages", "winsize" },
-	},
+	opts = function()
+		return {
+			dir = vim.fn.stdpath("state") .. "/sessions/",
+			options = { "buffers", "curdir", "tabpages", "winsize" },
+		}
+	end,
 }

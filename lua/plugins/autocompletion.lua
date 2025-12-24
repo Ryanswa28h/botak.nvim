@@ -68,6 +68,15 @@ return { -- Autocompletion
 				completeopt = "menu,menuone,noinsert",
 			},
 
+			window = {
+				completion = cmp.config.window.bordered({
+					winhighlight = "Normal:Normal,FloatBorder:FloatBorder,CursorLine:Visual,Search:None",
+				}),
+				documentation = cmp.config.window.bordered({
+					winhighlight = "Normal:Normal,FloatBorder:FloatBorder,CursorLine:Visual,Search:None",
+				}),
+			},
+
 			snippet = {
 				expand = function(args)
 					luasnip.lsp_expand(args.body)
@@ -123,20 +132,23 @@ return { -- Autocompletion
 			formatting = {
 				fields = { "kind", "abbr", "menu" },
 				format = function(entry, vim_item)
-					vim_item.kind = kind_icons[vim_item.kind] or ""
+					-- Kind icons
+					vim_item.kind = string.format("%s", kind_icons[vim_item.kind])
+
+					-- Source
 					vim_item.menu = ({
 						nvim_lsp = "[LSP]",
-						luasnip = "[Snippet]",
-						buffer = "[Buffer]",
+						luasnip = "[Snip]",
+						buffer = "[Buf]",
 						path = "[Path]",
-						cmdline = "[Cmd]",
+						cmd = "[Cmd]",
 					})[entry.source.name]
+
 					return vim_item
 				end,
 			},
-
 			experimental = {
-				ghost_text = true, -- inline preview
+				ghost_text = false, -- inline preview
 			},
 		})
 

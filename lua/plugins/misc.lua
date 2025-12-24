@@ -3,6 +3,15 @@ return {
 	{
 		-- autoclose tags
 		"windwp/nvim-ts-autotag",
+		config = function()
+			require("nvim-ts-autotag").setup({
+				per_filetype = {
+					["html"] = {
+						enable_close = true,
+					},
+				},
+			})
+		end,
 	},
 	{
 		-- detect tabstop and shiftwidth automatically
@@ -15,6 +24,9 @@ return {
 	{
 		-- GitHub integration for vim-fugitive
 		"tpope/vim-rhubarb",
+	},
+	{
+		"RRethy/nvim-treesitter-endwise",
 	},
 	{
 		-- Hints keybinds
