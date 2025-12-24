@@ -7,6 +7,13 @@ vim.g.maplocalleader = " "
 -- For conciseness
 local opts = { noremap = true, silent = true }
 
+-- Move around text in visual mode
+vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv")
+vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv")
+
+-- Override bind
+vim.keymap.set("n", "J", "mzJ`z")
+
 -- Disable the spacebar key's default behavior in Normal and Visual modes
 vim.keymap.set({ "n", "v" }, "<Space>", "<Nop>", { silent = true })
 

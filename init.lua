@@ -33,6 +33,8 @@ require("lazy").setup({
 	require("plugins.projects"),
 	require("plugins.dashboard"),
 	require("plugins.indent-blankline"),
+	require("plugins.harpoon"),
+	require("plugins.undotree"),
 	require("plugins.comment"),
 	require("plugins.codeium"),
 	require("plugins.ui"),

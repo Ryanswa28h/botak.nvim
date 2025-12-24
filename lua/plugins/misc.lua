@@ -32,14 +32,14 @@ return {
 		"folke/which-key.nvim",
 		event = "VeryLazy",
 		opts = {
-			preset = "modern",
+			preset = "modern", -- This provides the sleek look from your image
 			win = {
-				border = "rounded",
-				padding = { 1, 2 },
+				border = "rounded", -- Gives it the curved corners seen in the photo
+				padding = { 1, 2 }, -- Adds some breathing room
 				title_pos = "left",
 			},
 			layout = {
-				align = "center", 
+				align = "center", -- Centers the text within the columns
 			},
 			icons = {
 				breadcrumb = "»",

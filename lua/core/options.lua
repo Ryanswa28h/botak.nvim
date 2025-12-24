@@ -7,7 +7,7 @@ vim.o.undofile = true -- Save undo history
 vim.o.ignorecase = true -- Case-insensitive searching UNLESS \C or capital in search
 vim.o.smartcase = true -- smart case
 vim.wo.signcolumn = "yes" -- Keep signcolumn on by default
-vim.o.updatetime = 250 -- Decrease update time
+vim.o.updatetime = 50 -- Decrease update time
 vim.o.timeoutlen = 300 -- time to wait for a mapped sequence to complete (in milliseconds)
 vim.o.backup = false -- creates a backup file
 vim.o.writebackup = false -- if a file is being edited by another program (or was written to file while editing with another program), it is not allowed to be edited
@@ -43,3 +43,9 @@ vim.opt.formatoptions:remove({ "c", "r", "o" }) -- don't insert the current comm
 vim.opt.runtimepath:remove("/usr/share/vim/vimfiles") -- separate vim plugins from neovim in case vim still in use
 vim.opt.confirm = true
 vim.g.deprecation_warnings = false
+local undodir = vim.fn.expand("~/.vim/undodir")
+if vim.fn.isdirectory(undodir) == 0 then
+	vim.fn.mkdir(undodir, "p")
+end
+vim.opt.undodir = undodir
+vim.opt.undofile = true

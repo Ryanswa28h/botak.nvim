@@ -118,7 +118,7 @@ return {
 				settings = {
 					Lua = {
 						completion = {
-							callSnippet = "Disable",
+							callSnippet = "Replace",
 						},
 						runtime = { version = "LuaJIT" },
 						workspace = {

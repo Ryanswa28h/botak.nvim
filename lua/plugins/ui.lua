@@ -6,9 +6,10 @@ return {
 			render = "compact",
 		},
 		init = function()
-			vim.notify = require("notify").setup({
+			require("notify").setup({
 				background_colour = "#303030",
 			})
+			vim.notify = require("notify")
 		end,
 	},
 	{
@@ -55,6 +56,18 @@ return {
 					lsp_doc_border = true, -- add a border to hover docs and signature help
 				},
 			})
+			-- 			vim.notify(
+			-- 				[[
+			--
+			-- ██████╗  ██████╗ ████████╗ █████╗ ██╗  ██╗
+			-- ██╔══██╗██╔═══██╗╚══██╔══╝██╔══██╗██║ ██╔╝
+			-- ██████╔╝██║   ██║   ██║   ███████║█████╔╝
+			-- ██╔══██╗██║   ██║   ██║   ██╔══██║██╔═██╗
+			-- ██████╔╝╚██████╔╝   ██║   ██║  ██║██║  ██╗
+			-- ╚══════╝ ╚═════╝    ╚═╝   ╚═╝  ╚═╝╚═╝  ╚═╝]],
+			-- 				vim.log.levels.INFO,
+			-- 				{ title = "Botak.nvim", render = "compact" }
+			-- 			)
 		end,
 	},
 	{
