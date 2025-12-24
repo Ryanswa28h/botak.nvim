@@ -1,4 +1,4 @@
--- Standalone plugins with less than 10 lines of config go here
+-- Standalone plugins with less than 20 lines of config go here
 return {
 	{
 		-- autoclose tags
@@ -29,22 +29,23 @@ return {
 		"RRethy/nvim-treesitter-endwise",
 	},
 	{
-		-- Hints keybinds
 		"folke/which-key.nvim",
+		event = "VeryLazy",
 		opts = {
-			delay = 1000,
-			-- win = {
-			--   border = {
-			--     { '┌', 'FloatBorder' },
-			--     { '─', 'FloatBorder' },
-			--     { '┐', 'FloatBorder' },
-			--     { '│', 'FloatBorder' },
-			--     { '┘', 'FloatBorder' },
-			--     { '─', 'FloatBorder' },
-			--     { '└', 'FloatBorder' },
-			--     { '│', 'FloatBorder' },
-			--   },
-			-- },
+			preset = "modern",
+			win = {
+				border = "rounded",
+				padding = { 1, 2 },
+				title_pos = "center",
+			},
+			layout = {
+				align = "center", 
+			},
+			icons = {
+				breadcrumb = "»",
+				separator = "➜",
+				group = "+",
+			},
 		},
 	},
 	{
