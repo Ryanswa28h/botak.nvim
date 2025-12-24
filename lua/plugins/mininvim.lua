@@ -8,5 +8,10 @@ return {
 		require("mini.surround").setup()
 		require("mini.files").setup()
 		require("mini.cursorword").setup()
+		require("mini.bracketed").setup()
+		require("mini.clue").setup()
+		require("mini.indentscope").setup()
+		require("mini.move").setup()
+		require("mini.operators").setup()
 	end,
 }
