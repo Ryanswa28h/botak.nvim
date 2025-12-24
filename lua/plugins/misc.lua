@@ -36,7 +36,7 @@ return {
 			win = {
 				border = "rounded",
 				padding = { 1, 2 },
-				title_pos = "center",
+				title_pos = "left",
 			},
 			layout = {
 				align = "center", 
