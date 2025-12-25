@@ -310,7 +310,8 @@ nvim filename
 | Toggle inlay hints             | `<leader>th` |
 | Fuzzy find workspace symbols   | `<leader>ws` |
 | Accept AI autocomplete         | `<ctrl>g`    |
-| Toggle background (Nord theme) | `<leader>bg` |
+| Enable background              | `<leader>bg` |
+| Disable background             | `<leader>dbg`|
 | Open diagnostics list          | `<leader>q`  |
 | View diagnostics               | `<leader>d`  |
 | Open nvim files                | `<leader>e`  |
