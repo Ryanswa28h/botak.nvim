@@ -8,11 +8,16 @@ vim.g.maplocalleader = " "
 local opts = { noremap = true, silent = true }
 
 -- Move around text in visual mode
-vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv")
-vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv")
+vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv", opts)
+vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv", opts)
 
 -- Override bind
 vim.keymap.set("n", "J", "mzJ`z")
+
+-- Telescope binds
+vim.keymap.set("n", "<leader>ff", "<cmd>Telescope find_files<CR>")
+vim.keymap.set("n", "<leader>gf", "<cmd>Telescope git_files<CR>")
+vim.keymap.set("n", "<leader>lg", "<cmd>Telescope live_grep<CR>")
 
 -- Disable the spacebar key's default behavior in Normal and Visual modes
 vim.keymap.set({ "n", "v" }, "<Space>", "<Nop>", { silent = true })
