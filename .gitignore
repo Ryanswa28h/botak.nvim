@@ -1,0 +1,7 @@
+*.swp
+*.swo
+undo/
+backup/
+/lazy-repo/
+/lazy/
+*.log
