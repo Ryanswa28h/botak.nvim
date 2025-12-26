@@ -26,6 +26,10 @@ return {
 				lsp_doc_border = true,
 			},
 		},
+		notify = {
+			enabled = true,
+			view = "notify",
+		},
 		config = function()
 			require("noice").setup({
 				routes = {
