@@ -1,6 +1,8 @@
 return {
 	"nvim-mini/mini.nvim",
 	version = false,
+	lazy = false,
+	priority = 1001,
 	config = function()
 		require("mini.icons").setup()
 		MiniIcons.mock_nvim_web_devicons() -- Hijack nvim-web-devicons

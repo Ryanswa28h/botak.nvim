@@ -1,7 +1,8 @@
 -- Format on save and linters
 return {
 	"nvimtools/none-ls.nvim",
-	lazy = false,
+	lazy = true,
+	event = { "BufReadPost", "BufNewFile" },
 	dependencies = {
 		"nvimtools/none-ls-extras.nvim",
 		"jayp0521/mason-null-ls.nvim", -- ensure dependencies are installed

@@ -1,8 +1,3 @@
--- Simple code runner for Neovim
--- Run current file with <leader>r
-
-local M = {}
-
 local function run_file()
 	local file = vim.fn.expand("%")
 	local ft = vim.bo.filetype
@@ -12,10 +7,9 @@ local function run_file()
 		return
 	end
 
-	vim.cmd("w") -- save before running
+	vim.cmd("w")
 
 	local cmd
-
 	if ft == "python" then
 		cmd = "python " .. file
 	elseif ft == "javascript" then
@@ -42,8 +36,10 @@ local function run_file()
 	vim.cmd("botright split | terminal " .. cmd)
 end
 
-function M.setup()
-	vim.keymap.set("n", "<leader>r", run_file, { desc = "Run current file" })
-end
-
-return M
+return {
+	"coderunner",
+	virtual = true,
+	keys = {
+		{ "<leader>r", run_file, desc = "Run current file" },
+	},
+}
