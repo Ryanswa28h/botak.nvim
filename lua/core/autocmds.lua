@@ -34,30 +34,3 @@ vim.api.nvim_create_autocmd("VimEnter", {
 		end
 	end,
 })
-
--- vim.api.nvim_create_autocmd("BufWinEnter", {
--- 	callback = function(args)
--- 		local buf = args.buf
---
--- 		-- skip preview windows
--- 		if vim.wo.previewwindow then
--- 			return
--- 		end
---
--- 		-- skip non-file buffers
--- 		if vim.bo[buf].buftype ~= "" then
--- 			return
--- 		end
---
--- 		-- skip virtual buffers
--- 		local name = vim.api.nvim_buf_get_name(buf)
--- 		if name == "" or name:match("^%w+://") then
--- 			return
--- 		end
---
--- 		-- hijack only real image files
--- 		if name:match("%.png$") or name:match("%.jpe?g$") or name:match("%.gif$") or name:match("%.webp$") then
--- 			require("image").hijack_buffer(buf)
--- 		end
--- 	end,
--- })
