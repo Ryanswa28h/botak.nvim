@@ -312,6 +312,7 @@ nvim filename
 | Accept AI autocomplete         | `<ctrl>g`    |
 | Enable background              | `<leader>bg` |
 | Disable background             | `<leader>dbg`|
+| Persistent theme selector      | `<leader>sth`|
 | Open diagnostics list          | `<leader>q`  |
 | View diagnostics               | `<leader>d`  |
 | Open nvim files                | `<leader>e`  |
