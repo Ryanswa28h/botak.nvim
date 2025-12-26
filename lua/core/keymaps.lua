@@ -18,6 +18,7 @@ vim.keymap.set("n", "J", "mzJ`z")
 vim.keymap.set("n", "<leader>ff", "<cmd>Telescope find_files<CR>")
 vim.keymap.set("n", "<leader>gf", "<cmd>Telescope git_files<CR>")
 vim.keymap.set("n", "<leader>lg", "<cmd>Telescope live_grep<CR>")
+vim.keymap.set("n", "<leader>sth", "<cmd>Telescope colorscheme enable_preview=true<CR>")
 
 -- Disable the spacebar key's default behavior in Normal and Visual modes
 vim.keymap.set({ "n", "v" }, "<Space>", "<Nop>", { silent = true })
