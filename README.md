@@ -299,6 +299,7 @@ nvim filename
 ```
 
 * Use **`<leader>`** keymaps for LSP, snippets, navigation, and code execution.
+* Default leader : `SPACE`
 * Common keymaps:
 
 | Action                         | Keymap       |
@@ -309,15 +310,19 @@ nvim filename
 | Execute code in file           | `<leader>r ` |
 | Toggle inlay hints             | `<leader>th` |
 | Fuzzy find workspace symbols   | `<leader>ws` |
+| Accept autocomplete            | `<ctrl>y`    |
 | Accept AI autocomplete         | `<ctrl>g`    |
 | Enable background              | `<leader>bg` |
 | Disable background             | `<leader>dbg`|
 | Persistent theme selector      | `<leader>sth`|
 | Open diagnostics list          | `<leader>q`  |
 | View diagnostics               | `<leader>d`  |
-| Open nvim files                | `<leader>e`  |
+| Open neogit menu               | `<leader>gs` |
+| Open mini diff menu            | `<leader>gd` |
+| mini.jump2d start jump         | `<leader>j`  |
+| Open mini files                | `<leader>e`  |
+| Show keystrokes (screenkey)    | `<leader>sk` |
 | Open neotree                   | `<leader>E`  |
-| Find the first reference of ...| `s`          |
 
 *(Refer to `lua/core/keymaps.lua` and the `lua/plugins/` modules for full keymap and plugin details.)*
 
