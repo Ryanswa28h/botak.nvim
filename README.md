@@ -220,7 +220,7 @@ Run inside Neovim:
 :Lazy sync
 ```
 
-### 5. Codeium Auth
+### 5. Setup Codeium (Optional)
 
 Command:
 
@@ -228,11 +228,19 @@ Command:
 :Codeium Auth
 ```
 
-A browser page will be opened and you are required to enter the auth token.
+If you don't want to use Codeium, you can comment `require("plugins.codeium")` inside of `init.lua`.
 
-Optionally, if you don't want AI features, you can comment `require("plugins.codeium")` inside of `init.lua`.
+### 6. Setup Copilot Autocomplete (Optional)
 
-### 6. Delete `lazy-lock.json` (Optional)
+Command:
+
+```
+:Copilot Setup
+```
+
+If you don't want to use Copilot autocomplete, you can comment `{ name = "copilot", priority = 1250 },` in `plugins/autocomplete.lua`.
+
+### 7. Delete `lazy-lock.json` (Optional)
 
 Deleting the `lazy-lock.json` file will allow Neovim to update plugins.
 
@@ -274,19 +282,31 @@ Inside Neovim:
 :Lazy sync
 ```
 
-### 5. Codeium Auth
+### 5. Setup Codeium (Optional)
 
-```vim
+Command:
+
+```
 :Codeium Auth
 ```
 
-A browser window will open asking for authentication.
+If you don't want to use Codeium, you can comment `require("plugins.codeium")` inside of `init.lua`.
 
-Optionally, if you don't want AI features, you can comment `require("plugins.codeium")` inside of `init.lua`.
+### 6. Setup Copilot Autocomplete (Optional)
 
-### 6. Delete `lazy-lock.json` (Optional)
+Command:
 
-Deleting `lazy-lock.json` allows plugin updates at the cost of stability.
+```
+:Copilot Setup
+```
+
+If you don't want to use Copilot autocomplete, you can comment `{ name = "copilot", priority = 1250 },` in `plugins/autocomplete.lua`.
+
+### 7. Delete `lazy-lock.json` (Optional)
+
+Deleting the `lazy-lock.json` file will allow Neovim to update plugins.
+
+As a result, you will get newer features at the price of stability.
 
 </details>
 
