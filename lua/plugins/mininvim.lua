@@ -65,12 +65,11 @@ return {
 		vim.keymap.set("n", "<leader>vd", function()
 			visits.remove_label()
 		end, { desc = "Remove Visit Label" })
-
 		-- Keymaps: mini.jump2d
+
 		vim.keymap.set("n", "<leader>L", function()
 			jump2d.start(jump2d.builtin_opts.line_start)
 		end, { desc = "Jump to Line Start" })
-
 		-- Keymaps: mini.diff
 		vim.keymap.set("n", "<leader>gd", diff.toggle_overlay, { desc = "Toggle Diff Overlay" })
 		vim.keymap.set("n", "]h", function()

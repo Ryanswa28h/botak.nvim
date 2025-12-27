@@ -32,6 +32,7 @@ require("lazy").setup({
 	require("plugins.dashboard"),
 	require("plugins.indent-blankline"),
 	require("plugins.harpoon"),
+	require("plugins.screenkey"),
 	require("plugins.undotree"),
 	require("plugins.comment"),
 	require("plugins.jupyter"),
