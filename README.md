@@ -313,6 +313,7 @@ nvim filename
 | Execute code in file         | `<leader>r `  |
 | Toggle inlay hints           | `<leader>th`  |
 | Fuzzy find workspace symbols | `<leader>ws`  |
+| Accept autocomplete          | `<ctrl>y`     |
 | Accept AI autocomplete       | `<ctrl>g`     |
 | Enable background            | `<leader>bg`  |
 | Disable background           | `<leader>dbg` |
