@@ -36,7 +36,7 @@ require("lazy").setup({
 	require("plugins.undotree"),
 	require("plugins.comment"),
 	require("plugins.jupyter"),
-	-- require("plugins.codeium"),
+	require("plugins.codeium"),
 	require("plugins.ui"),
 	require("plugins.navigation"),
 	require("plugins.diagnostics"),
@@ -44,6 +44,7 @@ require("lazy").setup({
 	require("plugins.image"),
 	require("plugins.mason"),
 	require("plugins.lsp"),
+	require("plugins.neogit"),
 	require("plugins.autoformatting"),
 	require("plugins.coderunner"),
 })
