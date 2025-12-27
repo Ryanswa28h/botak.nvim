@@ -17,10 +17,10 @@ return {
 		-- detect tabstop and shiftwidth automatically
 		"tpope/vim-sleuth",
 	},
-	{
-		-- GitHub integration for vim-fugitive
-		"tpope/vim-rhubarb",
-	},
+	-- {
+	-- 	-- GitHub integration for vim-fugitive
+	-- 	"tpope/vim-rhubarb",
+	-- },
 	{
 		"RRethy/nvim-treesitter-endwise",
 	},

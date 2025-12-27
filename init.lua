@@ -28,7 +28,6 @@ require("lazy").setup({
 	require("plugins.neotree"),
 	require("plugins.treesitter"),
 	require("plugins.autocompletion"),
-	require("plugins.gitsigns"),
 	require("plugins.projects"),
 	require("plugins.dashboard"),
 	require("plugins.indent-blankline"),
