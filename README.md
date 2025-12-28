@@ -1,4 +1,4 @@
-[![Untitled-design.png](https://i.postimg.cc/tJMCmGKp/Untitled-design.png)](https://postimg.cc/BP20XkZV)
+[![image.png](https://i.postimg.cc/QNJCfmdJ/image.png)](https://postimg.cc/Cddw1jDR)
 [![image.png](https://i.postimg.cc/Gmy153xF/image.png)](https://postimg.cc/68tS7XSq)
 
 A minimal and modern Neovim configuration focused on productivity, and minimalism.
