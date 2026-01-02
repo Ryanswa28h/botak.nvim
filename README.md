@@ -21,7 +21,7 @@ Designed for speed, ease of use, and out-of-the-box functionality with a curated
 
 ## 📋 Requirements
 
-Before installing Botakvim, make sure you have the following installed:
+Before installing botak.nvim, make sure you have the following installed:
 
 - **Neovim 0.9+**
 - **Git**
@@ -131,7 +131,7 @@ brew install node
 
 ### Requirements
 
-Install the following before using Botakvim:
+Install the following before using botak.nvim:
 
 **1. Git**
 
@@ -272,8 +272,6 @@ Inside Neovim:
 ```vim
 :Lazy sync
 ```
-
-If you don't want to use Codeium, you can comment `require("plugins.codeium")` inside of `init.lua`.
 
 ### 5. Setup Copilot Autocomplete (Optional)
 
