@@ -33,6 +33,9 @@ vim.keymap.set("n", "j", "v:count == 0 ? 'gj' : 'j'", { expr = true, silent = tr
 -- clear highlights
 vim.keymap.set("n", "<Esc>", ":noh<CR>", opts)
 
+-- Open lazy
+vim.keymap.set("n", "<leader>ll", "<cmd>Lazy<CR>", opts)
+
 -- save file
 vim.keymap.set({ "n", "i" }, "<C-s>", "<cmd> w <CR>", opts)
 
@@ -126,9 +129,6 @@ vim.keymap.set("v", "<A-k>", ":m .-2<CR>==", opts)
 
 -- Keep last yanked when pasting
 vim.keymap.set("v", "p", '"_dP', opts)
-
--- Replace word under cursor
-vim.keymap.set("n", "<leader>j", "*``cgn", opts)
 
 -- Explicitly yank to system clipboard (highlighted and entire row)
 vim.keymap.set({ "n", "v" }, "<leader>y", [["+y]])
