@@ -25,6 +25,8 @@ vim.keymap.set("n", "<leader>ff", "<cmd>Telescope find_files<CR>")
 vim.keymap.set("n", "<leader>gf", "<cmd>Telescope git_files<CR>")
 vim.keymap.set("n", "<leader>fg", "<cmd>Telescope live_grep<CR>")
 vim.keymap.set("n", "<leader>sth", "<cmd>Telescope colorscheme enable_preview=true<CR>")
+vim.keymap.set("n", "<leader>st", "<cmd>TodoTelescope<cr>", { desc = "Todo" })
+vim.keymap.set("n", "<leader>sT", "<cmd>TodoTelescope keywords=TODO,FIX,FIXME<cr>", { desc = "Todo/Fix/Fixme" })
 
 -- Allow moving the cursor through wrapped lines with j, k
 vim.keymap.set("n", "k", "v:count == 0 ? 'gk' : 'k'", { expr = true, silent = true })
