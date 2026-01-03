@@ -15,6 +15,9 @@ return {
 		notifier = { enabled = true, timeout = 4200 },
 		indent = { enabled = true },
 		bigfile = { enabled = true },
+		statuscolumn = {
+			enabled = true,
+		},
 	},
 	keys = {
 		-- Zen Mode: Focus on code

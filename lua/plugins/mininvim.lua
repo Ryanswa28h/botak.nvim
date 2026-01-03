@@ -68,7 +68,7 @@ return {
 			view = {
 				style = "sign",
 				-- Thick vertical bars look great with modern fonts
-				signs = { add = "", change = "", delete = "" },
+				signs = { add = "▎", change = "▎", delete = "" },
 			},
 		})
 

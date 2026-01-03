@@ -54,7 +54,7 @@ require("lazy").setup({
 	require("plugins.debug"),
 	require("plugins.prelive"),
 	require("plugins.nvzone"),
-	-- require("plugins.image"),
+	require("plugins.image"),
 	require("plugins.mason"),
 	require("plugins.lsp"),
 	require("plugins.neogit"),

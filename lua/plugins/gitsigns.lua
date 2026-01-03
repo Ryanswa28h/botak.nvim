@@ -1,24 +1,25 @@
 return {
 	{
 		"lewis6991/gitsigns.nvim",
-		event = { "BufReadPost", "BufNewFile" },
+		event = "VeryLazy",
 		opts = {
 			signs = {
-				add = { text = "▎" },
-				change = { text = "▎" },
-				delete = { text = "" },
-				topdelete = { text = "" },
-				changedelete = { text = "▎" },
-				untracked = { text = "▎" },
+				add = { text = "▎", show_count = false, count_limit = 1 },
+				change = { text = "▎", show_count = false, count_limit = 1 },
+				delete = { text = "", show_count = false, count_limit = 1 },
+				topdelete = { text = "", show_count = false, count_limit = 1 },
+				changedelete = { text = "▎", show_count = false, count_limit = 1 },
+				untracked = { text = "▎", show_count = false, count_limit = 1 },
 			},
 			signs_staged = {
-				add = { text = "▎" },
-				change = { text = "▎" },
-				delete = { text = "" },
-				topdelete = { text = "" },
-				changedelete = { text = "▎" },
+				add = { text = "▎", show_count = false, count_limit = 1 },
+				change = { text = "▎", show_count = false, count_limit = 1 },
+				delete = { text = "", show_count = false, count_limit = 1 },
+				topdelete = { text = "", show_count = false, count_limit = 1 },
+				changedelete = { text = "▎", show_count = false, count_limit = 1 },
 			},
-			sign_priority = 100,
+			signcolumn = false, -- CRITICAL: No signcolumn usage			numhl = false,
+			linehl = false,
 			on_attach = function(buffer)
 				local gs = package.loaded.gitsigns
 
