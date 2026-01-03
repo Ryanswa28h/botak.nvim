@@ -16,6 +16,13 @@ rtp:prepend(lazypath)
 vim.g.loaded_netrw = 1
 vim.g.loaded_netrwPlugin = 1
 
+local signs = { Error = " ", Warn = " ", Hint = "󰌵 ", Info = " " }
+
+for type, icon in pairs(signs) do
+	local hl = "DiagnosticSign" .. type
+	vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = "" })
+end
+
 require("lazy").setup({
 	require("plugins.mininvim"),
 	require("plugins.snacks"),
@@ -33,6 +40,7 @@ require("lazy").setup({
 	require("plugins.indent-blankline"),
 	require("plugins.harpoon"),
 	require("plugins.undotree"),
+	require("plugins.gitsigns"),
 	require("plugins.comment"),
 	require("plugins.jupyter"),
 	-- require("plugins.codeium"),

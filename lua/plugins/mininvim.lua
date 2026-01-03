@@ -10,32 +10,32 @@ return {
 		require("mini.cursorword").setup()
 		require("mini.bracketed").setup()
 		require("mini.clue").setup()
-		require("mini.indentscope").setup({
-			draw = {
-				predicate = function()
-					local exclude = {
-						"snacks_dashboard",
-						"opencode_terminal",
-						"toggleterm",
-						"lazy",
-						"Floaterm",
-					}
-					return not vim.tbl_contains(exclude, vim.bo.filetype)
-				end,
-			},
-			options = {
-				exclude_filetypes = {
-					"help",
-					"alpha",
-					"dashboard",
-					"neo-tree",
-					"Trouble",
-					"lazy",
-					"mason",
-					"snacks_dashboard",
-				},
-			},
-		})
+		-- require("mini.indentscope").setup({
+		-- 	draw = {
+		-- 		predicate = function()
+		-- 			local exclude = {
+		-- 				"snacks_dashboard",
+		-- 				"opencode_terminal",
+		-- 				"toggleterm",
+		-- 				"lazy",
+		-- 				"Floaterm",
+		-- 			}
+		-- 			return not vim.tbl_contains(exclude, vim.bo.filetype)
+		-- 		end,
+		-- 	},
+		-- 	options = {
+		-- 		exclude_filetypes = {
+		-- 			"help",
+		-- 			"alpha",
+		-- 			"dashboard",
+		-- 			"neo-tree",
+		-- 			"Trouble",
+		-- 			"lazy",
+		-- 			"mason",
+		-- 			"snacks_dashboard",
+		-- 		},
+		-- 	},
+		-- })
 		require("mini.bufremove").setup()
 		require("mini.move").setup()
 		require("mini.operators").setup()
@@ -68,7 +68,7 @@ return {
 			view = {
 				style = "sign",
 				-- Thick vertical bars look great with modern fonts
-				signs = { add = "+", change = "~", delete = "-" },
+				signs = { add = "", change = "", delete = "" },
 			},
 		})
 
@@ -96,11 +96,5 @@ return {
 		end, { desc = "Jump to Line Start" })
 		-- Keymaps: mini.diff
 		vim.keymap.set("n", "<leader>gd", diff.toggle_overlay, { desc = "Toggle Diff Overlay" })
-		vim.keymap.set("n", "]h", function()
-			diff.goto_hunk("next")
-		end, { desc = "Next Hunk" })
-		vim.keymap.set("n", "[h", function()
-			diff.goto_hunk("prev")
-		end, { desc = "Prev Hunk" })
 	end,
 }
