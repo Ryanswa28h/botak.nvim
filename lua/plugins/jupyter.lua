@@ -67,9 +67,9 @@ return {
 				end
 			end
 
-			vim.keymap.set("n", "<leader>nbin", init_notebook, { desc = "Initialize Notebook Header" })
-			vim.keymap.set("n", "<leader>in", "<cmd>MoltenInit<CR>", { desc = "Run Smart Cell" })
-			vim.keymap.set("n", "<leader>mmd", "<cmd>MoltenDelete<CR>", { desc = "Molten Delete" })
+			vim.keymap.set("n", "<leader>rbin", init_notebook, { desc = "Initialize Notebook Header" })
+			vim.keymap.set("n", "<leader>rrn", "<cmd>MoltenInit<CR>", { desc = "Run Smart Cell" })
+			vim.keymap.set("n", "<leader>rmd", "<cmd>MoltenDelete<CR>", { desc = "Molten Delete" })
 			vim.keymap.set("n", "<leader>rr", run_smart_cell, { desc = "Run Smart Cell" })
 			vim.keymap.set("n", "<leader>ra", function()
 				local line_count = vim.api.nvim_buf_line_count(0)
