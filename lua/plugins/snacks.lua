@@ -23,7 +23,7 @@ return {
 	keys = {
 		-- Zen Mode: Focus on code
 		{
-			"<leader>uz",
+			"<leader>z",
 			function()
 				Snacks.zen()
 			end,
