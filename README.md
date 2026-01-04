@@ -1,5 +1,6 @@
-![Screenshot of file explorer interface](https://i.imgur.com/vUNurJv.png)
+![botak.nvim logo](https://i.imgur.com/PdJICJN.png)
 ![Screenshot of code editing interface](https://i.imgur.com/QubJfee.png)
+![Screenshot of file explorer interface](https://i.imgur.com/vUNurJv.png)
 
 A minimal and modern Neovim configuration focused on productivity, and minimalism.
 Designed for speed, ease of use, and out-of-the-box functionality with a curated plugin set.
