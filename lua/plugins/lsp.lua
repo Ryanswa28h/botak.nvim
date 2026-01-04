@@ -185,6 +185,11 @@ return {
 			sqlls = {},
 			terraformls = {},
 			yamlls = {},
+			eslint = {
+				settings = {
+					workingDirectory = { mode = "auto" },
+				},
+			},
 			bashls = {},
 			dockerls = {},
 			docker_compose_language_service = {},
