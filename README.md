@@ -316,7 +316,7 @@ nvim filename
 | Go to definition             | `gd`          |
 | Find references              | `gr`          |
 | Rename symbol                | `<leader>rn`  |
-| Execute code in file         | `<leader>r `  |
+| Execute code in file         | `<leader>r`   |
 | Toggle inlay hints           | `<leader>th`  |
 | Fuzzy find workspace symbols | `<leader>ws`  |
 | Accept autocomplete          | `<ctrl>y`     |
@@ -328,7 +328,6 @@ nvim filename
 | View diagnostics             | `<leader>d`   |
 | Open git status menu         | `<leader>gs`  |
 | Toggle keystroke overlay     | `<leader>sk`  |
-| Open mini.diff overlay       | `<leader>gd`  |
 | Open mini.files              | `<leader>e`   |
 | Start mini.jump2d jumping    | `<leader>j`   |
 | Toggle opencode              | `<F4>`        |
