@@ -1,6 +1,5 @@
-[![2026-01-04-12-01.png](https://i.postimg.cc/PJdpFBBm/2026-01-04-12-01.png)](https://postimg.cc/0MHyzH5Q)
-[![2026-01-01-21-33.png](https://i.postimg.cc/ZnrpDh5c/2026-01-01-21-33.png)](https://postimg.cc/MfpnvNRM)
-[![2026-01-01-21-42.png](https://i.postimg.cc/x1jpH6sS/2026-01-01-21-42.png)](https://postimg.cc/rKb92NXh)
+![Screenshot of file explorer interface](https://i.imgur.com/vUNurJv.png)
+![Screenshot of code editing interface](https://i.imgur.com/QubJfee.png)
 
 A minimal and modern Neovim configuration focused on productivity, and minimalism.
 Designed for speed, ease of use, and out-of-the-box functionality with a curated plugin set.
