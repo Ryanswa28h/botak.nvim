@@ -17,6 +17,7 @@ return {
 		bigfile = { enabled = true },
 		statuscolumn = {
 			enabled = true,
+			git = { patterns = { "GitSigns*" } },
 		},
 	},
 	keys = {

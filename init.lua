@@ -42,6 +42,7 @@ require("lazy").setup({
 	require("plugins.undotree"),
 	require("plugins.gitsigns"),
 	require("plugins.comment"),
+	require("plugins.diffview"),
 	require("plugins.jupyter"),
 	-- require("plugins.codeium"),
 	require("plugins.copilot"), -- Inline autocomplete with copilot

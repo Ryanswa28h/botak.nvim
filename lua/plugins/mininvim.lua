@@ -41,7 +41,6 @@ return {
 		require("mini.operators").setup()
 		require("mini.jump").setup()
 		require("mini.visits").setup()
-		-- require("mini.animate").setup()
 
 		require("mini.files").setup({
 			windows = {
@@ -63,15 +62,6 @@ return {
 			spotlight = { enabled = true },
 		})
 
-		local diff = require("mini.diff")
-		diff.setup({
-			view = {
-				style = "sign",
-				-- Thick vertical bars look great with modern fonts
-				signs = { add = "▎", change = "▎", delete = "" },
-			},
-		})
-
 		-- Hijack nvim-web-devicons
 		MiniIcons.mock_nvim_web_devicons()
 
@@ -90,11 +80,8 @@ return {
 			visits.remove_label()
 		end, { desc = "Remove Visit Label" })
 		-- Keymaps: mini.jump2d
-
 		vim.keymap.set("n", "<leader>L", function()
 			jump2d.start(jump2d.builtin_opts.line_start)
 		end, { desc = "Jump to Line Start" })
-		-- Keymaps: mini.diff
-		vim.keymap.set("n", "<leader>gd", diff.toggle_overlay, { desc = "Toggle Diff Overlay" })
 	end,
 }
