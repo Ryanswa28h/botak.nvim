@@ -95,8 +95,8 @@ vim.keymap.set("n", "<leader>x", ":Bdelete!<CR>", opts) -- close buffer
 vim.keymap.set("n", "<leader>b", "<cmd> enew <CR>", opts) -- new buffer
 
 -- Increment/decrement numbers
-vim.keymap.set("n", "<leader>+", "<C-a>", opts) -- increment
-vim.keymap.set("n", "<leader>-", "<C-x>", opts) -- decrement
+-- vim.keymap.set("n", "<leader>+", "<C-a>", opts) -- increment
+-- vim.keymap.set("n", "<leader>-", "<C-x>", opts) -- decrement
 
 -- Window management
 vim.keymap.set("n", "<leader>v", "<C-w>v", opts) -- split window vertically
