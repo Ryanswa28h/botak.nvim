@@ -330,6 +330,7 @@ nvim filename
 | Toggle keystroke overlay     | `<leader>sk`  |
 | Open mini.files              | `<leader>e`   |
 | Start mini.jump2d jumping    | `<leader>j`   |
+| Start flash jumping          | `'`           |
 | Toggle opencode              | `<F4>`        |
 | Toggle terminal              | `<ctrl>\`     |
 | Open neotree                 | `<leader>E`   |
