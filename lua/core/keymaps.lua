@@ -28,6 +28,13 @@ vim.keymap.set("n", "<leader>sth", "<cmd>Telescope colorscheme enable_preview=tr
 vim.keymap.set("n", "<leader>st", "<cmd>TodoTelescope<cr>", { desc = "Todo" })
 vim.keymap.set("n", "<leader>sT", "<cmd>TodoTelescope keywords=TODO,FIX,FIXME<cr>", { desc = "Todo/Fix/Fixme" })
 
+-- L and H as $ and 0
+vim.keymap.set("n", "L", "$", opts)
+vim.keymap.set("n", "H", "^", opts)
+
+-- Remap the register
+vim.keymap.set({ "n", "x" }, '<leader>"', '"', { desc = "Select Register" })
+
 -- Allow moving the cursor through wrapped lines with j, k
 vim.keymap.set("n", "k", "v:count == 0 ? 'gk' : 'k'", { expr = true, silent = true })
 vim.keymap.set("n", "j", "v:count == 0 ? 'gj' : 'j'", { expr = true, silent = true })
@@ -128,6 +135,8 @@ vim.keymap.set("n", "<leader>lw", "<cmd>set wrap!<CR>", opts)
 -- Press jk fast to exit insert mode
 vim.keymap.set("i", "jk", "<ESC>", opts)
 vim.keymap.set("i", "kj", "<ESC>", opts)
+vim.keymap.set("i", "jj", "<ESC>", opts)
+vim.keymap.set("i", "kk", "<ESC>", opts)
 
 -- Use 'jk' to exit terminal mode
 vim.keymap.set("t", "jk", [[<C-\><C-n>]], { desc = "Exit Terminal Mode" })

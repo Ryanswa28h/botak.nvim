@@ -39,7 +39,7 @@ return {
 		require("mini.bufremove").setup()
 		require("mini.move").setup()
 		require("mini.operators").setup()
-		require("mini.jump").setup()
+		-- require("mini.jump").setup()
 		require("mini.visits").setup()
 
 		require("mini.files").setup({
