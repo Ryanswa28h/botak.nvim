@@ -47,6 +47,9 @@ return {
 				preview = true,
 				width_preview = 65,
 			},
+			options = {
+				use_as_default_explorer = true,
+			},
 		})
 
 		local jump2d = require("mini.jump2d")
