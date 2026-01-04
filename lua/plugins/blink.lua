@@ -1,3 +1,11 @@
+local set_hl = vim.api.nvim_set_hl
+
+set_hl(0, "BlinkCmpSourceCopilot", { fg = "#6CC644", italic = true })
+set_hl(0, "BlinkCmpSourceLsp", { fg = "#7AA2F7", bold = true })
+set_hl(0, "BlinkCmpSourceSnippets", { fg = "#f38ba8" })
+set_hl(0, "BlinkCmpSourceBuffer", { fg = "#9ECE6A" })
+set_hl(0, "BlinkCmpSourcePath", { fg = "#E0AF68" })
+
 return {
 	"saghen/blink.cmp",
 	lazy = false,
@@ -97,13 +105,25 @@ return {
 						source_name = {
 							text = function(ctx)
 								local source_names = {
-									copilot = "[AI]",
-									lsp = "[LSP]",
-									snippets = "[Snip]",
-									buffer = "[Buf]",
-									path = "[Path]",
+									Copilot = " AI",
+									LSP = "󰌵 LSP",
+									Snippets = " Snippet",
+									Buffer = "󰉿 Buffer",
+									Path = "󰈙 Path",
+									-- Copilot = "[AI]",
+									-- LSP = "[LSP]",
+									-- Snippets = "[Snip]",
+									-- Buffer = "[Buffer]",
+									-- Path = "[Path]",
 								}
-								return source_names[ctx.source_name] or "[" .. ctx.source_name .. "]"
+								-- return source_names[ctx.source_name] or "[" .. ctx.source_name .. "]"
+								local display = source_names[ctx.source_name] or ctx.source_name
+								return display
+							end,
+							highlight = function(ctx)
+								return "BlinkCmpSource"
+									.. ctx.source_name:sub(1, 1):upper()
+									.. ctx.source_name:sub(2):lower()
 							end,
 						},
 					},
