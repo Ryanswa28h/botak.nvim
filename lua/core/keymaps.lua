@@ -38,6 +38,20 @@ vim.keymap.set("n", "<Esc>", ":noh<CR>", opts)
 -- Open lazy
 vim.keymap.set("n", "<leader>ll", "<cmd>Lazy<CR>", opts)
 
+-- Jump Forward
+vim.keymap.set({ "i", "s" }, "<C-f>", function()
+	if vim.snippet.active({ direction = 1 }) then
+		vim.snippet.jump(1)
+	end
+end, { silent = true, desc = "Next snippet placeholder" })
+
+-- Jump Backward
+vim.keymap.set({ "i", "s" }, "<C-b>", function()
+	if vim.snippet.active({ direction = -1 }) then
+		vim.snippet.jump(-1)
+	end
+end, { silent = true, desc = "Previous snippet placeholder" })
+
 -- save file
 vim.keymap.set({ "n", "i" }, "<C-s>", "<cmd> w <CR>", opts)
 
