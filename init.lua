@@ -21,6 +21,7 @@ for type, icon in pairs(signs) do
 	local hl = "DiagnosticSign" .. type
 	vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = "" })
 end
+vim.api.nvim_set_hl(0, "SnippetTabstop", { bg = "NONE", fg = "NONE" })
 
 require("lazy").setup({
 	require("plugins.mininvim"),
@@ -52,6 +53,7 @@ require("lazy").setup({
 	-- require("plugins.avante"),
 	require("plugins.opencode"),
 	require("plugins.debug"),
+	require("plugins.rainbowdelimiters"),
 	require("plugins.prelive"),
 	require("plugins.nvzone"),
 	-- require("plugins.image"),
