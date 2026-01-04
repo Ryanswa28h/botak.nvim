@@ -188,7 +188,7 @@ return {
 			bashls = {},
 			dockerls = {},
 			docker_compose_language_service = {},
-			-- tailwindcss = {},
+			tailwindcss = {},
 			-- graphql = {},
 			html = { filetypes = { "html", "twig", "hbs" } },
 			emmet_ls = {},
