@@ -1,5 +1,4 @@
 [![2026-01-04-12-01.png](https://i.postimg.cc/PJdpFBBm/2026-01-04-12-01.png)](https://postimg.cc/0MHyzH5Q)
-[![2026-01-01-21-36.png](https://i.postimg.cc/hGdj01jL/2026-01-01-21-36.png)](https://postimg.cc/kV7qJ8WG)
 [![2026-01-01-21-33.png](https://i.postimg.cc/ZnrpDh5c/2026-01-01-21-33.png)](https://postimg.cc/MfpnvNRM)
 [![2026-01-01-21-42.png](https://i.postimg.cc/x1jpH6sS/2026-01-01-21-42.png)](https://postimg.cc/rKb92NXh)
 
