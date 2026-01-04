@@ -177,21 +177,25 @@ vim.keymap.set("n", "<leader>q", vim.diagnostic.setloclist, { desc = "Open diagn
 vim.keymap.set("n", "<leader>ps", ":mksession! .session.vim<CR>", { noremap = true, silent = false })
 vim.keymap.set("n", "<leader>pl", ":source .session.vim<CR>", { noremap = true, silent = false })
 
-vim.cmd([[nnoremap \ :Neotree reveal<cr>]])
 vim.keymap.set("n", "<leader>E", function()
 	vim.cmd("Neotree reveal toggle=true position=left dir=%:p:h")
 end, { silent = true, desc = "Neo-tree (root = current file)" })
 
-vim.keymap.set("n", "<leader>e", function()
+local open_mini_files = function()
 	local bufname = vim.api.nvim_buf_get_name(0)
 
+	-- Use vim.env.HOME if we are on the starter screen,
+	-- otherwise open the current file's directory
 	if bufname == "ministarter://1/welcome" then
 		require("mini.files").open(vim.env.HOME)
 	else
 		require("mini.files").open(bufname)
 	end
-end, { desc = "Open MiniFiles (file parent or home)" })
+end
+vim.keymap.set("n", "<leader>e", open_mini_files, { desc = "Open MiniFiles" })
+vim.keymap.set("n", "-", open_mini_files, { desc = "Open MiniFiles" })
 
+-- Showkeys
 vim.keymap.set("n", "<leader>sk", "<cmd>ShowkeysToggle<CR>", { desc = "Toggle Showkeys" })
 
 -- Terminal
