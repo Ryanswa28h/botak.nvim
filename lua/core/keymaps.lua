@@ -95,8 +95,8 @@ vim.keymap.set("n", "<leader>x", ":Bdelete!<CR>", opts) -- close buffer
 vim.keymap.set("n", "<leader>b", "<cmd> enew <CR>", opts) -- new buffer
 
 -- Increment/decrement numbers
--- vim.keymap.set("n", "<leader>+", "<C-a>", opts) -- increment
--- vim.keymap.set("n", "<leader>-", "<C-x>", opts) -- decrement
+vim.keymap.set("n", "<leader>+", "<C-a>", opts) -- increment
+vim.keymap.set("n", "<leader>-", "<C-x>", opts) -- decrement
 
 -- Window management
 vim.keymap.set("n", "<leader>v", "<C-w>v", opts) -- split window vertically
@@ -193,7 +193,6 @@ local open_mini_files = function()
 	end
 end
 vim.keymap.set("n", "<leader>e", open_mini_files, { desc = "Open MiniFiles" })
-vim.keymap.set("n", "-", open_mini_files, { desc = "Open MiniFiles" })
 
 -- Showkeys
 vim.keymap.set("n", "<leader>sk", "<cmd>ShowkeysToggle<CR>", { desc = "Toggle Showkeys" })
