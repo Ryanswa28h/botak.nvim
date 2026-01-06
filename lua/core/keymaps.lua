@@ -190,6 +190,21 @@ vim.keymap.set("n", "<leader>E", function()
 	vim.cmd("Neotree reveal toggle=true position=left dir=%:p:h")
 end, { silent = true, desc = "Neo-tree (root = current file)" })
 
+-- Set K to peek fold or show LSP hover documentation
+vim.keymap.set("n", "K", function()
+	local winid = require("ufo").peekFoldedLinesUnderCursor()
+	if not winid then
+		-- Fallback to LSP hover if no fold is found
+		local lsp_clients = vim.lsp.get_clients({ bufnr = 0 })
+		if #lsp_clients > 0 then
+			vim.lsp.buf.hover()
+		else
+			-- If no LSP, fall back to native Vim help/behavior
+			vim.api.nvim_feedkeys("K", "n", false)
+		end
+	end
+end, { desc = "Peek fold or LSP hover documentation" })
+
 local open_mini_files = function()
 	local bufname = vim.api.nvim_buf_get_name(0)
 
