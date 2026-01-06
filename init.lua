@@ -57,6 +57,7 @@ require("lazy").setup({
 	require("plugins.prelive"),
 	require("plugins.nvzone"),
 	-- require("plugins.image"),
+	require("plugins.fold"),
 	require("plugins.mason"),
 	require("plugins.lsp"),
 	require("plugins.linters"),
