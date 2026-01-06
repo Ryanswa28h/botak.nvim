@@ -29,8 +29,8 @@ vim.keymap.set("n", "<leader>st", "<cmd>TodoTelescope<cr>", { desc = "Todo" })
 vim.keymap.set("n", "<leader>sT", "<cmd>TodoTelescope keywords=TODO,FIX,FIXME<cr>", { desc = "Todo/Fix/Fixme" })
 
 -- L and H as $ and 0
-vim.keymap.set("n", "L", "$", opts)
-vim.keymap.set("n", "H", "^", opts)
+vim.keymap.set({ "n", "v" }, "L", "$", opts)
+vim.keymap.set({ "n", "v" }, "H", "^", opts)
 
 -- Remap the register
 vim.keymap.set({ "n", "x" }, '<leader>"', '"', { desc = "Select Register" })
