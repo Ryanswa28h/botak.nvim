@@ -127,16 +127,4 @@ return {
 			map("n", "<leader>tt", "<CMD>TSJToggle<CR>", { desc = "Toggle Treesitter Join/Split" })
 		end,
 	},
-	{
-		"kevinhwang91/nvim-ufo",
-		event = "BufReadPost",
-		dependencies = {
-			"kevinhwang91/promise-async",
-		},
-		opts = {
-			provider_selector = function()
-				return { "treesitter", "indent" }
-			end,
-		},
-	},
 }

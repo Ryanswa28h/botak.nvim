@@ -12,23 +12,45 @@ return {
 		local dapui = require("dapui")
 
 		require("mason-nvim-dap").setup({
-			ensure_installed = { "python", "cpptools", "chrome", "firefox", "cpptools" },
+			ensure_installed = { "python", "cpptools", "js-debug-adapter" },
 			automatic_installation = true,
 		})
 
 		dapui.setup()
 		require("dap-python").setup("python3")
 
-		-- Config for Web (Node/JS)
+		-- 1. DEFINE THE JS ADAPTER
+		dap.adapters["pwa-node"] = {
+			type = "server",
+			host = "localhost",
+			port = "${port}",
+			executable = {
+				command = "node",
+				args = {
+					vim.fn.stdpath("data") .. "/mason/packages/js-debug-adapter/js-debug/src/dapDebugServer.js",
+					"${port}",
+				},
+			},
+		}
+
+		-- 2. CONFIGURATIONS
 		dap.configurations.javascript = {
 			{
-				type = "node2",
+				type = "pwa-node",
 				request = "launch",
+				name = "Launch Current File (pwa-node)", -- THIS WAS MISSING
 				program = "${file}",
 				cwd = vim.fn.getcwd(),
 				sourceMaps = true,
 				protocol = "inspector",
 				console = "integratedTerminal",
+			},
+			{
+				type = "pwa-node",
+				request = "attach",
+				name = "Attach to Process",
+				processId = require("dap.utils").pick_process,
+				cwd = vim.fn.getcwd(),
 			},
 		}
 		dap.configurations.typescript = dap.configurations.javascript
@@ -36,7 +58,7 @@ return {
 		-- Config for C++
 		dap.configurations.cpp = {
 			{
-				name = "Launch file",
+				name = "Launch file", -- Included name here too
 				type = "cpptools",
 				request = "launch",
 				program = function()
@@ -47,6 +69,7 @@ return {
 			},
 		}
 
+		-- 3. LISTENERS
 		dap.listeners.after.event_initialized["dapui_config"] = function()
 			dapui.open()
 		end
@@ -57,13 +80,10 @@ return {
 			dapui.close()
 		end
 
+		-- 4. KEYMAPS
 		vim.keymap.set("n", "<F5>", dap.continue)
-		vim.keymap.set("n", "<F10>", dap.step_over)
-		vim.keymap.set("n", "<F11>", dap.step_into)
-		vim.keymap.set("n", "<F12>", dap.step_out)
+		vim.keymap.set("n", "<leader>dr", dap.continue, { desc = "Run or continue the debugger" })
 		vim.keymap.set("n", "<leader>b", dap.toggle_breakpoint)
-		vim.keymap.set("n", "<leader>B", function()
-			dap.set_breakpoint(vim.fn.input("Breakpoint condition: "))
-		end)
+		-- ... rest of your keymaps
 	end,
 }

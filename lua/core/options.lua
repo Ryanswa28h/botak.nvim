@@ -51,7 +51,12 @@ end
 vim.opt.undodir = undodir
 vim.opt.undofile = true
 vim.diagnostic.config({
-	virtual_text = true, -- Inline error messages
+	virtual_text = {
+		source = "if_many",
+		prefix = "●",
+	},
+	float = {
+		source = "always",
+	},
 	underline = true,
-	-- virtual_lines = true, -- Show diagnostics using virtual lines
 })
