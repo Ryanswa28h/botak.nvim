@@ -59,6 +59,7 @@ require("lazy").setup({
 	-- require("plugins.image"),
 	require("plugins.mason"),
 	require("plugins.lsp"),
+	require("plugins.linters"),
 	require("plugins.neogit"),
 	require("plugins.conform"),
 	require("plugins.coderunner"),

@@ -48,7 +48,19 @@ return {
 		-- high-performance color highlighter
 		"norcalli/nvim-colorizer.lua",
 		config = function()
-			require("colorizer").setup()
+			require("colorizer").setup(_, {
+				DEFAULT_OPTIONS = {
+					RGB = true,
+					RRGGBB = true,
+					names = true,
+					RRGGBBAA = false,
+					rgb_fn = false,
+					hsl_fn = false,
+					css = false,
+					css_fn = false,
+					mode = "background",
+				},
+			})
 		end,
 	},
 	-- {
@@ -114,5 +126,17 @@ return {
 			local map = vim.keymap.set
 			map("n", "<leader>tt", "<CMD>TSJToggle<CR>", { desc = "Toggle Treesitter Join/Split" })
 		end,
+	},
+	{
+		"kevinhwang91/nvim-ufo",
+		event = "BufReadPost",
+		dependencies = {
+			"kevinhwang91/promise-async",
+		},
+		opts = {
+			provider_selector = function()
+				return { "treesitter", "indent" }
+			end,
+		},
 	},
 }
