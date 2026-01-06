@@ -22,6 +22,10 @@ return {
 					"RainbowDelimiterViolet",
 					"RainbowDelimiterCyan",
 				},
+				blacklist = {
+					"html",
+					"xml",
+				},
 			}
 		end,
 	},
