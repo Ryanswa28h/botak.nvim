@@ -32,7 +32,7 @@ return {
 					{
 						icon = " ",
 						key = "g",
-						desc = "Find Text",
+						desc = "Live Grep",
 						action = telescope("live_grep"),
 					},
 					{
