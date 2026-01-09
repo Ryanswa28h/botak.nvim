@@ -89,10 +89,6 @@ return {
 			style = "night",
 			transparent = bg_transparent,
 			styles = { sidebars = "transparent", floats = "transparent" },
-			on_highlights = function(hl, c)
-				-- hl.MiniCursorword = { bg = "none", underline = true }
-				-- hl.MiniCursorwordCurrent = { bg = "none", underline = true }
-			end,
 		},
 		config = function(_, opts)
 			require("tokyonight").setup(opts)
