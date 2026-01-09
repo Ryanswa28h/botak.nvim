@@ -21,6 +21,16 @@ vim.api.nvim_create_autocmd("User", {
 	end,
 })
 
+-- Highlight yanking
+vim.api.nvim_create_autocmd("TextYankPost", {
+	callback = function()
+		vim.highlight.on_yank({
+			higroup = "IncSearch",
+			timeout = 120,
+		})
+	end,
+})
+
 local neotree = false
 vim.api.nvim_create_autocmd("VimEnter", {
 	once = true,
