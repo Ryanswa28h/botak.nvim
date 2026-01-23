@@ -5,6 +5,8 @@
 A minimal and modern Neovim configuration focused on productivity, and minimalism.
 Designed for speed, ease of use, and out-of-the-box functionality with a curated plugin set.
 
+Note: This config contains some configuration from other open-source git repositories.
+
 ---
 
 ## 🌟 Features
