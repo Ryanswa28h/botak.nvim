@@ -56,6 +56,14 @@ return {
 						end,
 					},
 					{
+						icon = " ",
+						key = "b",
+						desc = "Journal / Braindump",
+						action = function()
+							require("utils.journal")()
+						end,
+					},
+					{
 						icon = " ",
 						key = "c",
 						desc = "Config",
@@ -115,7 +123,7 @@ return {
 			},
 			sections = {
 				{ section = "header" },
-				{ section = "keys", gap = 1, padding = 0 },
+				{ section = "keys", gap = 1, padding = 1 },
 				{ section = "startup" },
 			},
 		},
