@@ -48,6 +48,14 @@ return {
 						action = ":lua require('telescope').extensions.projects.projects{}",
 					},
 					{
+						icon = " ",
+						key = "t",
+						desc = "ToDo List",
+						action = function()
+							require("utils.todo")()
+						end,
+					},
+					{
 						icon = " ",
 						key = "c",
 						desc = "Config",

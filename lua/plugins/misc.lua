@@ -139,4 +139,9 @@ return {
 			})
 		end,
 	},
+	{
+		"bngarren/checkmate.nvim",
+		ft = "markdown",
+		opts = {},
+	},
 }
