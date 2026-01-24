@@ -3,29 +3,17 @@ local function open_today_journal()
 	local dir = vim.fn.expand("~/.notes/journal")
 	local path = dir .. "/" .. date .. ".md"
 
-	-- ensure directory exists
 	if vim.fn.isdirectory(dir) == 0 then
 		vim.fn.mkdir(dir, "p")
 	end
 
-	-- create file if missing
 	if vim.fn.filereadable(path) == 0 then
-		local template = {
-			"# 🧠 Journal — " .. date,
-			"",
-			"## Braindump",
-			"",
-			"- ",
-			"",
-			"---",
-			"",
-			"## Notes",
-			"",
-		}
+		local template = { "# 🧠 Journal — " .. date, "", "## Braindump", "", "- ", "", "---", "", "## Notes", "" }
 		vim.fn.writefile(template, path)
 	end
 
-	vim.cmd("edit " .. path)
+	-- CHANGE THIS: Use the float util
+	require("utils.float").open_float(path, true)
 
 	-- jump to braindump section
 	vim.cmd("normal! gg/^## Braindump<CR>jj$")
