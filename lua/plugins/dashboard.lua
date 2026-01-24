@@ -50,7 +50,7 @@ return {
 					{
 						icon = " ",
 						key = "t",
-						desc = "ToDo List",
+						desc = "Todo List",
 						action = function()
 							require("utils.todo")()
 						end,
