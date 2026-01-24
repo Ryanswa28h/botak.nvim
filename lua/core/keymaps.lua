@@ -25,7 +25,7 @@ vim.keymap.set("n", "<leader>ff", "<cmd>Telescope find_files<CR>")
 vim.keymap.set("n", "<leader>gf", "<cmd>Telescope git_files<CR>")
 vim.keymap.set("n", "<leader>fg", "<cmd>Telescope live_grep<CR>")
 vim.keymap.set("n", "<leader>sth", "<cmd>Telescope colorscheme enable_preview=true<CR>")
-vim.keymap.set("n", "<leader>st", "<cmd>TodoTelescope<cr>", { desc = "Todo" })
+vim.keymap.set("n", "<leader>st", "<cmd>TodoTelescope<cr>", { desc = "Todo Telescope" })
 vim.keymap.set("n", "<leader>sT", "<cmd>TodoTelescope keywords=TODO,FIX,FIXME<cr>", { desc = "Todo/Fix/Fixme" })
 
 -- L and H as $ and 0
@@ -72,6 +72,16 @@ vim.keymap.set("n", "<leader>Q", "<cmd> qa <CR>", opts)
 -- EXIT Neovim from terminal
 vim.keymap.set("t", "<C-q>", "<C-\\><C-n>:confirm q<CR>", opts)
 vim.keymap.set("t", "<C-S-q>", "<C-\\><C-n>:qa<CR>", opts)
+
+-- Open Todo list
+vim.keymap.set("n", "<leader>ot", function()
+	require("utils.todo")()
+end, { desc = "Notes: Open ToDo Float" })
+
+-- Open Journal
+vim.keymap.set("n", "<leader>ob", function()
+	require("utils.journal")()
+end, { desc = "Notes: Open Journal Float" })
 
 -- Check signature of function under cursor
 vim.keymap.set("n", "<C-k>", vim.lsp.buf.signature_help, { desc = "Signature Documentation" })
@@ -133,10 +143,10 @@ vim.keymap.set("n", "<leader>tp", ":tabp<CR>", opts) --  go to previous tab
 vim.keymap.set("n", "<leader>lw", "<cmd>set wrap!<CR>", opts)
 
 -- Press jk fast to exit insert mode
-vim.keymap.set("i", "jk", "<ESC>", opts)
-vim.keymap.set("i", "kj", "<ESC>", opts)
-vim.keymap.set("i", "jj", "<ESC>", opts)
-vim.keymap.set("i", "kk", "<ESC>", opts)
+-- vim.keymap.set("i", "jk", "<ESC>", opts)
+-- vim.keymap.set("i", "kj", "<ESC>", opts)
+-- vim.keymap.set("i", "jj", "<ESC>", opts)
+-- vim.keymap.set("i", "kk", "<ESC>", opts)
 
 -- Use 'jk' to exit terminal mode
 vim.keymap.set("t", "jk", [[<C-\><C-n>]], { desc = "Exit Terminal Mode" })
