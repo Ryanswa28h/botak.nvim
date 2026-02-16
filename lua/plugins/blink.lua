@@ -33,9 +33,9 @@ return {
 	opts = {
 		keymap = {
 			preset = "super-tab",
-			-- ["<C-y>"] = { "accept", "fallback" },
-			-- ["<C-j>"] = { "select_next", "fallback" },
-			-- ["<C-k>"] = { "select_prev", "fallback" },
+			["<C-y>"] = { "accept", "fallback" },
+			["<C-j>"] = { "select_next", "fallback" },
+			["<C-k>"] = { "select_prev", "fallback" },
 			-- ["<C-Space>"] = { "show", "show_documentation", "hide_documentation" },
 			-- ["<CR>"] = {},
 			-- ["<Tab>"] = { "select_next", "snippet_forward", "fallback" },
@@ -156,9 +156,9 @@ return {
 			enabled = true,
 			keymap = {
 				preset = "super-tab", -- Disable super-tab
-				-- ["<C-y>"] = { "accept", "fallback" },
-				-- ["<C-j>"] = { "select_next", "fallback" },
-				-- ["<C-k>"] = { "select_prev", "fallback" },
+				["<C-y>"] = { "accept", "fallback" },
+				["<C-j>"] = { "select_next", "fallback" },
+				["<C-k>"] = { "select_prev", "fallback" },
 				-- ["<C-Space>"] = { "show", "show_documentation", "hide_documentation" },
 				-- ["<Tab>"] = { "select_next", "fallback" },
 				-- ["<S-Tab>"] = { "select_prev", "fallback" },
