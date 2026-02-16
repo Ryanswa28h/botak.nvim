@@ -32,16 +32,16 @@ return {
 	---@type blink.cmp.Config
 	opts = {
 		keymap = {
-			preset = "none",
-			["<C-y>"] = { "accept", "fallback" },
-			["<C-j>"] = { "select_next", "fallback" },
-			["<C-k>"] = { "select_prev", "fallback" },
-			["<C-Space>"] = { "show", "show_documentation", "hide_documentation" },
-			["<CR>"] = {},
-			["<Tab>"] = { "select_next", "snippet_forward", "fallback" },
-			["<S-Tab>"] = { "select_prev", "snippet_backward", "fallback" },
-			["<C-l>"] = { "snippet_forward", "fallback" },
-			["<C-h>"] = { "snippet_backward", "fallback" },
+			preset = "super-tab",
+			-- ["<C-y>"] = { "accept", "fallback" },
+			-- ["<C-j>"] = { "select_next", "fallback" },
+			-- ["<C-k>"] = { "select_prev", "fallback" },
+			-- ["<C-Space>"] = { "show", "show_documentation", "hide_documentation" },
+			-- ["<CR>"] = {},
+			-- ["<Tab>"] = { "select_next", "snippet_forward", "fallback" },
+			-- ["<S-Tab>"] = { "select_prev", "snippet_backward", "fallback" },
+			-- ["<C-l>"] = { "snippet_forward", "fallback" },
+			-- ["<C-h>"] = { "snippet_backward", "fallback" },
 		},
 
 		appearance = {
@@ -140,6 +140,9 @@ return {
 			ghost_text = {
 				enabled = false, -- Matching your ghost_text = false
 			},
+			trigger = {
+				show_in_snippet = false,
+			},
 		},
 
 		signature = {
@@ -152,17 +155,20 @@ return {
 		cmdline = {
 			enabled = true,
 			keymap = {
-				preset = "none", -- Disable super-tab
-				["<C-y>"] = { "accept", "fallback" },
-				["<C-j>"] = { "select_next", "fallback" },
-				["<C-k>"] = { "select_prev", "fallback" },
-				["<C-Space>"] = { "show", "show_documentation", "hide_documentation" },
-				["<Tab>"] = { "select_next", "fallback" },
-				["<S-Tab>"] = { "select_prev", "fallback" },
+				preset = "super-tab", -- Disable super-tab
+				-- ["<C-y>"] = { "accept", "fallback" },
+				-- ["<C-j>"] = { "select_next", "fallback" },
+				-- ["<C-k>"] = { "select_prev", "fallback" },
+				-- ["<C-Space>"] = { "show", "show_documentation", "hide_documentation" },
+				-- ["<Tab>"] = { "select_next", "fallback" },
+				-- ["<S-Tab>"] = { "select_prev", "fallback" },
 			},
 			completion = {
 				menu = {
 					auto_show = true,
+				},
+				trigger = {
+					show_in_snippet = false,
 				},
 			},
 		},
