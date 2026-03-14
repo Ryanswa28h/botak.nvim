@@ -144,4 +144,67 @@ return {
 		ft = "markdown",
 		opts = {},
 	},
+	{
+		"necrom4/calcium.nvim",
+		cmd = { "Calcium" },
+		opts = {},
+	},
+	{
+		"sontungexpt/url-open",
+		event = "VeryLazy",
+		cmd = "URLOpenUnderCursor",
+		config = function()
+			local status_ok, url_open = pcall(require, "url-open")
+			if not status_ok then
+				return
+			end
+			url_open.setup({})
+		end,
+	},
+	{
+		"vidocqh/data-viewer.nvim",
+		opts = {},
+		dependencies = {
+			"nvim-lua/plenary.nvim",
+			"kkharji/sqlite.lua", -- Optional, sqlite support
+		},
+	},
+	{
+		"emmanueltouzery/decisive.nvim",
+		config = function()
+			require("decisive").setup({})
+		end,
+		lazy = true,
+		ft = { "csv" },
+		keys = {
+			{
+				"<leader>cca",
+				":lua require('decisive').align_csv({})<cr>",
+				{ silent = true },
+				desc = "Align CSV",
+				mode = "n",
+			},
+			{
+				"<leader>ccA",
+				":lua require('decisive').align_csv_clear({})<cr>",
+				{ silent = true },
+				desc = "Align CSV clear",
+				mode = "n",
+			},
+			{
+				"[c",
+				":lua require('decisive').align_csv_prev_col()<cr>",
+				{ silent = true },
+				desc = "Align CSV prev col",
+				mode = "n",
+			},
+			{
+				"]c",
+				":lua require('decisive').align_csv_next_col()<cr>",
+				{ silent = true },
+				desc = "Align CSV next col",
+				mode = "n",
+			},
+		},
+	},
 }
