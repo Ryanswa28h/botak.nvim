@@ -48,6 +48,7 @@ require("lazy").setup({
 	require("plugins.copilot"),
 	require("plugins.noice"),
 	require("plugins.tmux"),
+	require("plugins.comfy-num-lines"), -- Makes number columns use left hand numbers only
 	require("plugins.navigation"),
 	require("plugins.diagnostics"),
 	require("plugins.avante"),
