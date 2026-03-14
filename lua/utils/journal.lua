@@ -8,7 +8,7 @@ local function open_today_journal()
 	end
 
 	if vim.fn.filereadable(path) == 0 then
-		local template = { "# 🧠 Journal — " .. date, "", "## Braindump", "", "- ", "", "---", "", "## Notes", "" }
+		local template = { "# Journal — " .. date, "", "## Braindump", "", "- ", "", "---", "", "## Notes", "" }
 		vim.fn.writefile(template, path)
 	end
 

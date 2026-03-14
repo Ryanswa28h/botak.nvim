@@ -2,7 +2,7 @@ local function open_or_create_todo()
 	local path = vim.fn.expand("~/todo.md")
 
 	if vim.fn.filereadable(path) == 0 then
-		local template = { "# 📝 Tasks", "", "- [ ] ", "" }
+		local template = { "# Tasks", "", "- [ ] ", "" }
 		vim.fn.writefile(template, path)
 	end
 
