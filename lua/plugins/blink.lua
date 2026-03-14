@@ -80,9 +80,9 @@ return {
 		sources = {
 			default = {
 				--"copilot",
+				"snippets",
 				"lsp",
 				"path",
-				"snippets",
 				"buffer",
 			},
 			providers = {
