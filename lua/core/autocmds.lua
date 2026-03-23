@@ -107,7 +107,6 @@ vim.api.nvim_create_autocmd("FileType", {
 		"typescript",
 		"vimdoc",
 		"sh",
-		"conf",
 		"vim",
 		"regex",
 		"terraform",
