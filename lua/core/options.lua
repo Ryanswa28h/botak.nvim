@@ -61,3 +61,6 @@ vim.diagnostic.config({
 	},
 	underline = true,
 })
+
+-- Disable Deprecation Warnings
+vim.deprecate = function() end
