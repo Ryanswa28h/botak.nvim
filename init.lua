@@ -16,11 +16,19 @@ rtp:prepend(lazypath)
 vim.g.loaded_netrw = 1
 vim.g.loaded_netrwPlugin = 1
 
-local signs = { Error = " ", Warn = " ", Hint = "󰌵 ", Info = " " }
-for type, icon in pairs(signs) do
-	local hl = "DiagnosticSign" .. type
-	vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = "" })
-end
+vim.schedule(function()
+	vim.diagnostic.config({
+		signs = {
+			text = {
+				[vim.diagnostic.severity.ERROR] = " ",
+				[vim.diagnostic.severity.WARN] = " ",
+				[vim.diagnostic.severity.HINT] = "󰌵 ",
+				[vim.diagnostic.severity.INFO] = " ",
+			},
+			priority = 1,
+		},
+	})
+end)
 vim.api.nvim_set_hl(0, "SnippetTabstop", { bg = "NONE", fg = "NONE" })
 
 require("lazy").setup({
@@ -45,10 +53,10 @@ require("lazy").setup({
 	require("plugins.diffview"),
 	require("plugins.jupyter"),
 	-- require("plugins.codeium"),
-	require("plugins.copilot"),
+	-- require("plugins.copilot"),
 	require("plugins.noice"),
 	require("plugins.tmux"),
-	require("plugins.comfy-num-lines"), -- Makes number columns use left hand numbers only
+	-- require("plugins.comfy-num-lines"), -- Makes number columns use left hand numbers only.  NOTE: Breaks line diagnostics respecting gitsigns
 	require("plugins.navigation"),
 	require("plugins.diagnostics"),
 	require("plugins.avante"),
@@ -57,7 +65,7 @@ require("lazy").setup({
 	require("plugins.rainbowdelimiters"),
 	require("plugins.prelive"),
 	require("plugins.nvzone"),
-	-- require("plugins.image"),
+	require("plugins.image"),
 	require("plugins.fold"),
 	require("plugins.mason"),
 	require("plugins.lsp"),
