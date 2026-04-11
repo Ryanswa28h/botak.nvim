@@ -168,7 +168,7 @@ return {
 					auto_show = true,
 				},
 				trigger = {
-					show_in_snippet = false,
+					-- show_in_snippet = false,
 				},
 			},
 		},
