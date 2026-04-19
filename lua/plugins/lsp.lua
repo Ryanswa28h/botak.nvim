@@ -155,6 +155,11 @@ return {
 							useLibraryCodeForTypes = true,
 							diagnosticMode = "workspace",
 							typeCheckingMode = "basic", -- can also be "strict"
+
+							diagnosticSeverityOverrides = {
+								reportUnusedImport = "none",
+								reportUnusedVariable = "none",
+							},
 						},
 					},
 				},
