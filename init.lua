@@ -53,7 +53,7 @@ require("lazy").setup({
 	require("plugins.diffview"),
 	require("plugins.jupyter"),
 	-- require("plugins.codeium"),
-	-- require("plugins.copilot"),
+	require("plugins.copilot"),
 	require("plugins.noice"),
 	require("plugins.tmux"),
 	-- require("plugins.comfy-num-lines"), -- Makes number columns use left hand numbers only.  NOTE: Breaks line diagnostics respecting gitsigns
