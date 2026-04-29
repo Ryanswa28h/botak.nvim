@@ -4,7 +4,7 @@ return {
 	lazy = false,
 	---@type snacks.Config
 	opts = {
-		scroll = { enabled = true },
+		-- scroll = { enabled = true },
 		bufdelete = { enabled = true },
 		animate = { enabled = true },
 		debug = { enabled = true },
