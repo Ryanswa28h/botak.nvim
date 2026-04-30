@@ -24,10 +24,16 @@ return {
 				show_duplicate_prefix = true,
 				sort_by = "insert_at_end",
 				right_trunc_marker = "",
-				max_name_length = 30,
-				max_prefix_length = 30, -- prefix used when a buffer is de-duplicated
-				tab_size = 21,
-				diagnostics = false,
+				max_name_length = 18,
+				max_prefix_length = 12, -- prefix used when a buffer is de-duplicated
+				tab_size = 18,
+				truncate_names = true,
+				diagnostics = "nvim_lsp",
+				diagnostics_indicator = function(count, level, diagnostics_dict, context)
+					local icon = level:match("error") and " " or level:match("warning") and " " or " "
+
+					return " " .. icon .. count
+				end,
 				diagnostics_update_in_insert = false,
 				color_icons = true,
 				show_buffer_icons = true,
