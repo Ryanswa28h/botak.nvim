@@ -180,7 +180,11 @@ return {
 			-- 		},
 			-- 	},
 			-- },
-			ruff = {},
+			ruff = {
+				on_attach = function(client, bufnr)
+					client.server_capabilities.hoverProvider = false
+				end,
+			},
 			jsonls = {},
 			sqlls = {},
 			terraformls = {},
