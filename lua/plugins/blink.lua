@@ -79,7 +79,7 @@ return {
 
 		sources = {
 			default = {
-				--"copilot",
+				"copilot", -- comment here to disable copilot suggestions
 				"snippets",
 				"lsp",
 				"path",
@@ -87,7 +87,7 @@ return {
 			},
 			providers = {
 				copilot = {
-					name = "copilot",
+					name = "Copilot",
 					module = "blink-cmp-copilot",
 					score_offset = 100,
 					async = true,
@@ -155,11 +155,11 @@ return {
 		cmdline = {
 			enabled = true,
 			keymap = {
-				preset = "super-tab", -- Disable super-tab
+				preset = "super-tab",
 				["<C-y>"] = { "accept", "fallback" },
 				["<C-j>"] = { "select_next", "fallback" },
 				["<C-k>"] = { "select_prev", "fallback" },
-				-- ["<C-Space>"] = { "show", "show_documentation", "hide_documentation" },
+				["<C-Space>"] = { "show", "show_documentation", "hide_documentation" },
 				-- ["<Tab>"] = { "select_next", "fallback" },
 				-- ["<S-Tab>"] = { "select_prev", "fallback" },
 			},
