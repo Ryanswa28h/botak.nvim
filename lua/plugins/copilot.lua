@@ -13,6 +13,24 @@ return {
 			silent = true,
 			desc = "Copilot Accept",
 		})
+		vim.keymap.set("i", "<Tab>", function()
+			-- 1. If blink.cmp menu is visible → accept completion
+			if require("blink.cmp").is_visible() then
+				return require("blink.cmp").accept()
+			end
+
+			-- 2. If Copilot suggestion is visible → accept it
+			if vim.fn["copilot#GetDisplayedSuggestion"]() ~= "" then
+				return vim.fn["copilot#Accept"]("<CR>")
+			end
+
+			-- 3. Otherwise → insert Tab
+			return "\t"
+		end, {
+			expr = true,
+			replace_keycodes = false,
+			silent = true,
+		})
 
 		-- Cycle to next suggestion
 		vim.keymap.set("i", "<C-;>", "<Plug>(copilot-next)", {
