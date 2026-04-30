@@ -52,10 +52,12 @@ end
 vim.opt.undodir = undodir
 vim.opt.undofile = true
 vim.diagnostic.config({
-	virtual_text = {
-		source = "if_many",
-		prefix = "●",
-	},
+	-- virtual_text = {
+	-- 	source = "if_many",
+	-- 	prefix = "●",
+	-- },
+	virtual_text = false,
+	virtual_lines = true,
 	float = {
 		source = "always",
 	},
