@@ -107,8 +107,8 @@ return {
 		vim.keymap.set("n", "<leader>sw", builtin.grep_string, { desc = "[S]earch current [W]ord" })
 		vim.keymap.set("n", "<leader>sg", builtin.live_grep, { desc = "[S]earch by [G]rep" })
 		vim.keymap.set("n", "<leader>sd", builtin.diagnostics, { desc = "[S]earch [D]iagnostics" })
-		vim.keymap.set("n", "<leader>sr", builtin.resume, { desc = "[S]earch [R]resume" })
-		vim.keymap.set("n", "<leader>so", builtin.oldfiles, { desc = "[S]earch Recent Files" })
+		vim.keymap.set("n", "<leader>sr", builtin.resume, { desc = "[S]earch [R]esume" })
+		vim.keymap.set("n", "<leader>so", builtin.oldfiles, { desc = "[S]earch [O]ldfiles" })
 		vim.keymap.set("n", "<leader>sds", function()
 			builtin.lsp_document_symbols({
 				symbols = { "Class", "Function", "Method", "Constructor", "Interface", "Module", "Property" },
@@ -126,7 +126,7 @@ return {
 				previewer = false,
 			}))
 		end, { desc = "[/] Fuzzily search in current buffer" })
-		vim.keymap.set({ "n", "v" }, "<leader>sr", function()
+		vim.keymap.set({ "n", "v" }, "<leader>gr", function()
 			vim.ui.input({ prompt = "Search for: " }, function(search)
 				if not search or search == "" then
 					return
@@ -145,6 +145,6 @@ return {
 					end
 				end)
 			end)
-		end, { desc = "[S]earch and [R]eplace" })
+		end, { desc = "[G]o Search and [R]eplace" })
 	end,
 }
