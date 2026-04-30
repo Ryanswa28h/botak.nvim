@@ -42,7 +42,7 @@ return {
 		"folke/todo-comments.nvim",
 		event = "VimEnter",
 		dependencies = { "nvim-lua/plenary.nvim" },
-		opts = { signs = false },
+		opts = { signs = true },
 	},
 	{
 		-- high-performance color highlighter
@@ -220,10 +220,10 @@ return {
 
 			local keymap = {
 				["<C-u>"] = function()
-					neoscroll.ctrl_u({ duration = 125 })
+					neoscroll.ctrl_u({ duration = 150 })
 				end,
 				["<C-d>"] = function()
-					neoscroll.ctrl_d({ duration = 125 })
+					neoscroll.ctrl_d({ duration = 150 })
 				end,
 			}
 
