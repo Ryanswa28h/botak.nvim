@@ -114,6 +114,15 @@ return {
 					},
 				},
 				lualine_x = {
+
+					function()
+						local reg = vim.fn.reg_recording()
+						if reg == "" then
+							return ""
+						else
+							return "REC @" .. reg
+						end
+					end,
 					diagnostics,
 					diff,
 					-- { "encoding", cond = hide_in_width },
