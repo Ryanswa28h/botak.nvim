@@ -1,5 +1,5 @@
 local function open_today_journal()
-	local date = os.date("%Y-%m-%d")
+	local date = os.date("%Y-%m-%d Journal")
 	local dir = vim.fn.expand("~/.notes/journal")
 	local path = dir .. "/" .. date .. ".md"
 
