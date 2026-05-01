@@ -1,4 +1,4 @@
--- Keymaps for better default experience
+-- My personal choice of keymaps. Feel free to change these to your liking, or add more as you see fit.
 
 -- Set leader key
 vim.g.mapleader = " "
