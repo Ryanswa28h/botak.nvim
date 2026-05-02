@@ -66,7 +66,7 @@ vim.keymap.set({ "n", "i" }, "<C-s>", "<cmd> w <CR>", opts)
 vim.keymap.set("n", "<leader>sn", "<cmd>noautocmd w <CR>", opts)
 
 -- EXIT Neovim (Shouldn't be possible)
-vim.keymap.set("n", "<leader>qq", "<cmd> confirm q <CR>", opts)
+vim.keymap.set("n", "<leader>qq", "<cmd> confirm qa <CR>", opts)
 vim.keymap.set("n", "<leader>Q", "<cmd> qa <CR>", opts)
 
 -- EXIT Neovim from terminal
@@ -196,9 +196,9 @@ vim.keymap.set("n", "<leader>q", vim.diagnostic.setloclist, { desc = "Open diagn
 vim.keymap.set("n", "<leader>ps", ":mksession! .session.vim<CR>", { noremap = true, silent = false })
 vim.keymap.set("n", "<leader>pl", ":source .session.vim<CR>", { noremap = true, silent = false })
 
-vim.keymap.set("n", "<leader>E", function()
-	vim.cmd("Neotree reveal toggle=true position=left dir=%:p:h")
-end, { silent = true, desc = "Neo-tree (root = current file)" })
+-- vim.keymap.set("n", "<leader>E", function()
+-- 	vim.cmd("Neotree reveal toggle=true position=left dir=%:p:h")
+-- end, { silent = true, desc = "Neo-tree (root = current file)" })
 
 -- Set K to peek fold or show LSP hover documentation
 vim.keymap.set("n", "K", function()
