@@ -114,6 +114,8 @@ vim.keymap.set("n", "<leader>b", "<cmd> enew <CR>", opts) -- new buffer
 -- Increment/decrement numbers
 vim.keymap.set("n", "<leader>+", "<C-a>", opts) -- increment
 vim.keymap.set("n", "<leader>-", "<C-x>", opts) -- decrement
+vim.keymap.set("n", "+", "<C-a>", opts) -- increment
+vim.keymap.set("n", "-", "<C-x>", opts) -- decrement
 
 -- Window management
 vim.keymap.set("n", "<leader>v", "<C-w>v", opts) -- split window vertically
@@ -196,13 +198,9 @@ vim.keymap.set("n", "<leader>q", vim.diagnostic.setloclist, { desc = "Open diagn
 vim.keymap.set("n", "<leader>ps", ":mksession! .session.vim<CR>", { noremap = true, silent = false })
 vim.keymap.set("n", "<leader>pl", ":source .session.vim<CR>", { noremap = true, silent = false })
 
--- vim.keymap.set("n", "<leader>E", function()
--- 	vim.cmd("Neotree reveal toggle=true position=left dir=%:p:h")
--- end, { silent = true, desc = "Neo-tree (root = current file)" })
-
 -- Set K to peek fold or show LSP hover documentation
 vim.keymap.set("n", "K", function()
-	local winid = require("ufo").peekFoldedLinesUnderCursor()
+	local winid --[[ = require("ufo").peekFoldedLinesUnderCursor() ]]
 	if not winid then
 		-- Fallback to LSP hover if no fold is found
 		local lsp_clients = vim.lsp.get_clients({ bufnr = 0 })
@@ -213,7 +211,7 @@ vim.keymap.set("n", "K", function()
 			vim.api.nvim_feedkeys("K", "n", false)
 		end
 	end
-end, { desc = "Peek fold or LSP hover documentation" })
+end, { desc = "--[[ Peek fold or ]] LSP hover documentation" })
 
 local open_mini_files = function()
 	local bufname = vim.api.nvim_buf_get_name(0)
