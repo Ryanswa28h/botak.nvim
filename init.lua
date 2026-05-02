@@ -43,7 +43,7 @@ require("lazy").setup({
 	require("plugins.lualine"),
 	require("plugins.telescope"),
 	require("plugins.misc"),
-	require("plugins.neotree"),
+	-- require("plugins.neotree"),
 	require("plugins.treesitter"),
 	require("plugins.blink"),
 	require("plugins.projects"),
