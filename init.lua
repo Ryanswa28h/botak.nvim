@@ -43,7 +43,7 @@ require("lazy").setup({
 	require("plugins.lualine"),
 	require("plugins.telescope"),
 	require("plugins.misc"),
-	-- require("plugins.neotree"),
+	require("plugins.neotree"),
 	require("plugins.treesitter"),
 	require("plugins.blink"),
 	require("plugins.projects"),
@@ -69,7 +69,7 @@ require("lazy").setup({
 	require("plugins.prelive"),
 	require("plugins.nvzone"),
 	-- require("plugins.image"), -- NOTE: Disabled by default because it requires a image loading terminal backend
-	require("plugins.fold"),
+	-- require("plugins.fold"),
 	require("plugins.mason"),
 	require("plugins.lsp"),
 	require("plugins.linters"),
