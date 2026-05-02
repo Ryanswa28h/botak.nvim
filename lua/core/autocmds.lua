@@ -125,6 +125,7 @@ vim.api.nvim_create_autocmd("FileType", {
 		"markdown",
 		"markdown_inline",
 		"bash",
+		"zsh",
 		"tsx",
 		"css",
 		"html",
