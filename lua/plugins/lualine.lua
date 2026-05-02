@@ -1,4 +1,40 @@
--- Set lualine as statusline
+local function force_navic_colors()
+	local kinds = {
+		File = "Tag",
+		Module = "Include",
+		Namespace = "Include",
+		Package = "Include",
+		Class = "Type",
+		Method = "Function",
+		Property = "@property",
+		Field = "@field",
+		Constructor = "@constructor",
+		Enum = "Type",
+		Interface = "Type",
+		Function = "Function",
+		Variable = "@variable",
+		Constant = "Constant",
+		String = "String",
+		Number = "Number",
+		Boolean = "Boolean",
+		Array = "Constant",
+		Object = "Type",
+		Key = "@keyword",
+		Null = "Constant",
+		EnumMember = "Constant",
+		Struct = "Structure",
+		Event = "Type",
+		Operator = "Operator",
+		TypeParameter = "Type",
+	}
+
+	for kind, target in pairs(kinds) do
+		vim.api.nvim_set_hl(0, "NavicIcons" .. kind, { link = target, default = false })
+	end
+end
+
+force_navic_colors()
+
 return {
 	"nvim-lualine/lualine.nvim",
 	config = function()
@@ -20,8 +56,8 @@ return {
 		local onedark_theme = {
 			normal = {
 				a = { fg = colors.bg, bg = colors.blue, gui = "bold" },
-				b = { fg = colors.fg, bg = colors.gray3 },
-				c = { fg = colors.fg, bg = colors.gray2 },
+				b = { fg = colors.blue, bg = colors.gray2 }, -- Blue text on dark gray
+				c = { fg = colors.fg, bg = colors.bg }, -- Matches editor background
 			},
 			command = { a = { fg = colors.bg, bg = colors.yellow, gui = "bold" } },
 			insert = { a = { fg = colors.bg, bg = colors.green, gui = "bold" } },
@@ -99,37 +135,57 @@ return {
 			},
 			sections = {
 				lualine_a = { mode },
-				lualine_b = { "branch" },
-				-- lualine_c = { filename },
+				lualine_b = {
+					{ "branch", color = { fg = colors.blue, gui = "bold" } },
+				},
 				lualine_c = {
 					{ "filetype", icon_only = true, separator = "", padding = { left = 1, right = 0 } },
-					{ "filename", path = 1 }, -- 1 = Relative path
+					{ "filename", path = 1, color = { fg = colors.fg } },
 					{
 						function()
-							return require("nvim-navic").get_location()
+							return require("nvim-navic").get_location({
+								highlight = true,
+							})
 						end,
 						cond = function()
 							return require("nvim-navic").is_available()
 						end,
+						color = { fg = colors.gray1 }, -- Navic location in a subtle gray
 					},
 				},
 				lualine_x = {
-
-					function()
-						local reg = vim.fn.reg_recording()
-						if reg == "" then
-							return ""
-						else
-							return "REC @" .. reg
-						end
-					end,
-					diagnostics,
-					diff,
-					-- { "encoding", cond = hide_in_width },
-					{ "filetype", cond = hide_in_width },
+					-- Recording macro (Red to stand out)
+					{
+						function()
+							local reg = vim.fn.reg_recording()
+							return reg == "" and "" or "REC @" .. reg
+						end,
+						color = { fg = colors.red1, gui = "bold" },
+					},
+					-- Diagnostics with specific colors
+					{
+						"diagnostics",
+						symbols = { error = " ", warn = " ", info = " ", hint = " " },
+						color = { bg = colors.gray3 }, -- Gives the component its own "block" background
+					},
+					-- Diff with specific colors
+					{
+						"diff",
+						symbols = { added = " ", modified = " ", removed = " " },
+						diff_color = {
+							added = { fg = colors.green },
+							modified = { fg = colors.yellow },
+							removed = { fg = colors.red1 },
+						},
+					},
+					{ "filetype", cond = hide_in_width, color = { fg = colors.cyan } },
 				},
-				lualine_y = { "location" },
-				lualine_z = { "progress" },
+				lualine_y = {
+					{ "location", color = { fg = colors.blue, bg = colors.gray3 } },
+				},
+				lualine_z = {
+					{ "progress", color = { fg = colors.bg, bg = colors.blue, gui = "bold" } },
+				},
 			},
 			inactive_sections = {
 				lualine_a = {},
