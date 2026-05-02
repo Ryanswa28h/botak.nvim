@@ -31,6 +31,7 @@ Before installing botak.nvim, make sure you have the following installed:
 - A **Nerd Font** (optional, for icons)
 - **Python 3** (optional, for `pyright` LSP)
 - **Node.js / npm** (optional, for some LSPs and plugins)
+- **fzf** (optional, for fuzzy searchin
 - **make** (optional, for building some plugins)
 
 Optional LSPs and tools installed via Mason.nvim (`mason.lua`):
@@ -127,6 +128,23 @@ macOS:
 brew install node
 ```
 
+---
+
+**5. (Optional) fzf**
+
+Linux:
+
+```bash
+sudo pacman -S fzf    # Arch
+sudo apt install fzf  # Debian/Ubuntu
+```
+
+macOS:
+
+```bash
+brew install fzf
+```
+
 </details>
 
 <details>
@@ -174,6 +192,26 @@ Required only if you want Python LSP (`pyright`).
 
 ```powershell
 winget install --id Python.Python.3.11 --scope machine -e
+```
+
+---
+
+**4. (Optional) Node.js**
+
+Needed for some LSP servers and plugins.
+
+```powershell
+winget install OpenJS.NodeJS
+```
+
+---
+
+**5. (Optional) fzf**
+
+Required only if you want fuzzy finding.
+
+```powershell
+winget install junegunn.fzf
 ```
 
 ---
@@ -310,8 +348,7 @@ nvim filename
 
 | Action                       | Keymap        |
 | ---------------------------- | ------------- |
-| Close buffer                 | `<leader>qq`  |
-| Close nvim                   | `<leader>Q`   |
+| Close nvim                   | `<leader>qq`  |
 | Close buffer (Terminal mode) | `<ctrl>q`     |
 | Save file                    | `<ctrl>s`     |
 | Show all keymaps             | `<leader>lm`  |
