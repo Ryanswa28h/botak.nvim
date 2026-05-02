@@ -28,6 +28,25 @@ return {
 		},
 	},
 	config = function()
+		vim.keymap.set("n", "<leader>E", "<cmd>Neotree toggle left<CR>", { desc = "Neo-tree [G]it [E]xplorer" })
+		vim.keymap.set(
+			"n",
+			"<leader>ge",
+			"<cmd>Neotree focus git_status left<CR>",
+			{ desc = "Neo-tree [G]it [E]xplorer" }
+		)
+		vim.keymap.set(
+			"n",
+			"<leader>be",
+			"<cmd>Neotree focus buffers left<CR>",
+			{ desc = "Neo-tree [B]uffer [E]xplorer" }
+		)
+		vim.keymap.set(
+			"n",
+			"<leader>fe",
+			"<cmd>Neotree focus filesystem left<CR>",
+			{ desc = "Neo-tree [F]ile [E]xplorer" }
+		)
 		require("neo-tree").setup({
 			event_handlers = {
 				{
@@ -126,13 +145,25 @@ return {
 					enabled = false,
 				},
 			},
+			source_selector = {
+				winbar = true, -- This puts it at the very top
+				statusline = false,
+				content_layout = "center",
+				tabs_layout = "equal",
+				show_separator_on_edge = true,
+				sources = {
+					{ source = "filesystem", display_name = " 󰉓 Files " },
+					{ source = "buffers", display_name = " 󰓩 Buffers " },
+					{ source = "git_status", display_name = " 󰊢 Git " },
+				},
+			},
 			-- A list of functions, each representing a global custom command
 			-- that will be available in all sources (if not overridden in `opts[source_name].commands`)
 			-- see `:h neo-tree-custom-commands-global`
 			commands = {},
 			window = {
 				position = "left",
-				width = 30,
+				width = 35,
 				mapping_options = {
 					noremap = true,
 					nowait = true,
@@ -192,6 +223,7 @@ return {
 			},
 			nesting_rules = {},
 			filesystem = {
+				bind_to_cwd = true,
 				filtered_items = {
 					visible = false, -- when true, they will just be displayed differently than normal items
 					hide_dotfiles = false,
@@ -238,6 +270,7 @@ return {
 				window = {
 					mappings = {
 						["<bs>"] = "navigate_up",
+						["h"] = "navigate_up",
 						["."] = "set_root",
 						["H"] = "toggle_hidden",
 						["/"] = "fuzzy_finder",
