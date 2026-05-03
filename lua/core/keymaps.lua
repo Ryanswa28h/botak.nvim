@@ -116,8 +116,8 @@ vim.keymap.set("n", "<leader>+", "<C-a>", opts) -- increment
 vim.keymap.set("n", "<leader>-", "<C-x>", opts) -- decrement
 
 -- Window management
-vim.keymap.set("n", "<leader>hv", "<C-w>v", { desc = "Split vertically" }) -- split window vertically
-vim.keymap.set("n", "<leader>hh", "<C-w>s", { desc = "Split horizontally" }) -- split window horizontally
+vim.keymap.set("n", "<leader>sv", "<C-w>v", { desc = "[S]plit [V]ertically" }) -- split window vertically
+vim.keymap.set("n", "<leader>sh", "<C-w>s", { desc = "[S]plit [H]orizontally" }) -- split window horizontally
 vim.keymap.set("n", "<leader>se", "<C-w>=", opts) -- make split windows equal width & height
 vim.keymap.set("n", "<leader>wd", "<cmd>close<CR>", { desc = "Close window" }) -- close current split window
 
