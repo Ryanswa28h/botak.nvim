@@ -47,7 +47,7 @@ return {
 				width_preview = 65,
 			},
 			options = {
-				use_as_default_explorer = true,
+				use_as_default_explorer = false,
 			},
 		})
 
