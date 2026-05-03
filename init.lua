@@ -54,15 +54,15 @@ require("lazy").setup({
 	require("plugins.gitsigns"),
 	require("plugins.comment"),
 	require("plugins.diffview"),
-	require("plugins.jupyter"),
-	-- require("plugins.codeium"), -- INFO: Enable if you don't want to use copilot
-	-- require("plugins.copilot"), -- INFO: Replaced by blink-cmp copilot integration
+	-- require("plugins.jupyter"), -- INFO: Enable if you want to use Neovim as a Jupyter notebook editor
+	-- require("plugins.codeium"), -- INFO: You could enable if you don't want to use copilot
+	require("plugins.copilot"),
 	require("plugins.noice"),
 	require("plugins.tmux"),
 	-- require("plugins.comfy-num-lines"), -- Makes number columns use left hand numbers only.  NOTE: Breaks line diagnostics respecting gitsigns
 	require("plugins.navigation"),
 	require("plugins.diagnostics"),
-	-- require("plugins.avante"), -- NOTE: Requires a custom Avante server to be running so disabled by default
+	require("plugins.avante"), -- NOTE: Requires a custom Avante server to be running so disabled by default
 	-- require("plugins.opencode"), -- NOTE: Requires a custom OpenCode server to be running, and is not yet fully functional, so disabled by default
 	require("plugins.debug"),
 	require("plugins.rainbowdelimiters"),
