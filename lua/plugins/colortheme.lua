@@ -95,8 +95,8 @@ return {
 
 			vim.cmd.colorscheme(current_theme)
 
-			vim.keymap.set("n", "<leader>bg", enable_bg, { desc = "UI: Enable Transparency" })
-			vim.keymap.set("n", "<leader>dbg", disable_bg, { desc = "UI: Disable Transparency" })
+			-- vim.keymap.set("n", "<leader>bg", enable_bg, { desc = "UI: Enable Transparency" })
+			-- vim.keymap.set("n", "<leader>dbg", disable_bg, { desc = "UI: Disable Transparency" })
 			vim.keymap.set(
 				"n",
 				"<leader>sth",

@@ -21,12 +21,13 @@ vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv", opts)
 vim.keymap.set("n", "J", "mzJ`z")
 
 -- Telescope binds
-vim.keymap.set("n", "<leader>ff", "<cmd>Telescope find_files<CR>")
-vim.keymap.set("n", "<leader>gf", "<cmd>Telescope git_files<CR>")
-vim.keymap.set("n", "<leader>fg", "<cmd>Telescope live_grep<CR>")
+vim.keymap.set("n", "<leader>ff", "<cmd>Telescope find_files<CR>", { desc = "[F]ind [F]iles" })
+vim.keymap.set("n", "<leader>fg", "<cmd>Telescope git_files<CR>", { desc = "[F]ind [G]it" })
+vim.keymap.set("n", "<leader>fw", "<cmd>Telescope live_grep<CR>", { desc = "[F]ind [W]ords (Grep)" })
+vim.keymap.set("n", "<leader>fr", "<cmd>Telescope oldfiles<CR>", { desc = "[F]ind [R]ecents" })
 vim.keymap.set("n", "<leader>sth", "<cmd>Telescope colorscheme enable_preview=true<CR>")
-vim.keymap.set("n", "<leader>st", "<cmd>TodoTelescope<cr>", { desc = "Todo Telescope" })
-vim.keymap.set("n", "<leader>sT", "<cmd>TodoTelescope keywords=TODO,FIX,FIXME<cr>", { desc = "Todo/Fix/Fixme" })
+vim.keymap.set("n", "<leader>st", "<cmd>TodoTelescope<CR>", { desc = "[T]odo Telescope" })
+vim.keymap.set("n", "<leader>sT", "<cmd>TodoTelescope keywords=TODO,FIX,FIXME<CR>", { desc = "Todo/Fix/Fixme" })
 
 -- L and H as $ and 0
 vim.keymap.set({ "n", "v" }, "L", "$", opts)
@@ -108,20 +109,17 @@ vim.keymap.set("n", "<Right>", ":vertical resize +2<CR>", opts)
 vim.keymap.set("n", "<Tab>", ":bnext<CR>", opts)
 vim.keymap.set("n", "<S-Tab>", ":bprevious<CR>", opts)
 vim.keymap.set("n", "<C-i>", "<C-i>", opts) -- to restore jump forward
-vim.keymap.set("n", "<leader>x", ":Bdelete!<CR>", opts) -- close buffer
 vim.keymap.set("n", "<leader>b", "<cmd> enew <CR>", opts) -- new buffer
 
 -- Increment/decrement numbers
 vim.keymap.set("n", "<leader>+", "<C-a>", opts) -- increment
 vim.keymap.set("n", "<leader>-", "<C-x>", opts) -- decrement
-vim.keymap.set("n", "+", "<C-a>", opts) -- increment
-vim.keymap.set("n", "-", "<C-x>", opts) -- decrement
 
 -- Window management
-vim.keymap.set("n", "<leader>v", "<C-w>v", opts) -- split window vertically
-vim.keymap.set("n", "<leader>h", "<C-w>s", opts) -- split window horizontally
+vim.keymap.set("n", "<leader>hv", "<C-w>v", { desc = "Split vertically" }) -- split window vertically
+vim.keymap.set("n", "<leader>hh", "<C-w>s", { desc = "Split horizontally" }) -- split window horizontally
 vim.keymap.set("n", "<leader>se", "<C-w>=", opts) -- make split windows equal width & height
-vim.keymap.set("n", "<leader>xs", ":close<CR>", opts) -- close current split window
+vim.keymap.set("n", "<leader>wd", "<cmd>close<CR>", { desc = "Close window" }) -- close current split window
 
 -- Navigate between splits
 vim.keymap.set("n", "<C-k>", ":wincmd k<CR>", opts)
@@ -224,7 +222,8 @@ local open_mini_files = function()
 		require("mini.files").open(bufname)
 	end
 end
-vim.keymap.set("n", "<leader>e", open_mini_files, { desc = "Open MiniFiles" })
+vim.keymap.set("n", "<leader>E", open_mini_files, { desc = "Open MiniFiles" })
+vim.keymap.set("n", "-", open_mini_files, { desc = "Open MiniFiles" })
 
 -- Showkeys
 vim.keymap.set("n", "<leader>sk", "<cmd>ShowkeysToggle<CR>", { desc = "Toggle Showkeys" })

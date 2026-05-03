@@ -6,7 +6,7 @@ return {
 	opts = {
 		-- scroll = { enabled = true },
 		bufdelete = { enabled = true },
-		animate = { enabled = true },
+		-- animate = { enabled = true },
 		debug = { enabled = true },
 		quickfile = { enabled = true },
 		zen = { enabled = true },
@@ -39,11 +39,27 @@ return {
 		},
 		-- Bufdelete others
 		{
-			"<leader>xo",
+			"<leader>bo",
 			function()
 				Snacks.bufdelete.other()
 			end,
 			desc = "Delete Other Buffers",
+		},
+		-- Bufdelete (Force)
+		{
+			"<leader>bD",
+			function()
+				Snacks.bufdelete.delete()
+			end,
+			desc = "Force Delete Buffer",
+		},
+		-- Bufdelete
+		{
+			"<leader>bd",
+			function()
+				Snacks.bufdelete()
+			end,
+			desc = "Delete Buffer",
 		},
 		-- Open Lazygit
 		{
