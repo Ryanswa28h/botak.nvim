@@ -44,8 +44,8 @@ return {
 		vim.keymap.set(
 			"n",
 			"<leader>fe",
-			"<cmd>Neotree focus filesystem left<CR>",
-			{ desc = "Neo-tree [F]ile [E]xplorer" }
+			"<cmd>Neotree position=current<CR>",
+			{ desc = "Neo-tree [F]ullscreen [E]xplorer" }
 		)
 		require("neo-tree").setup({
 			event_handlers = {
@@ -186,7 +186,6 @@ return {
 					-- ["<cr>"] = "open_drop",
 					-- ["t"] = "open_tab_drop",
 					["w"] = "open_with_window_picker",
-					--["P"] = "toggle_preview", -- enter preview mode, which shows the current node without focusing
 					["C"] = "close_node",
 					-- ['C'] = 'close_all_subnodes',
 					["z"] = "close_all_nodes",
@@ -223,7 +222,53 @@ return {
 			},
 			nesting_rules = {},
 			filesystem = {
-				bind_to_cwd = true,
+				components = {
+					harpoon_index = function(config, node, _)
+						local harpoon_list = require("harpoon"):list()
+						local path = node:get_id()
+						local harpoon_key = vim.uv.cwd()
+
+						for i, item in ipairs(harpoon_list.items) do
+							local value = item.value
+							if string.sub(item.value, 1, 1) ~= "/" then
+								value = harpoon_key .. "/" .. item.value
+							end
+
+							if value == path then
+								return {
+									text = string.format(" ⥤ %d", i), -- <-- Add your favorite harpoon like arrow here
+									highlight = config.highlight or "NeoTreeDirectoryIcon",
+								}
+							end
+						end
+						return {}
+					end,
+				},
+				bind_to_cwd = false,
+				follow_current_file = { enabled = true },
+				root_visible = false,
+				directory_dash_character = "─",
+				renderers = {
+					directory = {
+						{ "indent" },
+						{ "icon" },
+						{ "current_filter" },
+						{ "name", use_git_status_colors = true },
+					},
+					file = {
+						{ "icon" },
+						{ "name", use_git_status_colors = true },
+						{
+							"container",
+							right_justify = true,
+							content = {
+								{ "harpoon_index", zindex = 10 },
+								{ "diagnostics", zindex = 20 },
+								{ "git_status", zindex = 30 },
+							},
+						},
+					},
+				},
 				filtered_items = {
 					visible = true, -- when true, they will just be displayed differently than normal items
 					hide_dotfiles = false,
@@ -254,18 +299,13 @@ return {
 						--".null-ls_*",
 					},
 				},
-				follow_current_file = {
-					enabled = false, -- This will find and focus the file in the active buffer every time
-					--               -- the current file is changed while the tree is open.
-					leave_dirs_open = false, -- `false` closes auto expanded dirs, such as with `:Neotree reveal`
-				},
 				group_empty_dirs = false, -- when true, empty folders will be grouped together
-				hijack_netrw_behavior = "disabled", -- netrw disabled, opening a directory opens neo-tree
+				hijack_netrw_behavior = "open_current", -- netrw disabled, opening a directory opens neo-tree
 				-- in whatever position is specified in window.position
 				-- "open_current",  -- netrw disabled, opening a directory opens within the
 				-- window like netrw would, regardless of window.position
 				-- "disabled",    -- netrw left alone, neo-tree does not handle opening dirs
-				use_libuv_file_watcher = false, -- This will use the OS level file watchers to detect changes
+				use_libuv_file_watcher = true, -- This will use the OS level file watchers to detect changes
 				-- instead of relying on nvim autocmd events.
 				window = {
 					mappings = {
@@ -301,11 +341,6 @@ return {
 				commands = {}, -- Add a custom command or override a global one using the same function name
 			},
 			buffers = {
-				follow_current_file = {
-					enabled = false, -- This will find and focus the file in the active buffer every time
-					--              -- the current file is changed while the tree is open.
-					leave_dirs_open = false, -- `false` closes auto expanded dirs, such as with `:Neotree reveal`
-				},
 				group_empty_dirs = true, -- when true, empty folders will be grouped together
 				show_unloaded = true,
 				window = {
