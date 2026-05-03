@@ -49,7 +49,7 @@ require("lazy").setup({
 	require("plugins.projects"),
 	require("plugins.dashboard"),
 	require("plugins.indent-blankline"),
-	-- require("plugins.harpoon"), -- NOTE: Requires specific keybinds that may be taken by the OS/DE/WM
+	require("plugins.harpoon"), -- NOTE: Requires specific keybinds that may be taken by the OS/DE/WM
 	require("plugins.undotree"),
 	require("plugins.gitsigns"),
 	require("plugins.comment"),
