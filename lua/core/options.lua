@@ -45,6 +45,8 @@ vim.opt.formatoptions:remove({ "c", "r", "o" }) -- don't insert the current comm
 vim.opt.runtimepath:remove("/usr/share/vim/vimfiles") -- separate vim plugins from neovim in case vim still in use
 vim.opt.confirm = true
 vim.g.deprecation_warnings = false
+vim.opt.fillchars = { eob = " " } -- Hide ~ at end of buffer
+vim.api.nvim_set_hl(0, "EndOfBuffer", { fg = "NONE", bg = "NONE" }) -- Make the EndOfBuffer area completely transparent/match background
 local undodir = vim.fn.expand("~/.vim/undodir")
 if vim.fn.isdirectory(undodir) == 0 then
 	vim.fn.mkdir(undodir, "p")
