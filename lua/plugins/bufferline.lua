@@ -13,7 +13,7 @@ return {
 				close_command = "Bdelete! %d", -- can be a string | function, see "Mouse actions"
 				right_mouse_command = "Bdelete! %d", -- can be a string | function, see "Mouse actions"
 				left_mouse_command = "buffer %d", -- can be a string | function, see "Mouse actions"
-				middle_mouse_command = nil, -- can be a string | function, see "Mouse actions"
+				middle_mouse_command = "Bdelete! %d", -- can be a string | function, see "Mouse actions"
 				-- buffer_close_icon = '󰅖',
 				buffer_close_icon = "󰅖",
 				-- buffer_close_icon = '✕',
@@ -40,13 +40,13 @@ return {
 				show_buffer_close_icons = true,
 				show_close_icon = true,
 				sersist_buffer_sort = true, -- whether or not custom sorted buffers should persist
-				separator_style = { "│", "│" }, -- | "thick" | "thin" | { 'any', 'any' },
+				separator_style = "slant",--[[ { "│", "│" }, -- | "thick" | "thin" | { 'any', 'any' }, ]]
 				enforce_regular_tabs = false,
 				always_show_bufferline = false,
 				show_tab_indicators = false,
 				indicator = {
 					-- icon = '▎', -- this should be omitted if indicator style is not 'icon'
-					style = "none", -- Options: 'icon', 'underline', 'none'
+					style = "icon", -- Options: 'icon', 'underline', 'none'
 				},
 				icon_pinned = "󰐃",
 				minimum_padding = 1,
@@ -54,9 +54,9 @@ return {
 				maximum_length = 15,
 			},
 			highlights = {
-				separator = {
-					fg = "#434C5E",
-				},
+				-- separator = {
+				-- 	fg = "#434C5E",
+				-- },
 				buffer_selected = {
 					bold = true,
 					italic = false,
