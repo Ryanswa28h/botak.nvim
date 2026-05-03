@@ -28,7 +28,7 @@ return {
 		},
 	},
 	config = function()
-		vim.keymap.set("n", "<leader>E", "<cmd>Neotree toggle left<CR>", { desc = "Neo-tree [G]it [E]xplorer" })
+		vim.keymap.set("n", "<leader>e", "<cmd>Neotree toggle left<CR>", { desc = "Neo-tree [G]it [E]xplorer" })
 		vim.keymap.set(
 			"n",
 			"<leader>ge",
@@ -225,7 +225,7 @@ return {
 			filesystem = {
 				bind_to_cwd = true,
 				filtered_items = {
-					visible = false, -- when true, they will just be displayed differently than normal items
+					visible = true, -- when true, they will just be displayed differently than normal items
 					hide_dotfiles = false,
 					hide_gitignored = false,
 					hide_hidden = false, -- only works on Windows for hidden files/directories
