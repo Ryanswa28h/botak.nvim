@@ -367,7 +367,7 @@ nvim filename
 | View diagnostics             | `<leader>d`   |
 | Open git status menu         | `<leader>gs`  |
 | Toggle keystroke overlay     | `<leader>sk`  |
-| Open mini.files              | `<leader>e`   |
+| Open neo-tree                | `<leader>e`   |
 | Start mini.jump2d jumping    | `<leader>j`   |
 | Start flash jumping          | `'`           |
 | Toggle opencode              | `<F4>`        |
