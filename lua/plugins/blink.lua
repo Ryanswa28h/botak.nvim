@@ -11,20 +11,20 @@ return {
 	lazy = false,
 	dependencies = {
 		"rafamadriz/friendly-snippets",
-		{
-			"zbirenbaum/copilot.lua",
-			cmd = "Copilot",
-			event = "InsertEnter",
-			config = function()
-				require("copilot").setup({
-					suggestion = { enabled = false },
-					panel = { enabled = false },
-				})
-			end,
-		},
-		{
-			"giuxtaposition/blink-cmp-copilot",
-		},
+		-- {
+		-- 	"zbirenbaum/copilot.lua",
+		-- 	cmd = "Copilot",
+		-- 	event = "InsertEnter",
+		-- 	config = function()
+		-- 		require("copilot").setup({
+		-- 			suggestion = { enabled = false },
+		-- 			panel = { enabled = false },
+		-- 		})
+		-- 	end,
+		-- },
+		-- {
+		-- 	"giuxtaposition/blink-cmp-copilot",
+		-- },
 	},
 	version = "*",
 
@@ -145,7 +145,7 @@ return {
 			default = {
 				"lsp",
 				"snippets",
-				"copilot", -- comment here to disable copilot suggestions
+				-- "copilot", -- comment here to disable copilot suggestions
 				"path",
 				"buffer",
 			},
@@ -160,12 +160,12 @@ return {
 					module = "blink.cmp.sources.snippets",
 					score_offset = 80, -- Snippets second
 				},
-				copilot = {
-					name = "Copilot",
-					module = "blink-cmp-copilot",
-					score_offset = 50, -- AI can be fuzzy so we can put it below snippets and lsp
-					async = true,
-				},
+				-- copilot = {
+				-- 	name = "Copilot",
+				--  module = "blink-cmp-copilot",
+				-- 	score_offset = 50, -- AI can be fuzzy so we can put it below snippets and lsp
+				-- 	async = true,
+				-- },
 				-- Paths and buffers last
 			},
 		},
