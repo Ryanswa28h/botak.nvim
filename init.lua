@@ -38,7 +38,7 @@ require("lazy").setup({
 	require("plugins.mininvim"),
 	require("plugins.snacks"),
 	require("plugins.colortheme"),
-	require("plugins.bufferline"),
+	require("plugins.bufferline"), -- NOTE: Disable if you're advanced enough with global marks, harpoon, telescope or other means of navigation
 	require("plugins.persistence"),
 	require("plugins.lualine"),
 	require("plugins.telescope"),
