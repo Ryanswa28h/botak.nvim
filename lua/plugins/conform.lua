@@ -5,10 +5,14 @@ return {
 		{
 			"<leader>f",
 			function()
-				require("conform").format({ async = true, lsp_fallback = true })
+				require("conform").format({
+					lsp_fallback = true,
+					async = false,
+					timeout_ms = 500,
+				})
 			end,
 			mode = "",
-			desc = "Format buffer",
+			desc = "Format buffer or range",
 		},
 	},
 	opts = {
