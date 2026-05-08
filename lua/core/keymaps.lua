@@ -3,6 +3,7 @@
 -- Set leader key
 vim.g.mapleader = " "
 vim.g.maplocalleader = " "
+local opener = "xdg-open" -- "xdg-open" on linux, "open" on macOS, "explorer" on Windows
 
 -- Disable the spacebar key's default behavior in Normal and Visual modes
 vim.keymap.set({ "n", "v" }, "<Space>", "<Nop>", { silent = true })
@@ -167,6 +168,19 @@ vim.keymap.set("v", "p", '"_dP', opts)
 vim.keymap.set({ "n", "v" }, "<leader>y", [["+y]])
 vim.keymap.set("n", "<leader>Y", [["+Y]])
 
+-- Open file explorer
+vim.keymap.set("n", "<leader>fO", function()
+	local path = vim.fn.expand("%:p:h") -- Get the absolute path to the current file's directory
+
+	-- Check if the path exists (it might not in a new, unsaved buffer)
+	if vim.fn.isdirectory(path) > 0 then
+		-- 'jobstart' runs the command in the background so it doesn't freeze Neovim
+		vim.system({ opener, path }, { detach = true })
+	else
+		print("Error: Current buffer has no valid directory path.")
+	end
+end, { desc = "Open current directory in [f]ile explorer [O]utside" })
+
 -- Toggle diagnostics
 local diagnostics_active = true
 
@@ -209,21 +223,7 @@ vim.keymap.set("n", "K", function()
 			vim.api.nvim_feedkeys("K", "n", false)
 		end
 	end
-end, { desc = "--[[ Peek fold or ]] LSP hover documentation" })
-
-local open_mini_files = function()
-	local bufname = vim.api.nvim_buf_get_name(0)
-
-	-- Use vim.env.HOME if we are on the starter screen,
-	-- otherwise open the current file's directory
-	if bufname == "ministarter://1/welcome" then
-		require("mini.files").open(vim.env.HOME)
-	else
-		require("mini.files").open(bufname)
-	end
-end
-vim.keymap.set("n", "<leader>E", open_mini_files, { desc = "Open MiniFiles" })
-vim.keymap.set("n", "-", open_mini_files, { desc = "Open MiniFiles" })
+end, { desc = "LSP hover documentation" })
 
 -- Showkeys
 vim.keymap.set("n", "<leader>sk", "<cmd>ShowkeysToggle<CR>", { desc = "Toggle Showkeys" })
