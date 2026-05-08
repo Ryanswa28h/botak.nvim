@@ -78,7 +78,7 @@ return {
 				show_buffer_close_icons = true,
 				show_close_icon = true,
 				sersist_buffer_sort = true, -- whether or not custom sorted buffers should persist
-				separator_style = "slant", -- slant or slope [[ { "│", "│" }, -- | "thick" | "thin" | { 'any', 'any' }, ]]
+				separator_style = "thick", -- slant or slope [[ { "│", "│" }, -- | "thick" | "thin" | { 'any', 'any' }, ]]
 				enforce_regular_tabs = false,
 				always_show_bufferline = false,
 				show_tab_indicators = false,
