@@ -174,7 +174,7 @@ return {
 						nowait = false, -- disable `nowait` if you have existing combos starting with this char that you want to use
 					},
 					["<2-LeftMouse>"] = "open",
-					["<cr>"] = "open",
+					["<CR>"] = "open",
 					["<esc>"] = "cancel", -- close preview or floating neo-tree window
 					["P"] = { "toggle_preview", config = { use_float = true } },
 					["l"] = "open",
@@ -189,7 +189,7 @@ return {
 					["C"] = "close_node",
 					-- ['C'] = 'close_all_subnodes',
 					["z"] = "close_all_nodes",
-					--["Z"] = "expand_all_nodes",
+					["Z"] = "expand_all_nodes",
 					["a"] = {
 						"add",
 						-- this command supports BASH style brace expansion ("x{a,b,c}" -> xa,xb,xc). see `:h neo-tree-file-actions` for details
@@ -244,9 +244,9 @@ return {
 						return {}
 					end,
 				},
-				bind_to_cwd = false,
-				follow_current_file = { enabled = true },
-				root_visible = false,
+				bind_to_cwd = false, -- true creates a new root every time, false finds the root at the current file and focuses on it
+				follow_current_file = { enabled = true }, -- This will find and focus the file in the active buffer every time
+				root_visible = true,
 				directory_dash_character = "─",
 				renderers = {
 					directory = {
@@ -310,13 +310,12 @@ return {
 				window = {
 					mappings = {
 						["<bs>"] = "navigate_up",
-						["h"] = "navigate_up",
+						["h"] = "close_node",
 						["."] = "set_root",
 						["H"] = "toggle_hidden",
 						["/"] = "fuzzy_finder",
 						["D"] = "fuzzy_finder_directory",
 						["#"] = "fuzzy_sorter", -- fuzzy sorting using the fzy algorithm
-						-- ["D"] = "fuzzy_sorter_directory",
 						["f"] = "filter_on_submit",
 						["<c-x>"] = "clear_filter",
 						["[g"] = "prev_git_modified",

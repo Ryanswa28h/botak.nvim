@@ -49,6 +49,11 @@ return {
 			options = {
 				use_as_default_explorer = false,
 			},
+			mappings = {
+				-- Disable marks inside of mini.files
+				mark_goto = "",
+				mark_set = "",
+			},
 		})
 
 		local jump2d = require("mini.jump2d")
@@ -85,5 +90,12 @@ return {
 		vim.keymap.set("n", "<leader>L", function()
 			jump2d.start(jump2d.builtin_opts.line_start)
 		end, { desc = "Jump to Line Start" })
+
+		local open_mini_files = function()
+			require("mini.files").open()
+		end
+		vim.keymap.set("n", "-", open_mini_files, { desc = "Open MiniFiles" })
+		vim.keymap.set("n", "<leader>E", open_mini_files, { desc = "Open MiniFiles" })
+		vim.keymap.set("n", "<leader>fm", open_mini_files, { desc = "Open MiniFiles" })
 	end,
 }

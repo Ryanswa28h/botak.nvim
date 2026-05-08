@@ -346,33 +346,31 @@ nvim filename
 - Default leader key: `SPACE`
 - Common keymaps:
 
-| Action                       | Keymap        |
-| ---------------------------- | ------------- |
-| Close nvim                   | `<leader>qq`  |
-| Close buffer (Terminal mode) | `<ctrl>q`     |
-| Save file                    | `<ctrl>s`     |
-| Show all keymaps             | `<leader>lm`  |
-| Go to definition             | `gd`          |
-| Find references              | `gr`          |
-| Rename symbol                | `<leader>rn`  |
-| Execute code in file         | `<leader>r`   |
-| Toggle inlay hints           | `<leader>th`  |
-| Fuzzy find workspace symbols | `<leader>ws`  |
-| Accept autocomplete          | `<ctrl>y`     |
-| Accept AI autocomplete       | `<ctrl>g`     |
-| Enable background            | `<leader>bg`  |
-| Disable background           | `<leader>dbg` |
-| Persistent theme selector    | `<leader>sth` |
-| Open diagnostics list        | `<leader>q`   |
-| View diagnostics             | `<leader>d`   |
-| Open git status menu         | `<leader>gs`  |
-| Toggle keystroke overlay     | `<leader>sk`  |
-| Open neo-tree                | `<leader>e`   |
-| Start mini.jump2d jumping    | `<leader>j`   |
-| Start flash jumping          | `'`           |
-| Toggle opencode              | `<F4>`        |
-| Toggle terminal              | `<ctrl>\`     |
-| Open neotree                 | `<leader>E`   |
+| Action                       | Keymap            |
+| ---------------------------- | ----------------- |
+| Close nvim                   | `<leader>qq`      |
+| Close buffer (Terminal mode) | `<ctrl>q`         |
+| Save file                    | `<ctrl>s`         |
+| Save file without formatting | `<leader>sn`      |
+| Show all keymaps             | `<leader>lm`      |
+| Go to definition             | `gd`              |
+| Find references              | `gr`              |
+| Rename symbol                | `<leader>rn`      |
+| Execute code in file         | `<leader>r`       |
+| Fuzzy find workspace symbols | `<leader>ws`      |
+| Accept autocomplete          | `<ctrl>y` / `tab` |
+| Accept AI autocomplete       | `<ctrl>g`         |
+| Persistent theme selector    | `<leader>sth`     |
+| Open diagnostics list        | `<leader>q`       |
+| View diagnostics             | `<leader>d`       |
+| Open git status menu         | `<leader>gs`      |
+| Toggle keystroke overlay     | `<leader>sk`      |
+| Open mini.files              | `-`               |
+| Start mini.jump2d jumping    | `<leader>j`       |
+| Start flash jumping          | `'`               |
+| Toggle opencode              | `<F4>`            |
+| Toggle terminal              | `<ctrl>\`         |
+| Open neotree                 | `<leader>e`       |
 
 _(Refer to `lua/core/keymaps.lua` and the `lua/plugins/` modules for full keymap and plugin details.)_
 
