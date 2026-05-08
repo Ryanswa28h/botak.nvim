@@ -7,6 +7,44 @@ return {
 	config = function()
 		require("bufferline").setup({
 			options = {
+				-- groups = {
+				-- 	items = {
+				-- 		{
+				-- 			name = "Config",
+				-- 			icon = " ",
+				-- 			matcher = function(buf)
+				-- 				return buf.path:match("init.lua")
+				-- 					or buf.path:match(".config")
+				-- 					or buf.path:match("%.json")
+				-- 					or buf.path:match("%.toml")
+				-- 			end,
+				-- 		},
+				-- 		{
+				-- 			name = "Infra",
+				-- 			icon = "󱂚 ",
+				-- 			matcher = function(buf)
+				-- 				return buf.path:match("%.css")
+				-- 					or buf.path:match("%.scss")
+				-- 					or buf.path:match("Dockerfile")
+				-- 					or buf.path:match("docker-compose")
+				-- 			end,
+				-- 		},
+				-- 		{
+				-- 			name = "Tests",
+				-- 			icon = " ",
+				-- 			matcher = function(buf)
+				-- 				return buf.path:match("_spec") or buf.path:match("_test") or buf.path:match("tests/")
+				-- 			end,
+				-- 		},
+				-- 		{
+				-- 			name = "Docs",
+				-- 			icon = "󰈙 ",
+				-- 			matcher = function(buf)
+				-- 				return buf.path:match("%.md") or buf.path:match("%.txt") or buf.path:match("docs/")
+				-- 			end,
+				-- 		},
+				-- 	},
+				-- },
 				mode = "buffers", -- set to "tabs" to only show tabpages instead
 				themable = true, -- allows highlight groups to be overriden i.e. sets highlights as default
 				numbers = "none", -- | "ordinal" | "buffer_id" | "both" | function({ ordinal, id, lower, raise }): string,
@@ -40,7 +78,7 @@ return {
 				show_buffer_close_icons = true,
 				show_close_icon = true,
 				sersist_buffer_sort = true, -- whether or not custom sorted buffers should persist
-				separator_style = "slant",--[[ { "│", "│" }, -- | "thick" | "thin" | { 'any', 'any' }, ]]
+				separator_style = "slant", -- slant or slope [[ { "│", "│" }, -- | "thick" | "thin" | { 'any', 'any' }, ]]
 				enforce_regular_tabs = false,
 				always_show_bufferline = false,
 				show_tab_indicators = false,
@@ -81,5 +119,7 @@ return {
 		vim.keymap.set("n", "<leader>&", "<cmd>lua require('bufferline').go_to_buffer(7)<CR>", opts)
 		vim.keymap.set("n", "<leader>*", "<cmd>lua require('bufferline').go_to_buffer(8)<CR>", opts)
 		vim.keymap.set("n", "<leader>(", "<cmd>lua require('bufferline').go_to_buffer(9)<CR>", opts)
+		vim.keymap.set("n", "<leader><cr>", "<cmd>BufferLinePick<CR>", opts)
+		vim.keymap.set("n", "<leader>bp", "<cmd>BufferLineTogglePin<CR>", opts)
 	end,
 }
