@@ -11,6 +11,7 @@ return {
 		-- - We use it to ensure all desired tools are present.
 		-- - The `ensure_installed` list works with mason-lspconfig to resolve LSP names like "lua_ls".
 		"WhoIsSethDaniel/mason-tool-installer.nvim",
+		"folke/lazydev.nvim",
 
 		-- Useful status updates for LSP.
 		{
@@ -133,6 +134,9 @@ return {
 							disable = { "missing-fields" },
 						},
 						format = {
+							enable = false,
+						},
+						telemetery = {
 							enable = false,
 						},
 					},
