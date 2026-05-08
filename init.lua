@@ -56,20 +56,21 @@ require("lazy").setup({
 	require("plugins.diffview"),
 	-- require("plugins.jupyter"), -- INFO: Enable if you want to use Neovim as a Jupyter notebook editor
 	-- require("plugins.codeium"), -- INFO: You could enable if you don't want to use copilot
-	require("plugins.copilot"),
-	require("plugins.noice"),
-	require("plugins.tmux"),
+	require("plugins.copilot"), -- Ghost text autocompletion
+	require("plugins.noice"), -- Neovim UI overhaul
+	require("plugins.tmux"), -- NOTE: Requires tmux (Disable if you don't use tmux or don't want the integration)
 	-- require("plugins.comfy-num-lines"), -- Makes number columns use left hand numbers only.  NOTE: Breaks line diagnostics respecting gitsigns
 	require("plugins.navigation"),
 	require("plugins.diagnostics"),
 	require("plugins.avante"), -- NOTE: Requires a custom Avante server to be running so disabled by default
 	-- require("plugins.opencode"), -- NOTE: Requires a custom OpenCode server to be running, and is not yet fully functional, so disabled by default
 	require("plugins.debug"),
-	require("plugins.rainbowdelimiters"),
+	require("plugins.rainbowdelimiters"), -- Rainbow parentheses, functions, statements and brackets
 	require("plugins.prelive"),
 	require("plugins.nvzone"),
 	-- require("plugins.image"), -- NOTE: Disabled by default because it requires a image loading terminal backend
 	-- require("plugins.fold"),
+	-- require("plugins.oil"), -- Oil is a fullscreen file explorer where you edit your files as in a regular neovim buffer
 	require("plugins.mason"),
 	require("plugins.lsp"),
 	require("plugins.linters"),
