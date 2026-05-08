@@ -11,13 +11,10 @@ Note: This config contains some configuration from other open-source git reposit
 
 ## 🌟 Features
 
-- **nvim-cmp** for autocompletion
+- **blink-cmp** for autocompletion
 - **Built-in LSP configurations** (Lua, Python, C/C++, JSON, YAML, Bash, Docker, etc.)
 - **Treesitter** for advanced syntax highlighting
 - **Telescope** for fuzzy finding files, symbols, and references
-- Optional animations support via `animations.lua`
-- Custom dashboard (`dashboard.lua`) and prelive setup (`prelive.lua`)
-- File explorer (`neotree.lua`), statusline (`lualine.lua`), and bufferline (`bufferline.lua`)
 - Git integration (`gitsigns.lua`) and commenting utilities (`comment.lua`)
 
 ---
@@ -367,10 +364,25 @@ nvim filename
 | Toggle keystroke overlay     | `<leader>sk`      |
 | Open mini.files              | `-`               |
 | Start mini.jump2d jumping    | `<leader>j`       |
-| Start flash jumping          | `'`               |
+| Start flash jumping          | `zk` / `Enter`    |
+| Split horizontally           | `<leader>wh`      |
+| Split vertically             | `<leader>wv`      |
 | Toggle opencode              | `<F4>`            |
 | Toggle terminal              | `<ctrl>\`         |
 | Open neotree                 | `<leader>e`       |
+
+Telescope Keybinds
+
+| Action             | Keymap                    |
+| ------------------ | ------------------------- |
+| Find files in CWD  | `<leader><leader>`        |
+| Grep files in CWD  | `<leader>fw`              |
+| Search buffers     | `<leadersb` / `<leader>,` |
+| Search oldfiles    | `<leader>so`              |
+| Search help        | `<leader>sh`              |
+| Search diagnostics | `<leader>sd`              |
+| Search todos       | `<leader>st`              |
+| Search marks       | `<leadersm`               |
 
 _(Refer to `lua/core/keymaps.lua` and the `lua/plugins/` modules for full keymap and plugin details.)_
 
