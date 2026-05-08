@@ -3,7 +3,7 @@ return {
 	dependencies = {
 		"nvim-lua/plenary.nvim", -- required
 		"sindrets/diffview.nvim", -- optional - adds better diffing
-		"nvim-telescope/telescope.nvim", -- optional
+		-- "nvim-telescope/telescope.nvim", -- optional
 	},
 	config = function()
 		local neogit = require("neogit")
@@ -12,7 +12,7 @@ return {
 			kind = "floating",
 			integrations = {
 				diffview = true, -- Integrates with diffview.nvim
-				telescope = true,
+				-- telescope = true,
 			},
 		})
 

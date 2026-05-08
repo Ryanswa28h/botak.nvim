@@ -97,12 +97,9 @@ return {
 
 			-- vim.keymap.set("n", "<leader>bg", enable_bg, { desc = "UI: Enable Transparency" })
 			-- vim.keymap.set("n", "<leader>dbg", disable_bg, { desc = "UI: Disable Transparency" })
-			vim.keymap.set(
-				"n",
-				"<leader>sth",
-				"<cmd>Telescope colorscheme enable_preview=true<CR>",
-				{ desc = "UI: Theme Selector" }
-			)
+			-- vim.keymap.set("n", "<leader>sth", function()
+			-- 	Snacks.picker.colorschemes({ layout = "default" })
+			-- end, { desc = "UI: Theme Selector" })
 
 			vim.api.nvim_create_autocmd("ColorScheme", {
 				callback = function()

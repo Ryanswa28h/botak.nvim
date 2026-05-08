@@ -41,12 +41,12 @@ require("lazy").setup({
 	require("plugins.bufferline"), -- NOTE: Disable if you're advanced enough with global marks, harpoon, telescope or other means of navigation
 	require("plugins.persistence"),
 	require("plugins.lualine"),
-	require("plugins.telescope"),
+	-- require("plugins.telescope"), -- NOTE: Replaced by Snacks.picker
 	require("plugins.misc"),
 	require("plugins.neotree"),
 	require("plugins.treesitter"),
 	require("plugins.blink"),
-	require("plugins.projects"),
+	-- require("plugins.projects"),
 	require("plugins.dashboard"),
 	require("plugins.indent-blankline"),
 	require("plugins.harpoon"), -- NOTE: Requires specific keybinds that may be taken by the OS/DE/WM

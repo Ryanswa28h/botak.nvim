@@ -1,11 +1,16 @@
-local function telescope(picker)
+-- local function telescope(picker)
+-- 	return function()
+-- 		local ok, builtin = pcall(require, "telescope.builtin")
+-- 		if ok then
+-- 			builtin[picker]()
+-- 		else
+-- 			print("Telescope not found")
+-- 		end
+-- 	end
+-- end
+local function picker(name)
 	return function()
-		local ok, builtin = pcall(require, "telescope.builtin")
-		if ok then
-			builtin[picker]()
-		else
-			print("Telescope not found")
-		end
+		Snacks.picker[name]({ layout = "default" })
 	end
 end
 
@@ -14,7 +19,6 @@ return {
 	event = "VimEnter",
 	---@type snacks.Config
 	opts = {
-		-- You need this picker section to fix the "no root box" error
 		picker = {
 			layout = { preset = "telescope" },
 		},
@@ -27,25 +31,30 @@ return {
 			preset = {
 				pick = nil,
 				keys = {
-					{ icon = " ", key = "f", desc = "Find File", action = telescope("find_files") },
-					{ icon = " ", key = "n", desc = "New File", action = ":ene | startinsert" },
+					{ icon = " ", key = "f", desc = "Find File", action = picker("files"), nowait = true },
+					{ icon = " ", key = "n", desc = "New File", action = ":ene | startinsert", nowait = true },
 					{
 						icon = " ",
 						key = "g",
 						desc = "Live Grep",
-						action = telescope("live_grep"),
+						action = picker("grep"),
+						nowait = true,
 					},
 					{
 						icon = " ",
 						key = "r",
 						desc = "Recent Files",
-						action = telescope("oldfiles"),
+						action = picker("recent"),
+						nowait = true,
 					},
 					{
 						icon = " ",
 						key = "p",
 						desc = "Projects",
-						action = ":lua require('telescope').extensions.projects.projects{}",
+						action = function()
+							Snacks.picker.projects({ layout = "default" })
+						end,
+						nowait = true,
 					},
 					{
 						icon = " ",
@@ -54,6 +63,7 @@ return {
 						action = function()
 							require("utils.todo")()
 						end,
+						nowait = true,
 					},
 					{
 						icon = " ",
@@ -62,22 +72,26 @@ return {
 						action = function()
 							require("utils.journal")()
 						end,
+						nowait = true,
 					},
 					{
 						icon = " ",
 						key = "c",
 						desc = "Config",
 						action = function()
-							require("telescope.builtin").find_files({
+							Snacks.picker.files({
 								cwd = vim.fn.stdpath("config"),
+								layout = "default",
 							})
 						end,
+						nowait = true,
 					},
 					{
 						icon = " ",
 						key = "s",
 						desc = "Restore Session",
 						action = ":lua require('persistence').load({ last = true })",
+						nowait = true,
 					},
 					{
 						icon = "󰒲 ",
@@ -85,8 +99,9 @@ return {
 						desc = "Lazy",
 						action = ":Lazy",
 						enabled = package.loaded.lazy ~= nil,
+						nowait = true,
 					},
-					{ icon = " ", key = "q", desc = "Quit", action = ":qa" },
+					{ icon = " ", key = "q", desc = "Quit", action = ":qa", nowait = true },
 				},
 				header = [[
 ███╗   ██╗███████╗ ██████╗ ██╗   ██╗██╗███╗   ███╗

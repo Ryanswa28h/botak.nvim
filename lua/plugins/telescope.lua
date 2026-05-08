@@ -93,69 +93,69 @@ return {
 		pcall(require("telescope").load_extension, "ui-select")
 
 		-- vim.keymap.set("n", "<leader>sb", builtin.buffers, { desc = "[S]earch existing [B]uffers" })
-		vim.keymap.set("n", "<leader>sb", function()
-			require("telescope.builtin").buffers(require("telescope.themes").get_dropdown({
-				previewer = false,
-				initial_mode = "insert",
-			}))
-		end, { desc = "Search Buffers" })
-		vim.keymap.set("n", "<leader>,", function()
-			require("telescope.builtin").buffers(require("telescope.themes").get_dropdown({
-				previewer = false,
-				initial_mode = "insert",
-			}))
-		end, { desc = "Search Buffers" })
-		vim.keymap.set("n", "<leader><tab>", builtin.buffers, { desc = "[S]earch existing [B]uffers" })
-		vim.keymap.set("n", "<leader><leader>", builtin.find_files, { desc = "[ ] Find Files" })
-		vim.keymap.set("n", "<leader>sm", builtin.marks, { desc = "[S]earch [M]arks" })
-		vim.keymap.set("n", "<leader>gf", builtin.git_files, { desc = "Search [G]it [F]iles" })
-		vim.keymap.set("n", "<leader>gc", builtin.git_commits, { desc = "Search [G]it [C]ommits" })
-		vim.keymap.set("n", "<leader>gcf", builtin.git_bcommits, { desc = "Search [G]it [C]ommits for current [F]ile" })
-		vim.keymap.set("n", "<leader>gb", builtin.git_branches, { desc = "Search [G]it [B]ranches" })
-		vim.keymap.set("n", "<leader>sgs", builtin.git_status, { desc = "[S]earch [G]it [S]tatus (diff view)" })
-		vim.keymap.set("n", "<leader>sf", builtin.find_files, { desc = "[S]earch [F]iles" })
-		vim.keymap.set("n", "<leader>sh", builtin.help_tags, { desc = "[S]earch [H]elp" })
-		vim.keymap.set("n", "<leader>sw", builtin.grep_string, { desc = "[S]earch current [W]ord" })
-		vim.keymap.set("n", "<leader>sg", builtin.live_grep, { desc = "[S]earch by [G]rep" })
-		vim.keymap.set("n", "<leader>sd", builtin.diagnostics, { desc = "[S]earch [D]iagnostics" })
-		vim.keymap.set("n", "<leader>sr", builtin.resume, { desc = "[S]earch [R]esume" })
-		vim.keymap.set("n", "<leader>so", builtin.oldfiles, { desc = "[S]earch [O]ldfiles" })
-		vim.keymap.set("n", "<leader>sds", function()
-			builtin.lsp_document_symbols({
-				symbols = { "Class", "Function", "Method", "Constructor", "Interface", "Module", "Property" },
-			})
-		end, { desc = "[S]each LSP document [S]ymbols" })
-		vim.keymap.set("n", "<leader>s/", function()
-			builtin.live_grep({
-				grep_open_files = true,
-				prompt_title = "Live Grep in Open Files",
-			})
-		end, { desc = "[S]earch [/] in Open Files" })
-		vim.keymap.set("n", "<leader>/", function()
-			-- You can pass additional configuration to telescope to change theme, layout, etc.
-			builtin.current_buffer_fuzzy_find(require("telescope.themes").get_dropdown({
-				previewer = false,
-			}))
-		end, { desc = "[/] Fuzzily search in current buffer" })
-		vim.keymap.set({ "n", "v" }, "<leader>gr", function()
-			vim.ui.input({ prompt = "Search for: " }, function(search)
-				if not search or search == "" then
-					return
-				end
-				vim.ui.input({ prompt = "Replace with: " }, function(replace)
-					if replace == nil then
-						return
-					end
-					-- Apply replacement to current buffer
-					local cmd = string.format("%%s/%s/%s/g", search, replace)
-					local success, err = pcall(vim.cmd, cmd)
-					if success then
-						print(string.format("Replaced '%s' with '%s'", search, replace))
-					else
-						print("Error: " .. err)
-					end
-				end)
-			end)
-		end, { desc = "[G]o Search and [R]eplace" })
+		-- vim.keymap.set("n", "<leader>sb", function()
+		-- 	require("telescope.builtin").buffers(require("telescope.themes").get_dropdown({
+		-- 		previewer = false,
+		-- 		initial_mode = "insert",
+		-- 	}))
+		-- end, { desc = "Search Buffers" })
+		-- vim.keymap.set("n", "<leader>,", function()
+		-- 	require("telescope.builtin").buffers(require("telescope.themes").get_dropdown({
+		-- 		previewer = false,
+		-- 		initial_mode = "insert",
+		-- 	}))
+		-- end, { desc = "Search Buffers" })
+		-- vim.keymap.set("n", "<leader><tab>", builtin.buffers, { desc = "[S]earch existing [B]uffers" })
+		-- -- vim.keymap.set("n", "<leader><leader>", builtin.find_files, { desc = "[ ] Find Files" })
+		-- vim.keymap.set("n", "<leader>sm", builtin.marks, { desc = "[S]earch [M]arks" })
+		-- vim.keymap.set("n", "<leader>gf", builtin.git_files, { desc = "Search [G]it [F]iles" })
+		-- vim.keymap.set("n", "<leader>gc", builtin.git_commits, { desc = "Search [G]it [C]ommits" })
+		-- vim.keymap.set("n", "<leader>gcf", builtin.git_bcommits, { desc = "Search [G]it [C]ommits for current [F]ile" })
+		-- vim.keymap.set("n", "<leader>gb", builtin.git_branches, { desc = "Search [G]it [B]ranches" })
+		-- vim.keymap.set("n", "<leader>sgs", builtin.git_status, { desc = "[S]earch [G]it [S]tatus (diff view)" })
+		-- vim.keymap.set("n", "<leader>sf", builtin.find_files, { desc = "[S]earch [F]iles" })
+		-- vim.keymap.set("n", "<leader>sh", builtin.help_tags, { desc = "[S]earch [H]elp" })
+		-- vim.keymap.set("n", "<leader>sw", builtin.grep_string, { desc = "[S]earch current [W]ord" })
+		-- vim.keymap.set("n", "<leader>sg", builtin.live_grep, { desc = "[S]earch by [G]rep" })
+		-- vim.keymap.set("n", "<leader>sd", builtin.diagnostics, { desc = "[S]earch [D]iagnostics" })
+		-- vim.keymap.set("n", "<leader>sr", builtin.resume, { desc = "[S]earch [R]esume" })
+		-- -- vim.keymap.set("n", "<leader>so", builtin.oldfiles, { desc = "[S]earch [O]ldfiles" })
+		-- vim.keymap.set("n", "<leader>sds", function()
+		-- 	builtin.lsp_document_symbols({
+		-- 		symbols = { "Class", "Function", "Method", "Constructor", "Interface", "Module", "Property" },
+		-- 	})
+		-- end, { desc = "[S]each LSP document [S]ymbols" })
+		-- vim.keymap.set("n", "<leader>s/", function()
+		-- 	builtin.live_grep({
+		-- 		grep_open_files = true,
+		-- 		prompt_title = "Live Grep in Open Files",
+		-- 	})
+		-- end, { desc = "[S]earch [/] in Open Files" })
+		-- vim.keymap.set("n", "<leader>/", function()
+		-- 	-- You can pass additional configuration to telescope to change theme, layout, etc.
+		-- 	builtin.current_buffer_fuzzy_find(require("telescope.themes").get_dropdown({
+		-- 		previewer = false,
+		-- 	}))
+		-- end, { desc = "[/] Fuzzily search in current buffer" })
+		-- vim.keymap.set({ "n", "v" }, "<leader>gr", function()
+		-- 	vim.ui.input({ prompt = "Search for: " }, function(search)
+		-- 		if not search or search == "" then
+		-- 			return
+		-- 		end
+		-- 		vim.ui.input({ prompt = "Replace with: " }, function(replace)
+		-- 			if replace == nil then
+		-- 				return
+		-- 			end
+		-- 			-- Apply replacement to current buffer
+		-- 			local cmd = string.format("%%s/%s/%s/g", search, replace)
+		-- 			local success, err = pcall(vim.cmd, cmd)
+		-- 			if success then
+		-- 				print(string.format("Replaced '%s' with '%s'", search, replace))
+		-- 			else
+		-- 				print("Error: " .. err)
+		-- 			end
+		-- 		end)
+		-- 	end)
+		-- end, { desc = "[G]o Search and [R]eplace" })
 	end,
 }
