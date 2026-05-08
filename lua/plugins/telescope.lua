@@ -92,7 +92,19 @@ return {
 		pcall(require("telescope").load_extension, "fzf")
 		pcall(require("telescope").load_extension, "ui-select")
 
-		vim.keymap.set("n", "<leader>sb", builtin.buffers, { desc = "[S]earch existing [B]uffers" })
+		-- vim.keymap.set("n", "<leader>sb", builtin.buffers, { desc = "[S]earch existing [B]uffers" })
+		vim.keymap.set("n", "<leader>sb", function()
+			require("telescope.builtin").buffers(require("telescope.themes").get_dropdown({
+				previewer = false,
+				initial_mode = "insert",
+			}))
+		end, { desc = "Search Buffers" })
+		vim.keymap.set("n", "<leader>,", function()
+			require("telescope.builtin").buffers(require("telescope.themes").get_dropdown({
+				previewer = false,
+				initial_mode = "insert",
+			}))
+		end, { desc = "Search Buffers" })
 		vim.keymap.set("n", "<leader><tab>", builtin.buffers, { desc = "[S]earch existing [B]uffers" })
 		vim.keymap.set("n", "<leader><leader>", builtin.find_files, { desc = "[ ] Find Files" })
 		vim.keymap.set("n", "<leader>sm", builtin.marks, { desc = "[S]earch [M]arks" })
