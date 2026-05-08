@@ -30,6 +30,7 @@ vim.o.splitbelow = true -- force all horizontal splits to go below current windo
 vim.o.splitright = true -- force all vertical splits to go to the right of current window
 vim.o.swapfile = false -- creates a swapfile
 vim.opt.laststatus = 3 -- global statusline
+vim.opt.splitkeep = "screen"
 vim.o.smartindent = true -- make indenting smarter again
 vim.o.showmode = false -- we don't need to see things like -- INSERT -- anymore
 vim.o.showtabline = 1 -- show if there are at least two tabs
