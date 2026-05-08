@@ -14,7 +14,7 @@ Note: This config contains some configuration from other open-source git reposit
 - **blink-cmp** for autocompletion
 - **Built-in LSP configurations** (Lua, Python, C/C++, JSON, YAML, Bash, Docker, etc.)
 - **Treesitter** for advanced syntax highlighting
-- **Telescope** for fuzzy finding files, symbols, and references
+- **Snacks Picker** for fuzzy finding files, symbols, and references
 - Git integration (`gitsigns.lua`) and commenting utilities (`comment.lua`)
 
 ---
@@ -371,7 +371,7 @@ nvim filename
 | Toggle terminal              | `<ctrl>\`         |
 | Open neotree                 | `<leader>e`       |
 
-Telescope Keybinds
+Picker Keybinds
 
 | Action             | Keymap                    |
 | ------------------ | ------------------------- |
