@@ -259,15 +259,16 @@ Run inside Neovim:
 :Lazy sync
 ```
 
-### 5. Setup Copilot Autocomplete (Optional)
+### 5. Setup supermaven (Optional)
 
+To setup supermaven for free,
 Command:
 
 ```
-:Copilot Setup
+:SupermavenUseFree
 ```
 
-If you don't want to use Copilot autocomplete, you can delete `copilot` in the `plugins/blink.lua > return > opts > sources > default` table.
+If you don't want to use Supermaven autocomplete, you can disable the spec in the `init.lua` file.
 
 ### 6. Delete `lazy-lock.json` (Optional)
 
@@ -311,15 +312,16 @@ Inside Neovim:
 :Lazy sync
 ```
 
-### 5. Setup Copilot Autocomplete (Optional)
+### 5. Setup supermaven (Optional)
 
+To setup supermaven for free,
 Command:
 
 ```
-:Copilot Setup
+:SupermavenUseFree
 ```
 
-If you don't want to use Copilot autocomplete, you can delete `copilot` in the `plugins/blink.lua > return > opts > sources > default` table.
+If you don't want to use Supermaven autocomplete, you can disable the spec in the `init.lua` file.
 
 ### 6. Delete `lazy-lock.json` (Optional)
 
@@ -343,33 +345,34 @@ nvim filename
 - Default leader key: `SPACE`
 - Common keymaps:
 
-| Action                       | Keymap            |
-| ---------------------------- | ----------------- |
-| Close nvim                   | `<leader>qq`      |
-| Close buffer (Terminal mode) | `<ctrl>q`         |
-| Save file                    | `<ctrl>s`         |
-| Save file without formatting | `<leader>sn`      |
-| Show all keymaps             | `<leader>lm`      |
-| Go to definition             | `gd`              |
-| Find references              | `gr`              |
-| Rename symbol                | `<leader>rn`      |
-| Execute code in file         | `<leader>r`       |
-| Fuzzy find workspace symbols | `<leader>ws`      |
-| Accept autocomplete          | `<ctrl>y` / `tab` |
-| Accept AI autocomplete       | `<ctrl>g`         |
-| Persistent theme selector    | `<leader>sth`     |
-| Open diagnostics list        | `<leader>q`       |
-| View diagnostics             | `<leader>d`       |
-| Open git status menu         | `<leader>gs`      |
-| Toggle keystroke overlay     | `<leader>sk`      |
-| Open mini.files              | `-`               |
-| Start mini.jump2d jumping    | `<leader>j`       |
-| Start flash jumping          | `zk` / `Enter`    |
-| Split horizontally           | `<leader>wh`      |
-| Split vertically             | `<leader>wv`      |
-| Toggle opencode              | `<F4>`            |
-| Toggle terminal              | `<ctrl>\`         |
-| Open neotree                 | `<leader>e`       |
+| Action                                  | Keymap            |
+| --------------------------------------- | ----------------- |
+| Close nvim                              | `<leader>qq`      |
+| Close buffer (Terminal mode)            | `<ctrl>q`         |
+| Legendary (VSCode like command pallete) | `<ctrl>p`         |
+| Save file                               | `<ctrl>s`         |
+| Save file without formatting            | `<leader>sn`      |
+| Show all keymaps                        | `<leader>lm`      |
+| Go to definition                        | `gd`              |
+| Find references                         | `gr`              |
+| Rename symbol                           | `<leader>rn`      |
+| Execute code in file                    | `<leader>r`       |
+| Fuzzy find workspace symbols            | `<leader>ws`      |
+| Accept autocomplete                     | `<ctrl>y` / `tab` |
+| Accept AI autocomplete                  | `<ctrl>g`         |
+| Persistent theme selector               | `<leader>sth`     |
+| Open diagnostics list                   | `<leader>q`       |
+| View diagnostics                        | `<leader>d`       |
+| Open git status menu                    | `<leader>gs`      |
+| Toggle keystroke overlay                | `<leader>sk`      |
+| Open mini.files                         | `-`               |
+| Start mini.jump2d jumping               | `<leader>j`       |
+| Start flash jumping                     | `zk` / `Enter`    |
+| Split horizontally                      | `<leader>wh`      |
+| Split vertically                        | `<leader>wv`      |
+| Toggle opencode                         | `<F4>`            |
+| Toggle terminal                         | `<ctrl>\`         |
+| Open neotree                            | `<leader>e`       |
 
 Picker Keybinds
 
