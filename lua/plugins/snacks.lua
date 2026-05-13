@@ -4,15 +4,14 @@ return {
 	lazy = false,
 	---@type snacks.Config
 	opts = {
-		-- scroll = { enabled = true },
 		bufdelete = { enabled = true },
 		-- animate = { enabled = true },
 		debug = { enabled = true },
 		quickfile = { enabled = true },
-		zen = { enabled = true },
+		-- zen = { enabled = true },
 		picker = { enabled = true },
-		layout = { enabled = true },
-		lazygit = { enabled = true },
+		-- layout = { enabled = true },
+		-- lazygit = { enabled = true },
 		notifier = { enabled = true, timeout = 4200 },
 		indent = { enabled = true },
 		bigfile = { enabled = true },
@@ -23,13 +22,13 @@ return {
 	},
 	keys = {
 		-- Zen Mode: Focus on code
-		{
-			"<leader>z",
-			function()
-				Snacks.zen()
-			end,
-			desc = "Toggle Zen Mode",
-		},
+		-- {
+		-- 	"<leader>z",
+		-- 	function()
+		-- 		Snacks.zen()
+		-- 	end,
+		-- 	desc = "Toggle Zen Mode",
+		-- },
 		-- Debug: Inspect variables/state
 		{
 			"<leader>nd",
@@ -160,7 +159,7 @@ return {
 			desc = "[F]ind [G]it",
 		},
 		{
-			"<leader>gc",
+			"<leader>gcc",
 			function()
 				Snacks.picker.git_log({ layout = "default" })
 			end,
@@ -231,6 +230,20 @@ return {
 			end,
 			desc = "Search Resume",
 		},
+		{
+			'<leader>"',
+			function()
+				Snacks.picker.registers({ layout = "default" })
+			end,
+			desc = "Search Register",
+		},
+		{
+			"<leader>sx",
+			function()
+				Snacks.picker.registers({ layout = "default" })
+			end,
+			desc = "Search Register",
+		},
 
 		-- UI / Theme
 		{
@@ -274,18 +287,13 @@ return {
 		},
 
 		-- LSP Symbols
-		{
-			"<leader>sds",
-			function()
-				Snacks.picker.lsp_symbols({
-					layout = "default",
-					filter = {
-						default = { "Class", "Function", "Method", "Constructor", "Interface", "Module", "Property" },
-					},
-				})
-			end,
-			desc = "Search LSP document Symbols",
-		},
+		-- {
+		-- 	"<leader>sds",
+		-- 	function()
+		-- 		Snacks.picker.lsp_symbols()
+		-- 	end,
+		-- 	desc = "Search LSP document Symbols",
+		-- },
 
 		-- Search and Replace
 		{
@@ -339,7 +347,7 @@ return {
 			desc = "Search Colorschemes",
 		},
 		{
-			"<leader>lm",
+			"<leader>sk",
 			function()
 				Snacks.picker.keymaps({ layout = "default" })
 			end,
