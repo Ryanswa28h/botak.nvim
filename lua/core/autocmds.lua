@@ -84,18 +84,18 @@ vim.api.nvim_create_autocmd({ "WinLeave", "BufLeave" }, {
 	end,
 })
 
-local neotree = false
+-- local neotree = false
 vim.api.nvim_create_autocmd("VimEnter", {
 	once = true,
 	callback = function(data)
-		-- vim.cmd("ShowkeysToggle") -- Enable showkeys on startup
-		if vim.fn.isdirectory(data.file) == 1 then
-			if neotree then
-				vim.cmd("cd " .. data.file)
-				require("lazy").load({ plugins = { "neo-tree.nvim" } })
-				vim.cmd("Neotree reveal position=left")
-			end
-		end
+		vim.cmd("ShowkeysToggle") -- Enable showkeys on startup
+		-- if vim.fn.isdirectory(data.file) == 1 then
+		-- 	if neotree then
+		-- 		vim.cmd("cd " .. data.file)
+		-- 		require("lazy").load({ plugins = { "neo-tree.nvim" } })
+		-- 		vim.cmd("Neotree reveal position=left")
+		-- 	end
+		-- end
 	end,
 })
 
