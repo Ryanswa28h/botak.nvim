@@ -3,6 +3,7 @@ return {
 	{
 		-- autoclose tags
 		"windwp/nvim-ts-autotag",
+		event = "InsertEnter",
 		config = true,
 	},
 	{
@@ -45,20 +46,35 @@ return {
 		opts = { signs = true },
 	},
 	{
-		-- high-performance color highlighter
-		"norcalli/nvim-colorizer.lua",
+		"catgoose/nvim-colorizer.lua",
+		event = "BufReadPre",
 		config = function()
-			require("colorizer").setup(_, {
-				DEFAULT_OPTIONS = {
-					RGB = true,
-					RRGGBB = true,
-					names = true,
-					RRGGBBAA = false,
-					rgb_fn = false,
-					hsl_fn = false,
-					css = false,
-					css_fn = false,
-					mode = "background",
+			require("colorizer").setup({ "*" })
+		end,
+	},
+	{
+		"max397574/better-escape.nvim",
+		event = "InsertEnter",
+		config = function()
+			require("better_escape").setup({
+				timeout = 200, -- time in ms to complete the sequence
+				mappings = {
+					i = { -- Insert mode
+						j = {
+							k = "<Esc>", -- jk
+						},
+						k = {
+							j = "<Esc>", -- kj
+						},
+					},
+					c = { -- Command mode
+						j = { k = "<Esc>" },
+						k = { j = "<Esc>" },
+					},
+					t = { -- Terminal mode
+						j = { k = "<C-\\><C-n>" },
+						k = { j = "<C-\\><C-n>" },
+					},
 				},
 			})
 		end,
@@ -74,6 +90,7 @@ return {
 	-- },
 	{
 		"SmiteshP/nvim-navic",
+		event = { "BufReadPost", "BufNewFile" },
 		dependencies = "neovim/nvim-lspconfig",
 		opts = {
 			lsp = {
@@ -186,6 +203,7 @@ return {
 	},
 	{
 		"vidocqh/data-viewer.nvim",
+		ft = { "csv", "tsv", "sqlite" },
 		opts = {},
 		dependencies = {
 			"nvim-lua/plenary.nvim",
@@ -232,6 +250,7 @@ return {
 	},
 	{
 		"karb94/neoscroll.nvim",
+		enabled = false,
 		event = "WinScrolled", -- or "VeryLazy"
 		config = function()
 			local neoscroll = require("neoscroll")
@@ -256,4 +275,64 @@ return {
 			end
 		end,
 	},
+	-- { "folke/drop.nvim" },
+	{ "Vimjas/vim-python-pep8-indent", ft = "python" },
+	{
+		"mrjones2014/legendary.nvim",
+		event = "VeryLazy",
+		keys = {
+			{ "<C-p>", "<cmd>Legendary<CR>", desc = "Search Commands & Keys", nowait = true },
+		},
+		opts = {
+			-- 1. Tell it to grab everything you've already defined
+			include_builtin = true,
+
+			-- 2. This is the key: it hooks into which-key and your existing maps
+			extensions = {
+				which_key = { auto_register = true },
+				lazy_nvim = true, -- Let's you search plugin commands
+			},
+
+			-- 3. Scrub out any default legendary bindings you don't want
+			default_itemgroups = false,
+			default_keymaps = false,
+		},
+	},
+	{
+		"MeanderingProgrammer/render-markdown.nvim",
+		dependencies = { "nvim-treesitter/nvim-treesitter", "nvim-tree/nvim-web-devicons" },
+		ft = { "markdown", "Avante" },
+		opts = {
+			heading = {
+				icons = { "󰲡 ", "󰲣 ", "󰲥 ", "󰲧 ", "󰲩 ", "󰲫 " },
+			},
+			code = {
+				sign = false,
+				width = "block",
+				right_pad = 1,
+			},
+			checkbox = {
+				enabled = true,
+			},
+		},
+	},
+	-- {
+	-- 	"m4xshen/hardtime.nvim",
+	-- 	lazy = false,
+	-- 	dependencies = { "MunifTanjim/nui.nvim" },
+	-- 	opts = {},
+	-- },
+	-- {
+	-- 	"utilyre/barbecue.nvim",
+	-- 	name = "barbecue",
+	-- 	version = "*",
+	-- 	dependencies = {
+	-- 		"SmiteshP/nvim-navic",
+	-- 		"nvim-tree/nvim-web-devicons", -- or your mini.icons mock
+	-- 	},
+	-- 	opts = {
+	-- 		-- configurations go here
+	-- 		show_modified = true, -- shows a dot if the file is unsaved
+	-- 	},
+	-- },
 }
