@@ -39,7 +39,7 @@ return {
 		"ibhagwan/fzf-lua", -- for file_selector provider fzf
 		"stevearc/dressing.nvim", -- for input provider dressing
 		"folke/snacks.nvim", -- for input provider snacks
-		"nvim-tree/nvim-web-devicons", -- or echasnovski/mini.icons
+		"nvim-tree/nvim-web-devicons", -- or nvim-mini/mini.icons
 		"zbirenbaum/copilot.lua", -- for providers='copilot'
 		{
 			"HakonHarnes/img-clip.nvim",
