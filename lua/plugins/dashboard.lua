@@ -145,7 +145,7 @@ return {
 	},
 	keys = {
 		{
-			"<leader>ss",
+			"<leader>od",
 			function()
 				Snacks.dashboard.open()
 			end,
