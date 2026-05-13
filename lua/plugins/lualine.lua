@@ -37,6 +37,7 @@ force_navic_colors()
 
 return {
 	"nvim-lualine/lualine.nvim",
+	event = "VeryLazy",
 	config = function()
 		local colors = {
 			blue = "#61afef",
@@ -123,6 +124,7 @@ return {
 
 		require("lualine").setup({
 			options = {
+				globalstatus = true,
 				icons_enabled = true,
 				theme = themes[env_var_nvim_theme], -- Set theme based on environment variable
 				-- Some useful glyphs:

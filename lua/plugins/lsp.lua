@@ -85,9 +85,9 @@ return {
 				vim.keymap.set("n", "gy", function()
 					Snacks.picker.lsp_type_definitions()
 				end, { desc = "Goto T[y]pe Definition", buffer = bufnr })
-				vim.keymap.set("n", "<leader>ss", function()
-					Snacks.picker.lsp_symbols()
-				end, { desc = "LSP Symbols", buffer = bufnr })
+				-- vim.keymap.set("n", "<leader>ss", function()
+				-- 	Snacks.picker.lsp_symbols()
+				-- end, { desc = "LSP Symbols", buffer = bufnr })
 
 				-- WARN: This is not Goto Definition, this is Goto Declaration.
 				--  For example, in C this would take you to the header
