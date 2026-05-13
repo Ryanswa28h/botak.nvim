@@ -1,101 +1,59 @@
+local open_mini_files = function()
+	local buf_name = vim.api.nvim_buf_get_name(0)
+	local path = vim.fs.dirname(buf_name)
+
+	-- If path is nil/empty or it's a special buffer, use home directory
+	if path == nil or path == "." or path == "" then
+		path = vim.uv.os_homedir()
+	end
+
+	require("mini.files").open(path)
+end
+
 return {
-	"nvim-mini/mini.nvim",
-	version = false,
-	lazy = false,
-	priority = 1001,
-	config = function()
-		require("mini.icons").setup()
-		require("mini.ai").setup()
-		require("mini.surround").setup()
-		require("mini.bracketed").setup()
-		require("mini.clue").setup()
-		-- require("mini.indentscope").setup({
-		-- 	draw = {
-		-- 		predicate = function()
-		-- 			local exclude = {
-		-- 				"snacks_dashboard",
-		-- 				"opencode_terminal",
-		-- 				"toggleterm",
-		-- 				"lazy",
-		-- 				"Floaterm",
-		-- 			}
-		-- 			return not vim.tbl_contains(exclude, vim.bo.filetype)
-		-- 		end,
-		-- 	},
-		-- 	options = {
-		-- 		exclude_filetypes = {
-		-- 			"help",
-		-- 			"alpha",
-		-- 			"dashboard",
-		-- 			"neo-tree",
-		-- 			"Trouble",
-		-- 			"lazy",
-		-- 			"mason",
-		-- 			"snacks_dashboard",
-		-- 		},
-		-- 	},
-		-- })
-		require("mini.bufremove").setup()
-		require("mini.move").setup()
-		require("mini.operators").setup()
-		-- require("mini.jump").setup()
-		require("mini.visits").setup()
+	-- 1. Mini Icons (Load early for UI)
+	{
+		"nvim-mini/mini.icons",
+		lazy = true,
+		opts = {},
+		config = function(_, opts)
+			require("mini.icons").setup(opts)
+			MiniIcons.mock_nvim_web_devicons()
+		end,
+	},
 
-		require("mini.files").setup({
-			windows = {
-				preview = true,
-				width_preview = 65,
-			},
-			options = {
-				use_as_default_explorer = false,
-			},
-			mappings = {
-				-- Disable marks inside of mini.files
-				mark_goto = "",
-				mark_set = "",
-			},
-		})
+	-- 2. Mini Ai & Surround (Load on text objects/editing)
+	{ "nvim-mini/mini.ai", event = "VeryLazy", opts = {} },
+	{ "nvim-mini/mini.surround", event = "VeryLazy", opts = {} },
 
-		local jump2d = require("mini.jump2d")
-		jump2d.setup({
-			allowed_lines = { blank = false, cursor_before = true, cursor_after = true },
-			allowed_windows = { current = true, not_current = true },
-			mappings = {
-				start_jumping = "<leader>j",
+	-- 3. Mini Move & Operators
+	{ "nvim-mini/mini.move", event = "VeryLazy", opts = {} },
+	{ "nvim-mini/mini.operators", event = "VeryLazy", opts = {} },
+
+	-- 4. Mini Bracketed
+	{ "nvim-mini/mini.bracketed", event = "VeryLazy", opts = {} },
+
+	-- 5. Mini Files (Load only on keypress)
+	{
+		"nvim-mini/mini.files",
+		lazy = false,
+		keys = {
+			{
+				"-",
+				open_mini_files,
+				desc = "Open MiniFiles at Current Buffer",
 			},
-			view = {
-				dim = false,
+			{
+				"<leader>E",
+				function()
+					require("mini.files").open()
+				end,
+				desc = "Open MiniFiles",
 			},
-			spotlight = { enabled = true },
-		})
-
-		-- Hijack nvim-web-devicons
-		MiniIcons.mock_nvim_web_devicons()
-
-		-- Keymaps: mini.visits
-		local visits = require("mini.visits")
-		vim.keymap.set("n", "<leader>vr", function()
-			visits.select_path()
-		end, { desc = "Recent Files (Smart)" })
-		vim.keymap.set("n", "<leader>va", function()
-			visits.add_label()
-		end, { desc = "Add Visit Label" })
-		vim.keymap.set("n", "<leader>vl", function()
-			visits.select_label()
-		end, { desc = "Select Visit Label" })
-		vim.keymap.set("n", "<leader>vd", function()
-			visits.remove_label()
-		end, { desc = "Remove Visit Label" })
-		-- Keymaps: mini.jump2d
-		vim.keymap.set("n", "<leader>L", function()
-			jump2d.start(jump2d.builtin_opts.line_start)
-		end, { desc = "Jump to Line Start" })
-
-		local open_mini_files = function()
-			require("mini.files").open()
-		end
-		vim.keymap.set("n", "-", open_mini_files, { desc = "Open MiniFiles" })
-		vim.keymap.set("n", "<leader>E", open_mini_files, { desc = "Open MiniFiles" })
-		vim.keymap.set("n", "<leader>fm", open_mini_files, { desc = "Open MiniFiles" })
-	end,
+		},
+		opts = {
+			windows = { preview = true, width_preview = 65 },
+			options = { use_as_default_explorer = true },
+		},
+	},
 }
