@@ -1,6 +1,7 @@
 return {
 	{
 		"kevinhwang91/nvim-ufo",
+		event = "VeryLazy",
 		dependencies = "kevinhwang91/promise-async",
 		config = function()
 			-- UFO needs a large foldlevel to start with everything open
@@ -18,16 +19,17 @@ return {
 			})
 		end,
 	},
-	{
-		"chrisgrieser/nvim-origami",
-		version = "v1.9",
-		event = "BufReadPost",
-		opts = {
-			pauseFoldsOnSearch = true,
-		},
-	},
+	-- {
+	-- 	"chrisgrieser/nvim-origami",
+	-- 	version = "v1.9",
+	-- 	event = "BufReadPost",
+	-- 	opts = {
+	-- 		pauseFoldsOnSearch = true,
+	-- 	},
+	-- },
 	{
 		"jghauser/fold-cycle.nvim",
+		event = "VeryLazy",
 		opts = {},
 		init = function()
 			vim.keymap.set("n", "zr", function()
