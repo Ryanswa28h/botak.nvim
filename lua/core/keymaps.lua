@@ -137,7 +137,7 @@ vim.keymap.set("t", "<C-k>", [[<Cmd>wincmd k<CR>]], opts)
 vim.keymap.set("t", "<C-l>", [[<Cmd>wincmd l<CR>]], opts)
 
 -- Tabs
-vim.keymap.set("n", "<leader>to", ":tabnew<CR>", opts) -- open new tab
+vim.keymap.set("n", "<leader>bn", ":tabnew<CR>", opts) -- open new tab
 vim.keymap.set("n", "<leader>tx", ":tabclose<CR>", opts) -- close current tab
 vim.keymap.set("n", "<leader>tn", ":tabn<CR>", opts) --  go to next tab
 vim.keymap.set("n", "<leader>tp", ":tabp<CR>", opts) --  go to previous tab
@@ -228,7 +228,7 @@ vim.keymap.set("n", "K", function()
 end, { desc = "LSP hover documentation" })
 
 -- Showkeys
-vim.keymap.set("n", "<leader>sk", "<cmd>ShowkeysToggle<CR>", { desc = "Toggle Showkeys" })
+vim.keymap.set("n", "<leader>lm", "<cmd>ShowkeysToggle<CR>", { desc = "Toggle Showkeys" })
 
 -- Terminal
 vim.keymap.set({ "n", "t", "v" }, "<C-\\>", "<Cmd>FloatermToggle<CR>", { desc = "Toggle Terminal" })
