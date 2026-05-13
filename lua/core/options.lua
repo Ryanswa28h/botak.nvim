@@ -59,8 +59,8 @@ vim.diagnostic.config({
 	-- 	source = "if_many",
 	-- 	prefix = "●",
 	-- },
-	virtual_text = false,
-	virtual_lines = true,
+	virtual_text = true,
+	virtual_lines = false,
 	float = {
 		source = "always",
 	},
