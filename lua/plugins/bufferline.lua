@@ -4,6 +4,7 @@ return {
 		"moll/vim-bbye",
 		"nvim-tree/nvim-web-devicons",
 	},
+	event = "VeryLazy",
 	config = function()
 		require("bufferline").setup({
 			options = {
@@ -110,24 +111,24 @@ return {
 		-- Keymaps
 		local opts = { noremap = true, silent = true, desc = "Go to Buffer" }
 		-- Use <leader><S-(1-9)> to go to buffer 1-9, respectively
-		vim.keymap.set("n", "<leader>!", "<cmd>lua require('bufferline').go_to_buffer(1)<CR>", opts)
-		vim.keymap.set("n", "<leader>@", "<cmd>lua require('bufferline').go_to_buffer(2)<CR>", opts)
-		vim.keymap.set("n", "<leader>#", "<cmd>lua require('bufferline').go_to_buffer(3)<CR>", opts)
-		vim.keymap.set("n", "<leader>$", "<cmd>lua require('bufferline').go_to_buffer(4)<CR>", opts)
-		vim.keymap.set("n", "<leader>%", "<cmd>lua require('bufferline').go_to_buffer(5)<CR>", opts)
-		vim.keymap.set("n", "<leader>^", "<cmd>lua require('bufferline').go_to_buffer(6)<CR>", opts)
-		vim.keymap.set("n", "<leader>&", "<cmd>lua require('bufferline').go_to_buffer(7)<CR>", opts)
-		vim.keymap.set("n", "<leader>*", "<cmd>lua require('bufferline').go_to_buffer(8)<CR>", opts)
-		vim.keymap.set("n", "<leader>(", "<cmd>lua require('bufferline').go_to_buffer(9)<CR>", opts)
-		-- vim.keymap.set("n", "<leader>1", "<cmd>lua require('bufferline').go_to_buffer(1)<CR>", opts)
-		-- vim.keymap.set("n", "<leader>2", "<cmd>lua require('bufferline').go_to_buffer(2)<CR>", opts)
-		-- vim.keymap.set("n", "<leader>3", "<cmd>lua require('bufferline').go_to_buffer(3)<CR>", opts)
-		-- vim.keymap.set("n", "<leader>4", "<cmd>lua require('bufferline').go_to_buffer(4)<CR>", opts)
-		-- vim.keymap.set("n", "<leader>5", "<cmd>lua require('bufferline').go_to_buffer(5)<CR>", opts)
-		-- vim.keymap.set("n", "<leader>6", "<cmd>lua require('bufferline').go_to_buffer(6)<CR>", opts)
-		-- vim.keymap.set("n", "<leader>7", "<cmd>lua require('bufferline').go_to_buffer(7)<CR>", opts)
-		-- vim.keymap.set("n", "<leader>8", "<cmd>lua require('bufferline').go_to_buffer(8)<CR>", opts)
-		-- vim.keymap.set("n", "<leader>9", "<cmd>lua require('bufferline').go_to_buffer(9)<CR>", opts)
+		-- vim.keymap.set("n", "<leader>!", "<cmd>lua require('bufferline').go_to_buffer(1)<CR>", opts)
+		-- vim.keymap.set("n", "<leader>@", "<cmd>lua require('bufferline').go_to_buffer(2)<CR>", opts)
+		-- vim.keymap.set("n", "<leader>#", "<cmd>lua require('bufferline').go_to_buffer(3)<CR>", opts)
+		-- vim.keymap.set("n", "<leader>$", "<cmd>lua require('bufferline').go_to_buffer(4)<CR>", opts)
+		-- vim.keymap.set("n", "<leader>%", "<cmd>lua require('bufferline').go_to_buffer(5)<CR>", opts)
+		-- vim.keymap.set("n", "<leader>^", "<cmd>lua require('bufferline').go_to_buffer(6)<CR>", opts)
+		-- vim.keymap.set("n", "<leader>&", "<cmd>lua require('bufferline').go_to_buffer(7)<CR>", opts)
+		-- vim.keymap.set("n", "<leader>*", "<cmd>lua require('bufferline').go_to_buffer(8)<CR>", opts)
+		-- vim.keymap.set("n", "<leader>(", "<cmd>lua require('bufferline').go_to_buffer(9)<CR>", opts)
+		vim.keymap.set("n", "<leader>1", "<cmd>lua require('bufferline').go_to_buffer(1)<CR>", opts)
+		vim.keymap.set("n", "<leader>2", "<cmd>lua require('bufferline').go_to_buffer(2)<CR>", opts)
+		vim.keymap.set("n", "<leader>3", "<cmd>lua require('bufferline').go_to_buffer(3)<CR>", opts)
+		vim.keymap.set("n", "<leader>4", "<cmd>lua require('bufferline').go_to_buffer(4)<CR>", opts)
+		vim.keymap.set("n", "<leader>5", "<cmd>lua require('bufferline').go_to_buffer(5)<CR>", opts)
+		vim.keymap.set("n", "<leader>6", "<cmd>lua require('bufferline').go_to_buffer(6)<CR>", opts)
+		vim.keymap.set("n", "<leader>7", "<cmd>lua require('bufferline').go_to_buffer(7)<CR>", opts)
+		vim.keymap.set("n", "<leader>8", "<cmd>lua require('bufferline').go_to_buffer(8)<CR>", opts)
+		vim.keymap.set("n", "<leader>9", "<cmd>lua require('bufferline').go_to_buffer(9)<CR>", opts)
 		vim.keymap.set("n", "<leader><cr>", "<cmd>BufferLinePick<CR>", opts)
 		vim.keymap.set("n", "<leader>bp", "<cmd>BufferLineTogglePin<CR>", opts)
 	end,
