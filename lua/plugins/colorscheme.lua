@@ -1,6 +1,9 @@
 local theme_cache = vim.fn.stdpath("data") .. "/last_theme.lua"
 
 local function save_state(theme, transparent)
+	if not theme or theme == "" or theme == "lazy" then
+		return
+	end
 	local file = io.open(theme_cache, "w")
 	if file then
 		file:write(string.format("return { theme = '%s', transparent = %s }", theme, tostring(transparent)))
@@ -10,7 +13,14 @@ end
 
 local function load_state()
 	local f = loadfile(theme_cache)
-	return f and f() or { theme = "onedark", transparent = false }
+	local ok, data = pcall(function()
+		return f and f()
+	end)
+	if ok and data then
+		return data
+	else
+		return { theme = "onedark", transparent = false }
+	end
 end
 
 local state = load_state()
@@ -70,6 +80,10 @@ local function finalize_theme()
 	pcall(vim.cmd.colorscheme, state.theme)
 end
 
+vim.schedule(function()
+	finalize_theme()
+end)
+
 return {
 	{
 		"navarasu/onedark.nvim",
@@ -82,7 +96,7 @@ return {
 		"folke/tokyonight.nvim",
 		lazy = false,
 		priority = 1000,
-		enabled = true, -- Toggle this
+		enabled = false, -- Toggle this
 		config = finalize_theme,
 	},
 	{
