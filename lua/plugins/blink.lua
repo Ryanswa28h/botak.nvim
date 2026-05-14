@@ -1,11 +1,3 @@
-local set_hl = vim.api.nvim_set_hl
-
-set_hl(0, "BlinkCmpSourceCopilot", { fg = "#6CC644", italic = true })
-set_hl(0, "BlinkCmpSourceLsp", { fg = "#7AA2F7", bold = true })
-set_hl(0, "BlinkCmpSourceSnippets", { fg = "#f38ba8" })
-set_hl(0, "BlinkCmpSourceBuffer", { fg = "#9ECE6A" })
-set_hl(0, "BlinkCmpSourcePath", { fg = "#E0AF68" })
-
 return {
 	"saghen/blink.cmp",
 	lazy = false,

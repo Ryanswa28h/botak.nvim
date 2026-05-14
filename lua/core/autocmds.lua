@@ -46,6 +46,26 @@ vim.api.nvim_create_autocmd("BufReadPost", {
 	end,
 })
 
+-- Colorscheme loaded autocmd
+vim.api.nvim_create_autocmd("ColorScheme", {
+	pattern = "*",
+	callback = function()
+		-- Set blinkcmp colors
+		local set_hl = vim.api.nvim_set_hl
+		set_hl(0, "BlinkCmpSourceCopilot", { fg = "#6CC644", italic = true })
+		set_hl(0, "BlinkCmpSourceLsp", { fg = "#7AA2F7", bold = true })
+		set_hl(0, "BlinkCmpSourceSnippets", { fg = "#f38ba8" })
+		set_hl(0, "BlinkCmpSourceBuffer", { fg = "#9ECE6A" })
+		set_hl(0, "BlinkCmpSourcePath", { fg = "#E0AF68" })
+		-- Set fold color
+		vim.api.nvim_set_hl(0, "Folded", {
+			bg = "#363b45",
+			fg = "#6b7280",
+			italic = true,
+		})
+	end,
+})
+
 -- auto resize splits when the terminal's window is resized
 vim.api.nvim_create_autocmd("VimResized", {
 	command = "wincmd =",
