@@ -56,4 +56,21 @@ return {
 			options = { use_as_default_explorer = true },
 		},
 	},
+
+	-- 6. Mini Git
+	{
+		"nvim-mini/mini-git",
+		event = "VeryLazy",
+		version = false,
+		opts = {
+			job = { timeout = 5000 },
+		},
+		config = function(_, opts)
+			require("mini.git").setup(opts)
+		end,
+		keys = {
+			{ "<leader>g!", ":Git ", desc = "Git Command" },
+			{ "<leader>gh", "<cmd>lua MiniGit.show_at_cursor()<cr>", desc = "Git History (Cursor)" },
+		},
+	},
 }
