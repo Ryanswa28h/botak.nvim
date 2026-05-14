@@ -35,6 +35,9 @@ Before installing botak.nvim, make sure you have the following installed:
 - **fzf** (optional, for fuzzy searchin
 - **make** (optional, for building some plugins)
 
+> [!IMPORTANT]
+> Make sure your terminal is using a nerd font, otherwise icons will not display correctly.
+
 Optional LSPs and tools installed via Mason.nvim (`mason.lua`):
 
 - Lua: `lua-language-server`
@@ -339,7 +342,7 @@ As a result, you will get newer features at the price of stability.
 
 ## 🗿 Post-Installation
 
-### Add more plugins
+### Add More Plugins
 
 To add more plugins, you can add plugin specs to one of the subdirectories in `lua/plugins` (except `lua/plugins/disabled`).
 The `init.lua` file is already configured to load all plugins in the `lua/plugins` except `lua/plugins/disabled` directory.
@@ -355,12 +358,12 @@ return {
 }
 ```
 
-### Modfiy/add keybinds
+### Modify/Add Keybinds
 
 First, check if a keybind is already taken by using `:verbose map <key>`.
 If it is not taken, you can add a keymap to the `lua/core/keymaps.lua` file.
 
-### Remove plugins
+### Remove Plugins
 
 To remove a plugin, you can delete the plugin spec from one of the subdirectories in `lua/plugins`.
 Or if you want to preserve the spec, but disable it for now, either add the `disabled = true` flag to the spec or move the spec to `lua/plugins/unused`.
@@ -403,7 +406,7 @@ nvim filename
 | Toggle terminal                         | `<ctrl>\`         |
 | Open Snacks Explorer                    | `<leader>e`       |
 
-Picker Keybinds
+Picker Keybinds:
 
 | Action                  | Keymap                    |
 | ----------------------- | ------------------------- |
@@ -420,6 +423,9 @@ Picker Keybinds
 | Search registers        | `<leader>sx`              |
 
 _(Refer to `lua/core/keymaps.lua` and the `lua/plugins/` modules for full keymap and plugin details.)_
+
+> [!TIP]
+> You can use legendary.nvim (`<ctrl>p`) to search for commands and further explore keymaps.
 
 ---
 
