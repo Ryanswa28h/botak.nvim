@@ -36,7 +36,14 @@ vim.api.nvim_set_hl(0, "SnippetTabstop", { bg = "NONE", fg = "NONE" })
 
 require("lazy").setup({
 	spec = {
-		{ import = "plugins" },
+		{ import = "plugins.ai" },
+		{ import = "plugins.coding" },
+		{ import = "plugins.lsp" },
+		{ import = "plugins.editor" },
+		{ import = "plugins.git" },
+		{ import = "plugins.ui" },
+		{ import = "plugins.markdown" },
+		{ import = "plugins.data" },
 		{ import = "plugins.misc" },
 	},
 	performance = {

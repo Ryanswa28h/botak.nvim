@@ -337,9 +337,19 @@ As a result, you will get newer features at the price of stability.
 
 ### Add more plugins
 
-To add more plugins, simply add a plugin spec to either the `lua/plugins` or `lua/plugins/misc` directory.
-`lua/plugins/misc` is recommended for plugins that are less than 20 lines of code.
-The `init.lua` file is already configured to load all plugins in the `lua/plugins` or `lua/plugins/misc` directory.
+To add more plugins, you can add plugin specs to one of the subdirectories in `lua/plugins` (except `lua/plugins/disabled`).
+The `init.lua` file is already configured to load all plugins in the `lua/plugins` except `lua/plugins/disabled` directory.
+Example plugin spec:
+
+```lua
+return {
+    "nvim-treesitter/nvim-treesitter",
+    event = "BufRead",
+    config = function()
+        -- Config goes here
+    end,
+}
+```
 
 ### Modfiy/add keybinds
 
@@ -348,8 +358,8 @@ If it is not taken, you can add a keymap to the `lua/core/keymaps.lua` file.
 
 ### Remove plugins
 
-To remove a plugin, simply delete the plugin spec from the `lua/plugins` or `lua/plugins/misc` directory.
-Or if you want to preserve the spec, but disable it for now, either add the `disabled = true` flag to the spec or move the spec to `unused` or `unused/misc`.
+To remove a plugin, you can delete the plugin spec from one of the subdirectories in `lua/plugins`.
+Or if you want to preserve the spec, but disable it for now, either add the `disabled = true` flag to the spec or move the spec to `lua/plugins/unused`.
 
 ---
 
