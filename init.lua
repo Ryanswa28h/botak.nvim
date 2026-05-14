@@ -36,7 +36,7 @@ vim.api.nvim_set_hl(0, "SnippetTabstop", { bg = "NONE", fg = "NONE" })
 
 require("lazy").setup({
 	spec = {
-		{ import = "plugins.mininvim" },
+		{ import = "plugins.mini" },
 		{ import = "plugins.snacks" },
 		{ import = "plugins.colorscheme" },
 		{ import = "plugins.bufferline" }, -- NOTE: Disable if you're advanced enough with global marks, harpoon, telescope or other means of navigation
