@@ -6,6 +6,7 @@ return {
 	opts = {
 		bufdelete = { enabled = true },
 		-- animate = { enabled = true },
+		-- scroll = { enabled = true },
 		debug = { enabled = true },
 		quickfile = { enabled = true },
 		-- zen = { enabled = true },
@@ -84,9 +85,16 @@ return {
 			end,
 			desc = "Notification History",
 		},
+		{
+			"<leader>np",
+			function()
+				Snacks.picker.notifications()
+			end,
+			desc = "Notification History (Picker)",
+		},
 		-- Dismiss All Notifications
 		{
-			"<leader>nd",
+			"<leader>nn",
 			function()
 				Snacks.notifier.hide()
 			end,

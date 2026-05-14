@@ -26,9 +26,10 @@ return {
 	{ "nvim-mini/mini.ai", event = "VeryLazy", opts = {} },
 	{ "nvim-mini/mini.surround", event = "VeryLazy", opts = {} },
 
-	-- 3. Mini Move & Operators
+	-- 3. Mini Move, Pairs, Operators
 	{ "nvim-mini/mini.move", event = "VeryLazy", opts = {} },
 	{ "nvim-mini/mini.operators", event = "VeryLazy", opts = {} },
+	{ "nvim-mini/mini.pairs", event = "InsertEnter", opts = {} },
 
 	-- 4. Mini Bracketed
 	{ "nvim-mini/mini.bracketed", event = "VeryLazy", opts = {} },

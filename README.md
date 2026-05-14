@@ -333,6 +333,26 @@ As a result, you will get newer features at the price of stability.
 
 ---
 
+## 🗿 Post-Installation
+
+### Add more plugins
+
+To add more plugins, simply add a plugin spec to either the `lua/plugins` or `lua/plugins/misc` directory.
+`lua/plugins/misc` is recommended for plugins that are less than 20 lines of code.
+The `init.lua` file is already configured to load all plugins in the `lua/plugins` or `lua/plugins/misc` directory.
+
+### Modfiy/add keybinds
+
+First, check if a keybind is already taken by using `:verbose map <key>`.
+If it is not taken, you can add a keymap to the `lua/core/keymaps.lua` file.
+
+### Remove plugins
+
+To remove a plugin, simply delete the plugin spec from the `lua/plugins` or `lua/plugins/misc` directory.
+Or if you want to preserve the spec, but disable it for now, either add the `disabled = true` flag to the spec or move the spec to `unused` or `unused/misc`.
+
+---
+
 ## 🚀 Usage
 
 - Open files as usual:

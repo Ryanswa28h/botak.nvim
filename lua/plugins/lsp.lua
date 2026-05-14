@@ -76,7 +76,7 @@ return {
 				vim.keymap.set("n", "gd", function()
 					Snacks.picker.lsp_definitions()
 				end, { desc = "Goto Definition", buffer = bufnr })
-				vim.keymap.set("n", "gr", function()
+				vim.keymap.set("n", "<leader>gr", function()
 					Snacks.picker.lsp_references()
 				end, { desc = "References", buffer = bufnr, nowait = true })
 				vim.keymap.set("n", "gI", function()
