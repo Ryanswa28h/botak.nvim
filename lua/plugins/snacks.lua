@@ -9,7 +9,14 @@ return {
 		debug = { enabled = true },
 		quickfile = { enabled = true },
 		-- zen = { enabled = true },
-		picker = { enabled = true },
+		picker = {
+			enabled = true,
+			sources = {
+				explorer = {
+					trash = true,
+				},
+			},
+		},
 		-- layout = { enabled = true },
 		-- lazygit = { enabled = true },
 		notifier = { enabled = true, timeout = 4200 },
@@ -359,6 +366,13 @@ return {
 				Snacks.picker.projects({ layout = "default" })
 			end,
 			desc = "Projects",
+		},
+		{
+			"<leader>e",
+			function()
+				Snacks.picker.explorer()
+			end,
+			desc = "Snacks Explorer",
 		},
 	},
 }
