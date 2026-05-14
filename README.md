@@ -4,6 +4,7 @@
 
 A minimal and modern Neovim configuration focused on productivity, and minimalism.
 Designed for speed, ease of use, and out-of-the-box functionality with a curated plugin set.
+This isn't a neovim ditribution, which means it won't be auto updated. After installing, you'll have to manage the configuration yourself.
 
 Note: This config contains some configuration from other open-source git repositories.
 
