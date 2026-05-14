@@ -29,10 +29,6 @@ return {
 				placement = "window",
 			},
 
-			on_attach = function(bufnr)
-				vim.keymap.set("n", "<CR>", "<cmd>AerialClose<CR>", { buffer = bufnr })
-			end,
-
 			show_guides = true,
 			icons = {},
 		}
