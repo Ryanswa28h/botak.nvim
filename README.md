@@ -386,40 +386,38 @@ nvim filename
 | Legendary (VSCode like command pallete) | `<ctrl>p`         |
 | Save file                               | `<ctrl>s`         |
 | Save file without formatting            | `<leader>sn`      |
-| Show all keymaps                        | `<leader>lm`      |
+| Show all keymaps                        | `<leader>sk`      |
 | Go to definition                        | `gd`              |
-| Find references                         | `gr`              |
+| Find references                         | `<leader>gr`      |
 | Rename symbol                           | `<leader>rn`      |
 | Execute code in file                    | `<leader>r`       |
-| Fuzzy find workspace symbols            | `<leader>ws`      |
 | Accept autocomplete                     | `<ctrl>y` / `tab` |
 | Accept AI autocomplete                  | `<ctrl>g`         |
 | Persistent theme selector               | `<leader>sth`     |
-| Open diagnostics list                   | `<leader>q`       |
-| View diagnostics                        | `<leader>d`       |
 | Open git status menu                    | `<leader>gs`      |
-| Toggle keystroke overlay                | `<leader>sk`      |
+| Toggle keystroke overlay                | `<leader>lm`      |
 | Open mini.files                         | `-`               |
-| Start mini.jump2d jumping               | `<leader>j`       |
-| Start flash jumping                     | `zk` / `Enter`    |
+| Start flash jumping                     | `zk`              |
 | Split horizontally                      | `<leader>wh`      |
 | Split vertically                        | `<leader>wv`      |
-| Toggle opencode                         | `<F4>`            |
 | Toggle terminal                         | `<ctrl>\`         |
-| Open neotree                            | `<leader>e`       |
+| Open Snacks Explorer                    | `<leader>e`       |
 
 Picker Keybinds
 
-| Action             | Keymap                    |
-| ------------------ | ------------------------- |
-| Find files in CWD  | `<leader><leader>`        |
-| Grep files in CWD  | `<leader>fw`              |
-| Search buffers     | `<leadersb` / `<leader>,` |
-| Search oldfiles    | `<leader>so`              |
-| Search help        | `<leader>sh`              |
-| Search diagnostics | `<leader>sd`              |
-| Search todos       | `<leader>st`              |
-| Search marks       | `<leadersm`               |
+| Action                  | Keymap                    |
+| ----------------------- | ------------------------- |
+| Find files in CWD       | `<leader><leader>`        |
+| Grep files in CWD       | `<leader>fw`              |
+| Search buffers          | `<leadersb` / `<leader>,` |
+| Search oldfiles         | `<leader>so`              |
+| Search help             | `<leader>sh`              |
+| Search diagnostics      | `<leader>sd`              |
+| Search todos            | `<leader>st`              |
+| Search keymaps          | `<leader>sk`              |
+| Search marks            | `<leadersm`               |
+| Search symbols (aerial) | `<leader>ss`              |
+| Search registers        | `<leader>sx`              |
 
 _(Refer to `lua/core/keymaps.lua` and the `lua/plugins/` modules for full keymap and plugin details.)_
 
