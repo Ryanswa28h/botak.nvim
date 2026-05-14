@@ -30,13 +30,28 @@ local function apply_theme_config(theme_name, transparent)
 	return status
 end
 
--- Persistence Autocmd
+-- Colorscheme autocommand
 vim.api.nvim_create_autocmd("ColorScheme", {
+	pattern = "*",
 	callback = function()
-		if vim.v.event.abort then
-			return
+		-- Load persistent theme
+		local name = vim.g.colors_name
+		if name and name ~= "" and name ~= "lazy" then
+			save_state(name, state.transparent)
 		end
-		save_state(vim.g.colors_name, state.transparent)
+		-- Set blinkcmp colors
+		local set_hl = vim.api.nvim_set_hl
+		set_hl(0, "BlinkCmpSourceCopilot", { fg = "#6CC644", italic = true })
+		set_hl(0, "BlinkCmpSourceLsp", { fg = "#7AA2F7", bold = true })
+		set_hl(0, "BlinkCmpSourceSnippets", { fg = "#f38ba8" })
+		set_hl(0, "BlinkCmpSourceBuffer", { fg = "#9ECE6A" })
+		set_hl(0, "BlinkCmpSourcePath", { fg = "#E0AF68" })
+		-- Set fold color
+		vim.api.nvim_set_hl(0, "Folded", {
+			bg = "#363b45",
+			fg = "#6b7280",
+			italic = true,
+		})
 	end,
 })
 

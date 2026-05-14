@@ -38,7 +38,7 @@ require("lazy").setup({
 	spec = {
 		{ import = "plugins.mininvim" },
 		{ import = "plugins.snacks" },
-		{ import = "plugins.colortheme" },
+		{ import = "plugins.colorscheme" },
 		{ import = "plugins.bufferline" }, -- NOTE: Disable if you're advanced enough with global marks, harpoon, telescope or other means of navigation
 		{ import = "plugins.persistence" },
 		{ import = "plugins.lualine" },
