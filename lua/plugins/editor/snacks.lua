@@ -15,6 +15,12 @@ return {
 			sources = {
 				explorer = {
 					trash = true,
+					layout = {
+						layout = {
+							position = "left",
+							width = 35,
+						},
+					},
 				},
 			},
 		},
