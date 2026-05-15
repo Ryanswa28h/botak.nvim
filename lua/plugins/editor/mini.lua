@@ -74,4 +74,32 @@ return {
 			{ "<leader>gh", "<cmd>lua MiniGit.show_at_cursor()<cr>", desc = "Git History (Cursor)" },
 		},
 	},
+
+	-- 7. Mini Hipatterns
+	{
+		"nvim-mini/mini.hipatterns",
+		event = "VeryLazy",
+		config = function()
+			local hipatterns = require("mini.hipatterns")
+
+			hipatterns.setup({
+				highlighters = {
+					-- 1. Standard Hex Colors (#aabbcc)
+					hex_color = hipatterns.gen_highlighter.hex_color({ priority = 2000 }),
+
+					-- 2. Shorthand Hex Colors (#abc)
+					shorthand = {
+						pattern = "()#%x%x%x()%f[^%x%w]",
+						group = function(_, _, data)
+							local match = data.full_match
+							local r, g, b = match:sub(2, 2), match:sub(3, 3), match:sub(4, 4)
+							local hex_color = "#" .. r .. r .. g .. g .. b .. b
+							return hipatterns.compute_hex_color_group(hex_color, "bg")
+						end,
+						extmark_opts = { priority = 2000 },
+					},
+				},
+			})
+		end,
+	},
 }
