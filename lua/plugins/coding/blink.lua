@@ -1,3 +1,5 @@
+local cmp_border = "single" -- "none", "single", "rounded", "double", "solid", "shadow"
+
 return {
 	"saghen/blink.cmp",
 	lazy = false,
@@ -164,8 +166,8 @@ return {
 
 		completion = {
 			menu = {
-				border = "rounded", -- "single", "rounded", "double", "solid", "shadow"
-				winhighlight = "Normal:Normal,FloatBorder:FloatBorder,CursorLine:Visual,Search:None",
+				border = cmp_border,
+				winhighlight = "Normal:Pmenu,FloatBorder:FloatBorder,CursorLine:Visual,Search:None",
 				draw = {
 					columns = { { "kind_icon" }, { "label", "label_description", gap = 1 }, { "source_name" } },
 					components = {
@@ -200,8 +202,8 @@ return {
 				auto_show = true,
 				auto_show_delay_ms = 0,
 				window = {
-					border = "rounded", -- "single", "rounded", "double", "solid", "shadow"
-					winhighlight = "Normal:Normal,FloatBorder:FloatBorder,CursorLine:Visual,Search:None",
+					border = cmp_border,
+					winhighlight = "Normal:Pmenu,FloatBorder:FloatBorder,CursorLine:Visual,Search:None",
 				},
 			},
 			ghost_text = {
@@ -215,7 +217,7 @@ return {
 		signature = {
 			enabled = true,
 			window = {
-				border = "rounded",
+				border = cmp_border,
 			},
 		},
 
