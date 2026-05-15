@@ -6,7 +6,6 @@ local function open_or_create_todo()
 		vim.fn.writefile(template, path)
 	end
 
-	-- CHANGE THIS: Use the float util
 	require("utils.float").open_float(path, true)
 end
 

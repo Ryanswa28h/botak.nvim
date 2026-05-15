@@ -81,7 +81,7 @@ vim.keymap.set("n", "<leader>ot", function()
 end, { desc = "Notes: Open ToDo Float" })
 
 -- Open Journal
-vim.keymap.set("n", "<leader>ob", function()
+vim.keymap.set("n", "<leader>oj", function()
 	require("utils.journal")()
 end, { desc = "Notes: Open Journal Float" })
 
