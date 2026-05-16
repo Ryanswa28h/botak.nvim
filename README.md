@@ -25,210 +25,82 @@ Designed for speed, ease of use, and out-of-the-box functionality with a curated
 
 ## 📋 Requirements
 
-Before installing botak.nvim, make sure you have the following installed:
+Before installing, ensure your system has the required core utilities and external dependencies installed.
 
-- **Neovim 0.9+**
-- **Git**
-- A **Nerd Font** (optional, for icons)
-- **Python 3** (optional, for `pyright` LSP)
-- **Node.js / npm** (optional, for some LSPs and plugins)
-- **fzf** (optional, for fuzzy searchin
-- **make** (optional, for building some plugins)
+### 1. Core Runtime (Required)
 
-> [!IMPORTANT]
-> Make sure your terminal is using a nerd font, otherwise icons will not display correctly.
+- **Neovim >= 0.10.0** (Built with LuaJIT)
+- **Git** (For plugin management via `lazy.nvim`)
+- **Curl** (For downloading LSP servers, linters, and Mason binaries)
 
-Optional LSPs and tools installed via Mason.nvim (`mason.lua`):
+### 2. External System Dependencies (Highly Recommended)
 
-- Lua: `lua-language-server`
-- Python: `pyright`, `ruff`
-- C/C++: `clangd`
-- JSON: `json-lsp`
-- SQL: `sqlls`
-- YAML: `yaml-language-server`
-- Bash: `bash-language-server`
-- Docker: `docker-language-server`, `docker-compose-language-service`
-- HTML: `html-lsp`
-- Formatter: `stylua`
+These binaries must be accessible in your system's `$PATH` for the respective plugins to function:
 
-Lazy.nvim + Mason.nvim will automatically install most of these.
+| Dependency                 | Required By                           | Purpose                                                  |
+| :------------------------- | :------------------------------------ | :------------------------------------------------------- |
+| `ripgrep` (`rg`)           | `fzf-lua`, `snacks.nvim`, `telescope` | Lightning-fast global text searching                     |
+| `fzf`                      | `fzf-lua`                             | Command-line fuzzy finder engine                         |
+| `fd`                       | `fzf-lua`, `snacks.nvim`              | Fast alternative to `find` for locating files            |
+| `Node.js` (`node` & `npm`) | `mason.nvim`, `copilot.lua`           | Runtime for Copilot and various LSP/formatters           |
+| `Python3` & `pip`          | `nvim-dap-python`                     | Debugging runtime and environment management             |
+| `unzip` / `tar` / `gzip`   | `mason.nvim`                          | Decompressing downloaded language servers                |
+| `xclip` / `wl-clipboard`   | Neovim System Clipboard               | Syncing Vim registers with system clipboard (Linux only) |
 
-## 📦 Install Requirements
+### 3. Advanced / AI Plugin Dependencies
 
-<details>
-<summary>Linux / macOS</summary>
+Because this config leverages cutting-edge AI utilities (`avante.nvim`), you must install these compilation tools:
 
-### Requirements
-
-**1. Git**
-
-Linux:
-
-```bash
-sudo pacman -S git        # Arch
-sudo apt install git      # Debian/Ubuntu
-```
-
-macOS:
-
-```bash
-brew install git
-```
+- **`make`** or **`cmake`** (Required to compile `avante.nvim` native code)
+- **A C Compiler** (`gcc` or `clang`)
+- **`luarocks`** (To manage Lua dependencies for Avante)
+- **`xclip` / `wl-clipboard` / `pbcopy`** (Required by `img-clip.nvim` to grab screenshots into your Markdown notes)
 
 ---
 
-**2. Neovim (0.9+)**
+### 📦 Quick Installation Commands
 
-Linux:
+Choose the command for your operating system to fetch all dependencies at once:
 
-```bash
-sudo pacman -S neovim    # Arch
-sudo apt install neovim  # Debian/Ubuntu
-```
-
-macOS:
+#### MacOS (Homebrew)
 
 ```bash
-brew install neovim
+brew install neovim git curl ripgrep fzf fd nodejs luarocks cmake
 ```
 
-Verify:
+#### Linux
 
 ```bash
-nvim --version
+sudo apt update && sudo apt install -y neovim git curl ripgrep fzf fd-find nodejs luarocks cmake build-essential xclip # debian/ubuntu
+sudo pacman -S neovim git curl ripgrep fzf fd nodejs luarocks cmake base-devel xclip # archlinux
 ```
 
----
+#### Windows (Winget - Native)
 
-**3. (Optional) Python 3**
-
-Linux:
-
-```bash
-sudo pacman -S python    # Arch
-sudo apt install python3 # Debian/Ubuntu
-```
-
-macOS:
-
-```bash
-brew install python
-```
-
----
-
-**4. (Optional) Node.js**
-
-Linux:
-
-```bash
-sudo pacman -S nodejs npm    # Arch
-sudo apt install nodejs npm  # Debian/Ubuntu
-```
-
-macOS:
-
-```bash
-brew install node
-```
-
----
-
-**5. (Optional) fzf**
-
-Linux:
-
-```bash
-sudo pacman -S fzf    # Arch
-sudo apt install fzf  # Debian/Ubuntu
-```
-
-macOS:
-
-```bash
-brew install fzf
-```
-
-</details>
-
-<details>
-<summary>Windows</summary>
-
-### Requirements
-
-Install the following before using botak.nvim:
-
-**1. Git**
-
-Using Winget (recommended):
+Run this command inside **PowerShell** (as Administrator):
 
 ```powershell
-winget install --id Git.Git -e
+winget install -e --id Neovim.Neovim
+winget install -e --id Git.Git
+winget install -e --id BurntSushi.Ripgrep
+winget install -e --id sharkdp.fd
+winget install -e --id junegunn.fzf
+winget install -e --id OpenJS.NodeJS
+winget install -e --id LLVM.LLVM
+winget install -e --id CMake.CMake
+pip install luarocks
 ```
 
-Or download manually from:
-[https://git-scm.com/download/win](https://git-scm.com/download/win)
-
----
-
-**2. Neovim (0.9+)**
-
-Using Winget:
+or
 
 ```powershell
-winget install Neovim.Neovim
+choco install neovim git ripgrep fd fzf nodejs luarocks cmake llvm -y
 ```
 
-Or download manually:
-[https://neovim.io](https://neovim.io)
-
-Make sure `nvim` is available in PowerShell:
-
-```powershell
-nvim --version
-```
-
----
-
-**3. (Optional) Python 3**
-
-Required only if you want Python LSP (`pyright`).
-
-```powershell
-winget install --id Python.Python.3.11 --scope machine -e
-```
-
----
-
-**4. (Optional) Node.js**
-
-Needed for some LSP servers and plugins.
-
-```powershell
-winget install OpenJS.NodeJS
-```
-
----
-
-**5. (Optional) fzf**
-
-Required only if you want fuzzy finding.
-
-```powershell
-winget install junegunn.fzf
-```
-
----
-
-**4. (Optional) Node.js**
-
-Needed for some LSP servers and plugins.
-
-```powershell
-winget install OpenJS.NodeJS
-```
-
-</details>
+> [!NOTE]
+>
+> 1. **The C Compiler (`LLVM` / `gcc`)**: Because `avante.nvim` requires compiling native code, Windows users _must_ have a compiler in their system environment. Installing `LLVM` (which includes `clang`) or installing MinGW via `choco install mingw -y` ensures that `make` and compilation blocks won't crash during the lazy-load setup.
+> 2. **Path Refresh**: Remind your users that after running these setup commands on Windows, they **must close and restart their terminal** for the newly installed tools to register in their environment `$PATH`.
 
 ---
 
@@ -367,6 +239,13 @@ If it is not taken, you can add a keymap to the `lua/core/keymaps.lua` file.
 
 To remove a plugin, you can delete the plugin spec from one of the subdirectories in `lua/plugins`.
 Or if you want to preserve the spec, but disable it for now, either add the `disabled = true` flag to the spec or move the spec to `lua/plugins/unused`.
+
+### Replace mini.statusline with lualine
+
+Lualine is a statusline plugin similar to mini.statusline (default). To use lualine instead of mini.statusline, follow these steps:
+
+1. Go to `lua/plugins/editor/mini.lua` and comment/delete "`require("mini.statusline").setup({...})`".
+2. Go to `lua/plugins/ui/lualine.lua` and comment/delete "`enabled = false,`".
 
 ---
 
