@@ -89,14 +89,14 @@ return {
 		"navarasu/onedark.nvim",
 		lazy = false,
 		priority = 1000,
-		enabled = true, -- Toggle this
+		enabled = true,
 		config = finalize_theme,
 	},
 	{
 		"folke/tokyonight.nvim",
 		lazy = false,
 		priority = 1000,
-		enabled = false, -- Toggle this
+		enabled = false,
 		config = finalize_theme,
 	},
 	{
@@ -104,14 +104,14 @@ return {
 		name = "catppuccin",
 		lazy = false,
 		priority = 1000,
-		enabled = false, -- Toggle this
+		enabled = false,
 		config = finalize_theme,
 	},
 	{
 		"shaunsingh/nord.nvim",
 		lazy = false,
 		priority = 1000,
-		enabled = false, -- Toggle this
+		enabled = false,
 		config = finalize_theme,
 	},
 }

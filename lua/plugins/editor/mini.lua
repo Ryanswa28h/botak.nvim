@@ -1,3 +1,12 @@
+local function macro_recording()
+	local recording_reg = vim.fn.reg_recording()
+	if recording_reg == "" then
+		return ""
+	else
+		return "󰑋  Recording @" .. recording_reg
+	end
+end
+
 local open_mini_files = function()
 	local buf_name = vim.api.nvim_buf_get_name(0)
 	local path = vim.fs.dirname(buf_name)
@@ -40,7 +49,33 @@ return {
 				require("mini.bracketed").setup({})
 				require("mini.pairs").setup({})
 				require("mini.git").setup({ job = { timeout = 5000 } })
-				-- require("mini.statusline").setup({})
+				require("mini.statusline").setup({
+					content = {
+						active = function()
+							local mode, mode_hl = MiniStatusline.section_mode({ trunc_width = 120 })
+							local git = MiniStatusline.section_git({ trunc_width = 75 })
+							local diagnostics = MiniStatusline.section_diagnostics({ trunc_width = 75 })
+							local filename = MiniStatusline.section_filename({ trunc_width = 140 })
+							local macro = macro_recording()
+							local fileinfo = MiniStatusline.section_fileinfo({ trunc_width = 120 })
+							local location = MiniStatusline.section_location({ trunc_width = 75 })
+
+							return MiniStatusline.combine_groups({
+								{ hl = mode_hl, strings = { mode } },
+
+								-- 3. Inject the macro right here!
+								-- If a macro is recording, it uses the Mode's high-contrast highlight group.
+								{ hl = mode_hl, strings = { macro } },
+
+								{ hl = "MiniStatuslineDevinfo", strings = { git, diagnostics } },
+								{ hl = "MiniStatuslineFilename", strings = { filename } },
+								"%=", -- Right align filler
+								{ hl = "MiniStatuslineFileinfo", strings = { fileinfo } },
+								{ hl = mode_hl, strings = { location } },
+							})
+						end,
+					},
+				})
 
 				local hipatterns = require("mini.hipatterns")
 				hipatterns.setup({
