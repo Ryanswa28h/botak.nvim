@@ -30,10 +30,12 @@ return {
 			["<C-y>"] = { "accept", "fallback" },
 			["<C-j>"] = { "select_next", "fallback" },
 			["<C-k>"] = { "select_prev", "fallback" },
+			["<C-s>"] = { "show_signature", "hide_signature", "fallback" },
+			["<C-l>"] = { "show_documentation", "hide_documentation", "fallback" },
 			-- ["<C-Space>"] = { "show", "show_documentation", "hide_documentation" },
-			["<CR>"] = { "accept", "fallback" },
-			["<Tab>"] = { "select_next", "snippet_forward", "fallback" },
-			["<S-Tab>"] = { "select_prev", "snippet_backward", "fallback" },
+			-- ["<CR>"] = { "accept", "fallback" },
+			-- ["<Tab>"] = { "select_next", "snippet_forward", "fallback" },
+			-- ["<S-Tab>"] = { "select_prev", "snippet_backward", "fallback" },
 			-- ["<C-l>"] = { "snippet_forward", "fallback" },
 			-- ["<C-h>"] = { "snippet_backward", "fallback" },
 			["<A-1>"] = {
@@ -227,10 +229,12 @@ return {
 				["<C-y>"] = { "accept", "fallback" },
 				["<C-j>"] = { "select_next", "fallback" },
 				["<C-k>"] = { "select_prev", "fallback" },
-				["<C-Space>"] = { "show", "show_documentation", "hide_documentation" },
-				["<C-n>"] = { "show", "show_documentation", "hide_documentation" },
-				["<Tab>"] = { "select_next", "fallback" },
-				["<S-Tab>"] = { "select_prev", "fallback" },
+				["<C-s>"] = { "show_signature", "hide_signature", "fallback" },
+				["<C-l>"] = { "show_documentation", "hide_documentation", "fallback" },
+				-- ["<C-Space>"] = { "show", "show_documentation", "hide_documentation" },
+				-- ["<C-n>"] = { "show", "show_documentation", "hide_documentation" },
+				-- ["<Tab>"] = { "select_next", "fallback" },
+				-- ["<S-Tab>"] = { "select_prev", "fallback" },
 				["<A-1>"] = {
 					function(cmp)
 						if cmp.is_menu_visible() then
