@@ -1,43 +1,6 @@
-local function force_navic_colors()
-	local kinds = {
-		File = "Tag",
-		Module = "Include",
-		Namespace = "Include",
-		Package = "Include",
-		Class = "Type",
-		Method = "Function",
-		Property = "@property",
-		Field = "@field",
-		Constructor = "@constructor",
-		Enum = "Type",
-		Interface = "Type",
-		Function = "Function",
-		Variable = "@variable",
-		Constant = "Constant",
-		String = "String",
-		Number = "Number",
-		Boolean = "Boolean",
-		Array = "Constant",
-		Object = "Type",
-		Key = "@keyword",
-		Null = "Constant",
-		EnumMember = "Constant",
-		Struct = "Structure",
-		Event = "Type",
-		Operator = "Operator",
-		TypeParameter = "Type",
-	}
-
-	for kind, target in pairs(kinds) do
-		vim.api.nvim_set_hl(0, "NavicIcons" .. kind, { link = target, default = false })
-	end
-end
-
-force_navic_colors()
-
 return {
 	"nvim-lualine/lualine.nvim",
-	enabled = false,
+	enabled = true,
 	event = "VeryLazy",
 	config = function()
 		local colors = {

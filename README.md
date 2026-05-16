@@ -228,13 +228,6 @@ If it is not taken, you can add a keymap to the `lua/core/keymaps.lua` file.
 To remove a plugin, you can delete the plugin spec from one of the subdirectories in `lua/plugins`.
 Or if you want to preserve the spec, but disable it for now, either add the `disabled = true` flag to the spec or move the spec to `lua/plugins/unused`.
 
-### Replace mini.statusline with lualine
-
-Lualine is a statusline plugin similar to mini.statusline (default). To use lualine instead of mini.statusline, follow these steps:
-
-1. Go to `lua/plugins/editor/mini.lua` and comment/delete "`require("mini.statusline").setup({...})`".
-2. Go to `lua/plugins/ui/lualine.lua` and comment/delete "`enabled = false,`".
-
 ---
 
 ## 🚀 Usage

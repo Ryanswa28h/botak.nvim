@@ -16,6 +16,32 @@ local open_mini_files = function()
 	require("mini.files").open(path)
 end
 
+local statusline_opts = {
+	content = {
+		active = function()
+			local mode, mode_hl = MiniStatusline.section_mode({ trunc_width = 120 })
+			local git = MiniStatusline.section_git({ trunc_width = 75 })
+			local diagnostics = MiniStatusline.section_diagnostics({ trunc_width = 75 })
+			local filename = MiniStatusline.section_filename({ trunc_width = 140 })
+			local macro = macro_recording()
+			local fileinfo = MiniStatusline.section_fileinfo({ trunc_width = 120 })
+			local location = MiniStatusline.section_location({ trunc_width = 75 })
+
+			return MiniStatusline.combine_groups({
+				{ hl = mode_hl, strings = { mode } },
+
+				{ hl = mode_hl, strings = { macro } },
+
+				{ hl = "MiniStatuslineDevinfo", strings = { git, diagnostics } },
+				{ hl = "MiniStatuslineFilename", strings = { filename } },
+				"%=", -- Right align filler
+				{ hl = "MiniStatuslineFileinfo", strings = { fileinfo } },
+				{ hl = mode_hl, strings = { location } },
+			})
+		end,
+	},
+}
+
 return {
 	{
 		"nvim-mini/mini.nvim",
@@ -49,31 +75,7 @@ return {
 				require("mini.bracketed").setup({})
 				require("mini.pairs").setup({})
 				require("mini.git").setup({ job = { timeout = 5000 } })
-				require("mini.statusline").setup({
-					content = {
-						active = function()
-							local mode, mode_hl = MiniStatusline.section_mode({ trunc_width = 120 })
-							local git = MiniStatusline.section_git({ trunc_width = 75 })
-							local diagnostics = MiniStatusline.section_diagnostics({ trunc_width = 75 })
-							local filename = MiniStatusline.section_filename({ trunc_width = 140 })
-							local macro = macro_recording()
-							local fileinfo = MiniStatusline.section_fileinfo({ trunc_width = 120 })
-							local location = MiniStatusline.section_location({ trunc_width = 75 })
-
-							return MiniStatusline.combine_groups({
-								{ hl = mode_hl, strings = { mode } },
-
-								{ hl = mode_hl, strings = { macro } },
-
-								{ hl = "MiniStatuslineDevinfo", strings = { git, diagnostics } },
-								{ hl = "MiniStatuslineFilename", strings = { filename } },
-								"%=", -- Right align filler
-								{ hl = "MiniStatuslineFileinfo", strings = { fileinfo } },
-								{ hl = mode_hl, strings = { location } },
-							})
-						end,
-					},
-				})
+				-- require("mini.statusline").setup(statusline_opts)
 
 				local misc = require("mini.misc")
 				misc.setup()
