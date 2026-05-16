@@ -392,6 +392,7 @@ nvim filename
 | Show all keymaps                        | `<leader>sk`      |
 | Go to definition                        | `gd`              |
 | Find references                         | `<leader>gr`      |
+| Toggle boolean/value                    | `gz`              |
 | Rename symbol                           | `<leader>rn`      |
 | Execute code in file                    | `<leader>r`       |
 | Accept autocomplete                     | `<ctrl>y` / `tab` |

@@ -137,10 +137,14 @@ vim.keymap.set("t", "<C-k>", [[<Cmd>wincmd k<CR>]], opts)
 vim.keymap.set("t", "<C-l>", [[<Cmd>wincmd l<CR>]], opts)
 
 -- Tabs
-vim.keymap.set("n", "<leader>bn", ":tabnew<CR>", opts) -- open new tab
+vim.keymap.set("n", "<leader>tn", ":tabnew<CR>", opts) -- open new tab
 vim.keymap.set("n", "<leader>tx", ":tabclose<CR>", opts) -- close current tab
 vim.keymap.set("n", "<leader>tn", ":tabn<CR>", opts) --  go to next tab
 vim.keymap.set("n", "<leader>tp", ":tabp<CR>", opts) --  go to previous tab
+
+vim.keymap.set("n", "gz", function()
+	require("utils.swap").swap()
+end, { desc = "Toggle Boolean/Value" })
 
 -- Toggle line wrapping
 vim.keymap.set("n", "<leader>lw", "<cmd>set wrap!<CR>", opts)
