@@ -75,9 +75,9 @@ sudo apt update && sudo apt install -y neovim git curl ripgrep fzf fd-find nodej
 sudo pacman -S neovim git curl ripgrep fzf fd nodejs luarocks cmake base-devel xclip # archlinux
 ```
 
-#### Windows (Winget - Native)
+#### Windows (Native)
 
-Run this command inside **PowerShell** (as Administrator):
+For winget installation, run this command inside **PowerShell** (as Administrator):
 
 ```powershell
 winget install -e --id Neovim.Neovim
@@ -91,7 +91,7 @@ winget install -e --id CMake.CMake
 pip install luarocks
 ```
 
-or
+or Chocolatey:
 
 ```powershell
 choco install neovim git ripgrep fd fzf nodejs luarocks cmake llvm -y
@@ -149,12 +149,6 @@ Command:
 
 If you don't want to use Supermaven autocomplete, you can disable the spec in the `init.lua` file.
 
-### 6. Delete `lazy-lock.json` (Optional)
-
-Deleting the `lazy-lock.json` file will allow Neovim to update plugins.
-
-As a result, you will get newer features at the price of stability.
-
 </details>
 
 <details>
@@ -201,12 +195,6 @@ Command:
 ```
 
 If you don't want to use Supermaven autocomplete, you can disable the spec in the `init.lua` file.
-
-### 6. Delete `lazy-lock.json` (Optional)
-
-Deleting the `lazy-lock.json` file will allow Neovim to update plugins.
-
-As a result, you will get newer features at the price of stability.
 
 </details>
 
