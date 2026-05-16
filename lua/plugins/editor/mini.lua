@@ -63,8 +63,6 @@ return {
 							return MiniStatusline.combine_groups({
 								{ hl = mode_hl, strings = { mode } },
 
-								-- 3. Inject the macro right here!
-								-- If a macro is recording, it uses the Mode's high-contrast highlight group.
 								{ hl = mode_hl, strings = { macro } },
 
 								{ hl = "MiniStatuslineDevinfo", strings = { git, diagnostics } },
@@ -76,6 +74,13 @@ return {
 						end,
 					},
 				})
+
+				local misc = require("mini.misc")
+				misc.setup()
+				misc.setup_auto_root()
+				misc.setup_restore_cursor()
+
+				vim.keymap.set("n", "<leader>z", misc.zoom, { desc = "Zoom Buffer" })
 
 				local hipatterns = require("mini.hipatterns")
 				hipatterns.setup({
