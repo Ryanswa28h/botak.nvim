@@ -58,14 +58,13 @@ vim.api.nvim_create_autocmd("ColorScheme", {
 		set_hl(0, "BlinkCmpSourcePath", { fg = "#E0AF68" })
 		-- Set fold color
 		vim.api.nvim_set_hl(0, "Folded", {
-			bg = "#363b45",
+			bg = "#35364d",
 			fg = "#6b7280",
 			italic = true,
 		})
 	end,
 })
 
--- Global Toggle Keymap
 vim.keymap.set("n", "<leader>bg", function()
 	state.transparent = not state.transparent
 	apply_theme_config(vim.g.colors_name, state.transparent)
@@ -73,10 +72,8 @@ vim.keymap.set("n", "<leader>bg", function()
 	save_state(vim.g.colors_name, state.transparent)
 end, { desc = "Toggle Transparency" })
 
--- Final application logic run after Lazy loads the specs
 local function finalize_theme()
 	apply_theme_config(state.theme, state.transparent)
-	-- pcall prevents Neovim from crashing if the 'state.theme' plugin is disabled
 	pcall(vim.cmd.colorscheme, state.theme)
 end
 
@@ -89,7 +86,7 @@ return {
 		"navarasu/onedark.nvim",
 		lazy = false,
 		priority = 1000,
-		enabled = true,
+		enabled = false,
 		config = finalize_theme,
 	},
 	{
@@ -104,7 +101,7 @@ return {
 		name = "catppuccin",
 		lazy = false,
 		priority = 1000,
-		enabled = false,
+		enabled = true,
 		config = finalize_theme,
 	},
 	{
