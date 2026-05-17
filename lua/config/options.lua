@@ -11,6 +11,8 @@ vim.o.ttimeout = true
 vim.o.ttimeoutlen = 10
 vim.o.timeoutlen = 450 -- time to wait for a mapped sequence to complete (in milliseconds)
 vim.o.backup = false -- creates a backup file
+vim.g.loaded_netrw = 1
+vim.g.loaded_netrwPlugin = 1
 vim.o.writebackup = false -- if a file is being edited by another program (or was written to file while editing with another program), it is not allowed to be edited
 vim.o.completeopt = "menuone,noselect" -- Set completeopt to have a better completion experience
 vim.opt.termguicolors = true -- set termguicolors to enable highlight groups
@@ -48,17 +50,29 @@ vim.opt.confirm = true
 vim.g.deprecation_warnings = false
 vim.opt.fillchars = { eob = " " } -- Hide ~ at end of buffer
 vim.api.nvim_set_hl(0, "EndOfBuffer", { fg = "NONE", bg = "NONE" }) -- Make the EndOfBuffer area completely transparent/match background
+vim.deprecate = function() end -- Disable Deprecation Warnings
+
 local undodir = vim.fn.expand("~/.vim/undodir")
 if vim.fn.isdirectory(undodir) == 0 then
 	vim.fn.mkdir(undodir, "p")
 end
 vim.opt.undodir = undodir
 vim.opt.undofile = true
+
 vim.diagnostic.config({
 	-- virtual_text = {
 	-- 	source = "if_many",
 	-- 	prefix = "●",
 	-- },
+	signs = {
+		text = {
+			[vim.diagnostic.severity.ERROR] = " ",
+			[vim.diagnostic.severity.WARN] = " ",
+			[vim.diagnostic.severity.HINT] = "󰌵 ",
+			[vim.diagnostic.severity.INFO] = " ",
+		},
+		priority = 1,
+	},
 	virtual_text = true,
 	virtual_lines = false,
 	float = {
@@ -66,6 +80,3 @@ vim.diagnostic.config({
 	},
 	underline = true,
 })
-
--- Disable Deprecation Warnings
-vim.deprecate = function() end
