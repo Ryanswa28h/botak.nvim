@@ -283,7 +283,7 @@ Picker Keybinds:
 | Search symbols (aerial) | `<leader>ss`              |
 | Search registers        | `<leader>sx`              |
 
-_(Refer to `lua/core/keymaps.lua` and the `lua/plugins/` modules for full keymap and plugin details.)_
+_(Refer to `lua/config/keymaps.lua` and the `lua/plugins/` modules for full keymap and plugin details.)_
 
 > [!TIP]
 > You can use legendary.nvim (`<ctrl>p`) to search for commands and further explore keymaps.
