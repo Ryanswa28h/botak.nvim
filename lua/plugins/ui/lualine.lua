@@ -65,7 +65,20 @@ return {
 		local filename = {
 			"filename",
 			file_status = true, -- displays file status (readonly status, modified status)
-			path = 1, -- 0 = just filename, 1 = relative path, 2 = absolute path
+			path = 2, -- 0 = just filename, 1 = relative path, 2 = absolute path
+
+			color = { fg = colors.fg },
+
+			fmt = function(name)
+				local home = vim.uv.os_homedir()
+
+				if home then
+					home = home:gsub("([^%w])", "%%%1")
+					name = name:gsub("^" .. home, "~")
+				end
+
+				return name
+			end,
 		}
 
 		local diagnostics = {
@@ -106,18 +119,18 @@ return {
 				},
 				lualine_c = {
 					{ "filetype", icon_only = true, separator = "", padding = { left = 1, right = 0 } },
-					{ "filename", path = 1, color = { fg = colors.fg } },
-					{
-						function()
-							return require("nvim-navic").get_location({
-								highlight = true,
-							})
-						end,
-						cond = function()
-							return require("nvim-navic").is_available()
-						end,
-						color = { fg = colors.gray1 }, -- Navic location in a subtle gray
-					},
+					filename,
+					-- {
+					-- 	function()
+					-- 		return require("nvim-navic").get_location({
+					-- 			highlight = true,
+					-- 		})
+					-- 	end,
+					-- 	cond = function()
+					-- 		return require("nvim-navic").is_available()
+					-- 	end,
+					-- 	color = { fg = colors.gray1 }, -- Navic location in a subtle gray
+					-- },
 				},
 				lualine_x = {
 					-- Recording macro (Red to stand out)
@@ -156,7 +169,7 @@ return {
 			inactive_sections = {
 				lualine_a = {},
 				lualine_b = {},
-				lualine_c = { { "filename", path = 1 } },
+				lualine_c = { { "filename", path = 2 } },
 				lualine_x = { { "location", padding = 0 } },
 				lualine_y = {},
 				lualine_z = {},
