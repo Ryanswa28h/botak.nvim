@@ -218,7 +218,7 @@ vim.keymap.set("n", "<leader>pl", ":source .session.vim<CR>", { noremap = true, 
 
 -- Set K to peek fold or show LSP hover documentation
 vim.keymap.set("n", "K", function()
-	local winid --[[ = require("ufo").peekFoldedLinesUnderCursor() ]]
+	local winid = require("ufo").peekFoldedLinesUnderCursor()
 	if not winid then
 		-- Fallback to LSP hover if no fold is found
 		local lsp_clients = vim.lsp.get_clients({ bufnr = 0 })
@@ -229,7 +229,7 @@ vim.keymap.set("n", "K", function()
 			vim.api.nvim_feedkeys("K", "n", false)
 		end
 	end
-end, { desc = "LSP hover documentation" })
+end, { desc = "LSP hover documentation or peek fold" })
 
 -- Showkeys
 vim.keymap.set("n", "<leader>lm", "<cmd>ShowkeysToggle<CR>", { desc = "Toggle Showkeys" })
