@@ -1,3 +1,4 @@
+local current_layout = "ivy"
 return {
 	"folke/snacks.nvim",
 	priority = 1000,
@@ -12,6 +13,42 @@ return {
 		-- zen = { enabled = true },
 		picker = {
 			enabled = true,
+			layouts = {
+				ivy = {
+					layout = {
+						box = "vertical",
+						backdrop = false,
+						row = -1,
+						width = 0,
+						height = 0.45,
+						border = "top",
+						title = " {title} {live} {flags}",
+						title_pos = "left",
+						{ win = "input", height = 1, border = "bottom" },
+						{
+							box = "horizontal",
+							{ win = "list", border = "none" },
+							{ win = "preview", title = "{preview}", width = 0.5, border = "left" },
+						},
+					},
+				},
+				vertical = {
+					layout = {
+						backdrop = false,
+						width = 0.8,
+						min_width = 80,
+						height = 0.8,
+						min_height = 30,
+						box = "vertical",
+						border = "rounded",
+						title = "{title} {live} {flags}",
+						title_pos = "center",
+						{ win = "input", height = 1, border = "bottom" },
+						{ win = "list", border = "none" },
+						{ win = "preview", title = "{preview}", height = 0.4, border = "top" },
+					},
+				},
+			},
 			sources = {
 				explorer = {
 					trash = true,
@@ -110,56 +147,78 @@ return {
 		{
 			"<leader>,",
 			function()
-				Snacks.picker.buffers({ layout = "default" })
+				Snacks.picker.buffers({
+					layout = current_layout,
+					on_show = function()
+						vim.cmd.stopinsert()
+					end,
+				})
 			end,
 			desc = "Search Buffers",
 		},
 		{
+			"<leader>sb",
+			function()
+				Snacks.picker.buffers({
+					layout = current_layout,
+					on_show = function()
+						vim.cmd.stopinsert()
+					end,
+				})
+			end,
+			desc = "[S]earch [B]uffers",
+		},
+		{
 			"<leader><tab>",
 			function()
-				Snacks.picker.buffers({ layout = "default" })
+				Snacks.picker.buffers({
+					layout = current_layout,
+					on_show = function()
+						vim.cmd.stopinsert()
+					end,
+				})
 			end,
 			desc = "Search existing Buffers",
 		},
 		{
 			"<leader><leader>",
 			function()
-				Snacks.picker.files({ layout = "default" })
+				Snacks.picker.files({ layout = current_layout })
 			end,
 			desc = "Find Files",
 		},
 		{
 			"<leader>sf",
 			function()
-				Snacks.picker.files({ layout = "default" })
+				Snacks.picker.files({ layout = current_layout })
 			end,
 			desc = "Search Files",
 		},
 		{
 			"<leader>ff",
 			function()
-				Snacks.picker.files({ layout = "default" })
+				Snacks.picker.files({ layout = current_layout })
 			end,
 			desc = "[F]ind [F]iles",
 		},
 		{
 			"<leader>so",
 			function()
-				Snacks.picker.recent({ layout = "default" })
+				Snacks.picker.recent({ layout = current_layout })
 			end,
 			desc = "Search Oldfiles",
 		},
 		{
 			"<leader>fr",
 			function()
-				Snacks.picker.recent({ layout = "default" })
+				Snacks.picker.recent({ layout = current_layout })
 			end,
 			desc = "[F]ind [R]ecents",
 		},
 		{
 			"<leader>sm",
 			function()
-				Snacks.picker.marks({ layout = "default" })
+				Snacks.picker.marks({ layout = current_layout })
 			end,
 			desc = "Search Marks",
 		},
@@ -168,42 +227,42 @@ return {
 		{
 			"<leader>gf",
 			function()
-				Snacks.picker.git_files({ layout = "default" })
+				Snacks.picker.git_files({ layout = current_layout })
 			end,
 			desc = "Search Git Files",
 		},
 		{
 			"<leader>fg",
 			function()
-				Snacks.picker.git_files({ layout = "default" })
+				Snacks.picker.git_files({ layout = current_layout })
 			end,
 			desc = "[F]ind [G]it",
 		},
 		{
-			"<leader>gcc",
+			"<leader>gl",
 			function()
-				Snacks.picker.git_log({ layout = "default" })
+				Snacks.picker.git_log({ layout = "vertical" })
 			end,
 			desc = "Search Git Commits",
 		},
 		{
-			"<leader>gcf",
+			"<leader>gn",
 			function()
-				Snacks.picker.git_log_file({ layout = "default" })
+				Snacks.picker.git_log_file({ layout = "vertical" })
 			end,
 			desc = "Search Git Commits (File)",
 		},
 		{
 			"<leader>gb",
 			function()
-				Snacks.picker.git_branches({ layout = "default" })
+				Snacks.picker.git_branches({ layout = "vertical" })
 			end,
 			desc = "Search Git Branches",
 		},
 		{
 			"<leader>sgs",
 			function()
-				Snacks.picker.git_status({ layout = "default" })
+				Snacks.picker.git_status({ layout = "vertical" })
 			end,
 			desc = "Search Git Status",
 		},
@@ -212,56 +271,56 @@ return {
 		{
 			"<leader>sh",
 			function()
-				Snacks.picker.help({ layout = "default" })
+				Snacks.picker.help({ layout = current_layout })
 			end,
 			desc = "Search Help",
 		},
 		{
 			"<leader>sw",
 			function()
-				Snacks.picker.grep_word({ layout = "default" })
+				Snacks.picker.grep_word({ layout = current_layout })
 			end,
 			desc = "Search current Word",
 		},
 		{
 			"<leader>sg",
 			function()
-				Snacks.picker.grep({ layout = "default" })
+				Snacks.picker.grep({ layout = current_layout })
 			end,
 			desc = "Search by Grep",
 		},
 		{
 			"<leader>fw",
 			function()
-				Snacks.picker.grep({ layout = "default" })
+				Snacks.picker.grep({ layout = current_layout })
 			end,
 			desc = "[F]ind [W]ords (Grep)",
 		},
 		{
 			"<leader>sd",
 			function()
-				Snacks.picker.diagnostics({ layout = "default" })
+				Snacks.picker.diagnostics({ layout = current_layout })
 			end,
 			desc = "Search Diagnostics",
 		},
 		{
 			"<leader>sr",
 			function()
-				Snacks.picker.resume({ layout = "default" })
+				Snacks.picker.resume({ layout = current_layout })
 			end,
 			desc = "Search Resume",
 		},
 		{
 			'<leader>"',
 			function()
-				Snacks.picker.registers({ layout = "default" })
+				Snacks.picker.registers({ layout = current_layout })
 			end,
 			desc = "Search Register",
 		},
 		{
 			"<leader>sx",
 			function()
-				Snacks.picker.registers({ layout = "default" })
+				Snacks.picker.registers({ layout = current_layout })
 			end,
 			desc = "Search Register",
 		},
@@ -270,7 +329,7 @@ return {
 		{
 			"<leader>sth",
 			function()
-				Snacks.picker.colorschemes({ layout = "default" })
+				Snacks.picker.colorschemes({ layout = current_layout })
 			end,
 			desc = "Search Colorschemes",
 		},
@@ -279,14 +338,14 @@ return {
 		{
 			"<leader>st",
 			function()
-				Snacks.picker.todo_comments({ layout = "default" })
+				Snacks.picker.todo_comments({ layout = current_layout })
 			end,
 			desc = "[T]odo Picker",
 		},
 		{
 			"<leader>sT",
 			function()
-				Snacks.picker.todo_comments({ layout = "default", keywords = { "TODO", "FIX", "FIXME" } })
+				Snacks.picker.todo_comments({ layout = current_layout, keywords = { "TODO", "FIX", "FIXME" } })
 			end,
 			desc = "Todo/Fix/Fixme",
 		},
@@ -295,14 +354,14 @@ return {
 		{
 			"<leader>s/",
 			function()
-				Snacks.picker.lines({ layout = "default" })
+				Snacks.picker.lines({ layout = current_layout })
 			end,
 			desc = "Search in Open Buffers",
 		},
 		{
 			"<leader>/",
 			function()
-				Snacks.picker.lines({ layout = "default" })
+				Snacks.picker.lines({ layout = current_layout })
 			end,
 			desc = "Fuzzily search in current buffer",
 		},
@@ -345,7 +404,7 @@ return {
 		{
 			"<leader>st",
 			function()
-				Snacks.picker.todo_comments({ layout = "default" })
+				Snacks.picker.todo_comments({ layout = current_layout })
 			end,
 			desc = "[T]odo Picker",
 		},
@@ -354,7 +413,7 @@ return {
 			"<leader>sT",
 			function()
 				Snacks.picker.todo_comments({
-					layout = "default",
+					layout = current_layout,
 					keywords = { "TODO", "FIX", "FIXME" },
 				})
 			end,
@@ -363,21 +422,28 @@ return {
 		{
 			"<leader>sth",
 			function()
-				Snacks.picker.colorschemes({ layout = "default" })
+				Snacks.picker.colorschemes({ layout = current_layout })
 			end,
 			desc = "Search Colorschemes",
 		},
 		{
 			"<leader>sk",
 			function()
-				Snacks.picker.keymaps({ layout = "default" })
+				Snacks.picker.keymaps({ layout = current_layout })
+			end,
+			desc = "Search Keymaps",
+		},
+		{
+			"<C-p>",
+			function()
+				Snacks.picker.keymaps({ layout = current_layout })
 			end,
 			desc = "Search Keymaps",
 		},
 		{
 			"<leader>fp",
 			function()
-				Snacks.picker.projects({ layout = "default" })
+				Snacks.picker.projects({ layout = current_layout })
 			end,
 			desc = "Projects",
 		},
