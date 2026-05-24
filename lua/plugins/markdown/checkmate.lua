@@ -3,6 +3,18 @@ return {
 	"bngarren/checkmate.nvim",
 	ft = "markdown",
 	opts = {
+		metadata = {
+			due = {
+				style = { fg = "#ff8787" },
+				key = "<leader>Tm",
+				get_value = function()
+					local t = os.date("*t")
+					t.day = t.day + 1
+					local tomorrow = os.time(t)
+					return os.date("%m/%d/%y", tomorrow)
+				end,
+			},
+		},
 		ui = {
 			picker = "snacks", -- or "mini", "telescope", or "native"
 		},
