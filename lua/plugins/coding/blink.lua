@@ -200,7 +200,7 @@ return {
 				},
 			},
 			documentation = {
-				auto_show = true,
+				auto_show = false,
 				auto_show_delay_ms = 0,
 				window = {
 					border = cmp_border,
