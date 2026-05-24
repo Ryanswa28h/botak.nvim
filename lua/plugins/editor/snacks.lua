@@ -64,7 +64,7 @@ return {
 		-- layout = { enabled = true },
 		-- lazygit = { enabled = true },
 		notifier = { enabled = true, timeout = 4200 },
-		indent = { enabled = true },
+		-- indent = { enabled = true },
 		bigfile = { enabled = true },
 		statuscolumn = {
 			enabled = true,

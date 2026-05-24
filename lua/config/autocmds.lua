@@ -8,6 +8,14 @@ vim.api.nvim_create_autocmd("User", {
 	end,
 })
 
+-- Disable mini.indentscope when opening the dashboard
+vim.api.nvim_create_autocmd("User", {
+	pattern = "SnacksDashboardOpened",
+	callback = function(args)
+		vim.b[args.buf].miniindentscope_disable = true
+	end,
+})
+
 vim.api.nvim_create_autocmd("User", {
 	pattern = "PersistenceSavePre",
 	callback = function()

@@ -76,6 +76,9 @@ return {
 				require("mini.align").setup({})
 				require("mini.pairs").setup({})
 				require("mini.git").setup({ job = { timeout = 5000 } })
+				require("mini.indentscope").setup({
+					symbol = "│",
+				})
 				-- require("mini.statusline").setup(statusline_opts)
 
 				local misc = require("mini.misc")
