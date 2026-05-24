@@ -1,5 +1,15 @@
 -- endwise.lua
 return {
 	"RRethy/nvim-treesitter-endwise",
-	event = "BufRead",
+	ft = {
+		"ruby",
+		"lua",
+		"vim",
+		"sh",
+		"bash",
+		"zsh",
+		"elixir",
+		"fish",
+		"julia",
+	},
 }
