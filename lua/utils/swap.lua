@@ -23,7 +23,7 @@ function M.swap()
 		vim.cmd("normal! ciw" .. swaps[word])
 		vim.cmd("silent! call repeat#set('g!', 1)")
 	else
-		vim.notify("No swap available")
+		vim.notify("No alternative available")
 	end
 end
 

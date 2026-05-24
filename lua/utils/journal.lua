@@ -1,5 +1,5 @@
 local function open_today_journal()
-	local date = os.date("%Y-%m-%d")
+	local date = os.date("%m-%d-%y")
 	local dir = vim.fn.expand("~/.notes/journal")
 	local path = dir .. "/" .. date .. ".md"
 
@@ -12,7 +12,8 @@ local function open_today_journal()
 		vim.fn.writefile(template, path)
 	end
 
-	require("utils.float").open_float(path, true)
+	-- require("utils.float").open_float(path, true)
+	vim.cmd("edit " .. path)
 
 	vim.cmd("normal! gg/^## Journal<CR>jj$")
 end

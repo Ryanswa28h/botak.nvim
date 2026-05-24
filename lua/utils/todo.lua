@@ -6,7 +6,8 @@ local function open_or_create_todo()
 		vim.fn.writefile(template, path)
 	end
 
-	require("utils.float").open_float(path, true)
+	-- require("utils.float").open_float(path, true)
+	vim.cmd("edit " .. path)
 end
 
 return open_or_create_todo
