@@ -66,13 +66,14 @@ return {
 				options = { use_as_default_explorer = true },
 			})
 
-			-- Equivalent to VeryLazy
+			-- Delays by a tick
 			vim.schedule(function()
 				require("mini.ai").setup({})
 				require("mini.surround").setup({})
 				require("mini.move").setup({})
 				require("mini.operators").setup({})
 				require("mini.bracketed").setup({})
+				require("mini.align").setup({})
 				require("mini.pairs").setup({})
 				require("mini.git").setup({ job = { timeout = 5000 } })
 				-- require("mini.statusline").setup(statusline_opts)
