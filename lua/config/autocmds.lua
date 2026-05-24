@@ -88,7 +88,7 @@ vim.api.nvim_create_autocmd({ "WinLeave", "BufLeave" }, {
 vim.api.nvim_create_autocmd("VimEnter", {
 	once = true,
 	callback = function(data)
-		vim.cmd("ShowkeysToggle") -- Enable showkeys on startup
+		-- vim.cmd("ShowkeysToggle") -- Enable showkeys on startup
 		-- if vim.fn.isdirectory(data.file) == 1 then
 		-- 	if neotree then
 		-- 		vim.cmd("cd " .. data.file)
