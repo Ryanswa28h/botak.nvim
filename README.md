@@ -47,6 +47,16 @@ These binaries must be accessible in your system's `$PATH` for the respective pl
 | `unzip` / `tar` / `gzip`   | `mason.nvim`                          | Decompressing downloaded language servers                |
 | `xclip` / `wl-clipboard`   | Neovim System Clipboard               | Syncing Vim registers with system clipboard (Linux only) |
 
+DAP (Debug Adapter Protocol) dependencies:
+
+| Dependency                 | Required By                           | Purpose                                               |
+| :------------------------- | :------------------------------------ | :---------------------------------------------------- |
+| `node`                     | `pwa-node` adapter (js-debug-adapter) | Runs the JS debug server process                      |
+| `python3`                  | `nvim-dap-python`                     | Executes debugpy for Python debugging                 |
+| `debugpy`                  | `nvim-dap-python`                     | Python debug adapter (`python3 -m debugpy` must work) |
+| `cpptools` (mason)         | `dap.configurations.cpp`              | C/C++ debug adapter installed via mason               |
+| `js-debug-adapter` (mason) | `pwa-node` adapter                    | JS/TS debug adapter server installed via mason        |
+
 ### 3. Advanced / AI Plugin Dependencies
 
 Because this config leverages cutting-edge AI utilities (`avante.nvim`), you must install these compilation tools:
@@ -266,6 +276,7 @@ nvim filename
 | Split vertically                        | `<leader>wv`      |
 | Toggle terminal                         | `<ctrl>\`         |
 | Open Snacks Explorer                    | `<leader>e`       |
+| Start DAP debugger                      | `<leader>dr`      |
 
 Picker Keybinds:
 
