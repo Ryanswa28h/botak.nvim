@@ -44,6 +44,7 @@ These binaries must be accessible in your system's `$PATH` for the respective pl
 | `fd`                       | `fzf-lua`, `snacks.nvim`              | Fast alternative to `find` for locating files            |
 | `Node.js` (`node` & `npm`) | `mason.nvim`, `copilot.lua`           | Runtime for Copilot and various LSP/formatters           |
 | `Python3` & `pip`          | `nvim-dap-python`                     | Debugging runtime and environment management             |
+| Treesitter CLI             | `nvim-treesitter`                     | Installation of treesitter parsers                       |
 | `unzip` / `tar` / `gzip`   | `mason.nvim`                          | Decompressing downloaded language servers                |
 | `xclip` / `wl-clipboard`   | Neovim System Clipboard               | Syncing Vim registers with system clipboard (Linux only) |
 
