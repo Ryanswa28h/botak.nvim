@@ -73,6 +73,8 @@ Because this config leverages cutting-edge AI utilities (`avante.nvim`), you mus
 
 Choose the command for your operating system to fetch all dependencies at once:
 
+For the Treesitter CLI, [TS CLI Install Guide](https://tree-sitter.github.io/tree-sitter/creating-parsers/1-getting-started.html)
+
 #### MacOS (Homebrew)
 
 ```bash
