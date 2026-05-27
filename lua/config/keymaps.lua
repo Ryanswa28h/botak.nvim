@@ -67,7 +67,7 @@ vim.keymap.set({ "n", "i" }, "<C-s>", "<cmd> w <CR>", opts)
 -- save file without auto-formatting
 vim.keymap.set("n", "<leader>sn", "<cmd>noautocmd w <CR>", opts)
 
--- EXIT Neovim (Shouldn't be possible)
+-- EXIT Neovim
 vim.keymap.set("n", "<leader>qq", "<cmd> confirm qa <CR>", opts)
 vim.keymap.set("n", "<leader>Q", "<cmd> qa <CR>", opts)
 
@@ -172,6 +172,12 @@ vim.keymap.set("t", "kj", [[<C-\><C-n>]], { desc = "Exit Terminal Mode" })
 -- Stay in indent mode
 vim.keymap.set("v", "<", "<gv", opts)
 vim.keymap.set("v", ">", ">gv", opts)
+
+-- Open link under cursor
+vim.keymap.set("n", "<leader>gx", function()
+	local url = vim.fn.expand("<cfile>")
+	vim.ui.open(url)
+end, { desc = "Open link under cursor" })
 
 -- Move text up and down
 vim.keymap.set("v", "<A-j>", ":m .+1<CR>==", opts)
