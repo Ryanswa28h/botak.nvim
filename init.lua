@@ -1,4 +1,4 @@
-vim.g.configpreset = "minimal" -- "default" or "minimal"
+vim.g.configpreset = "default" -- "default" or "minimal"
 require("config.autocmds")
 require("config.options")
 require("config.keymaps")
