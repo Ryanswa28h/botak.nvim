@@ -300,7 +300,7 @@ Picker Keybinds:
 _(Refer to `lua/config/keymaps.lua` and the `lua/plugins/` modules for full keymap and plugin details.)_
 
 > [!TIP]
-> You can use legendary.nvim (`<ctrl>p`) to search for commands and further explore keymaps.
+> You can press `<leader>sk` to search for commands and further explore keymaps.
 
 ---
 
