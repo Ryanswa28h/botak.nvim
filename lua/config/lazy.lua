@@ -22,6 +22,7 @@ require("lazy").setup({
 		{ import = "plugins.markdown" },
 		{ import = "plugins.data" },
 		{ import = "plugins.misc" },
+		{ import = "plugins.configdefault", enabled = vim.g.configpreset == "default" },
 	},
 	performance = {
 		cache = { enabled = true },

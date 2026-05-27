@@ -1,5 +1,6 @@
 return {
 	"akinsho/bufferline.nvim",
+	cond = vim.g.configpreset == "default",
 	dependencies = {
 		"moll/vim-bbye",
 		"nvim-tree/nvim-web-devicons",
