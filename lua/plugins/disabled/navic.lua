@@ -1,7 +1,6 @@
 -- navic.lua
 return {
 	"SmiteshP/nvim-navic",
-	enabled = false,
 	event = { "BufReadPost", "BufNewFile" },
 	dependencies = "neovim/nvim-lspconfig",
 	opts = {
