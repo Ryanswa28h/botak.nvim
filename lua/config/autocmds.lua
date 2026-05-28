@@ -113,6 +113,8 @@ vim.api.nvim_create_autocmd("FileType", {
 		"python",
 		"javascript",
 		"typescript",
+		"javascriptreact",
+		"typescriptreact",
 		"vimdoc",
 		"sh",
 		"vim",

@@ -148,12 +148,12 @@ return {
 				lsp = {
 					name = "LSP",
 					module = "blink.cmp.sources.lsp",
-					score_offset = 100, -- Give LSP the highest priority
+					score_offset = 100,
 				},
 				snippets = {
 					name = "Snippets",
 					module = "blink.cmp.sources.snippets",
-					score_offset = 80, -- Snippets second
+					score_offset = 120,
 				},
 				-- copilot = {
 				-- 	name = "Copilot",

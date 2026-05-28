@@ -8,6 +8,8 @@ return {
 				"python",
 				"javascript",
 				"typescript",
+				"javascriptreact",
+				"typescriptreact",
 				"vimdoc",
 				"vim",
 				"regex",
