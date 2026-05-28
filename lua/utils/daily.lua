@@ -1,6 +1,6 @@
-local function open_today_journal()
+local function open_today_daily()
 	local date = os.date("%m-%d-%y")
-	local dir = vim.fn.expand("~/.notes/journal")
+	local dir = vim.fn.expand("~/.notes/daily")
 	local path = dir .. "/" .. date .. ".md"
 
 	if vim.fn.isdirectory(dir) == 0 then
@@ -8,7 +8,7 @@ local function open_today_journal()
 	end
 
 	if vim.fn.filereadable(path) == 0 then
-		local template = { "# Journal — " .. date, "", "## Journal", "", "- ", "", "---", "", "## Notes", "" }
+		local template = { "# Daily — " .. date, "", "## Journal", "", "- ", "", "---", "", "## Notes", "" }
 		vim.fn.writefile(template, path)
 	end
 
@@ -18,4 +18,4 @@ local function open_today_journal()
 	vim.cmd("normal! gg/^## Journal<CR>jj$")
 end
 
-return open_today_journal
+return open_today_daily

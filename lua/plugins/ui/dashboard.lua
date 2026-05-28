@@ -67,10 +67,10 @@ return {
 					},
 					{
 						icon = " ",
-						key = "b",
-						desc = "Journal",
+						key = "d",
+						desc = "Daily",
 						action = function()
-							require("utils.journal")()
+							require("utils.daily")()
 						end,
 						nowait = true,
 					},
@@ -146,11 +146,11 @@ return {
 	},
 	keys = {
 		{
-			"<leader>od",
+			"<leader>om",
 			function()
 				Snacks.dashboard.open()
 			end,
-			desc = "Open Dashboard",
+			desc = "Open Dashboard (Menu)",
 		},
 	},
 }

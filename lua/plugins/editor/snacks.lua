@@ -140,9 +140,6 @@ return {
 			function()
 				Snacks.picker.buffers({
 					layout = current_layout,
-					on_show = function()
-						vim.cmd.stopinsert()
-					end,
 				})
 			end,
 			desc = "Search Buffers",
@@ -152,9 +149,6 @@ return {
 			function()
 				Snacks.picker.buffers({
 					layout = current_layout,
-					on_show = function()
-						vim.cmd.stopinsert()
-					end,
 				})
 			end,
 			desc = "[S]earch [B]uffers",
@@ -164,9 +158,6 @@ return {
 			function()
 				Snacks.picker.buffers({
 					layout = current_layout,
-					on_show = function()
-						vim.cmd.stopinsert()
-					end,
 				})
 			end,
 			desc = "Search existing Buffers",
@@ -184,6 +175,13 @@ return {
 				Snacks.picker.files({ layout = current_layout })
 			end,
 			desc = "Search Files",
+		},
+		{
+			"<leader>sc",
+			function()
+				require("snacks").picker.files({ cwd = vim.fn.stdpath("config"), layout = current_layout })
+			end,
+			desc = "Search Config",
 		},
 		{
 			"<leader>ff",

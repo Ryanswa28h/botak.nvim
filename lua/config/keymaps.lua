@@ -78,12 +78,12 @@ vim.keymap.set("t", "<C-S-q>", "<C-\\><C-n>:qa<CR>", opts)
 -- Open Todo list
 vim.keymap.set("n", "<leader>ot", function()
 	require("utils.todo")()
-end, { desc = "Notes: Open ToDo Float" })
+end, { desc = "Notes: Open ToDo" })
 
--- Open Journal
-vim.keymap.set("n", "<leader>oj", function()
-	require("utils.journal")()
-end, { desc = "Notes: Open Journal Float" })
+-- Open Daily
+vim.keymap.set("n", "<leader>od", function()
+	require("utils.daily")()
+end, { desc = "Notes: Open Daily" })
 
 -- Check signature of function under cursor
 vim.keymap.set("n", "<C-k>", vim.lsp.buf.signature_help, { desc = "Signature Documentation" })
@@ -246,9 +246,3 @@ vim.keymap.set("n", "K", function()
 		end
 	end
 end, { desc = "LSP hover documentation or peek fold" })
-
--- Showkeys
-vim.keymap.set("n", "<leader>lm", "<cmd>ShowkeysToggle<CR>", { desc = "Toggle Showkeys" })
-
--- Terminal
-vim.keymap.set({ "n", "t", "v" }, "<C-\\>", "<Cmd>FloatermToggle<CR>", { desc = "Toggle Terminal" })
