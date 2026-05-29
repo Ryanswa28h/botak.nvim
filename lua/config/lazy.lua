@@ -14,7 +14,6 @@ rtp:prepend(lazypath)
 require("lazy").setup({
 	spec = {
 		{ import = "plugins.ai" },
-		{ import = "plugins.coding" },
 		{ import = "plugins.lsp" },
 		{ import = "plugins.editor" },
 		{ import = "plugins.git" },
