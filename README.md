@@ -270,7 +270,7 @@ nvim filename
 | Execute code in file                    | `<leader>r`       |
 | Accept autocomplete                     | `<ctrl>y` / `tab` |
 | Accept AI autocomplete                  | `<ctrl>g`         |
-| Persistent theme selector               | `<leader>sth`     |
+| Persistent theme selector               | `<leader>sC`      |
 | Open git status menu                    | `<leader>gs`      |
 | Toggle keystroke overlay                | `<leader>lm`      |
 | Open mini.files                         | `-`               |

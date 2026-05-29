@@ -111,6 +111,13 @@ return {
 			end,
 			desc = "Delete Buffer",
 		},
+		{
+			"<leader>gB",
+			function()
+				Snacks.gitbrowse()
+			end,
+			desc = "Gitbrowse",
+		},
 		-- Notification History
 		{
 			"<leader>nh",
@@ -316,7 +323,7 @@ return {
 
 		-- UI / Theme
 		{
-			"<leader>sth",
+			"<leader>sC",
 			function()
 				Snacks.picker.colorschemes({ layout = current_layout })
 			end,
@@ -409,7 +416,7 @@ return {
 			desc = "Todo/Fix/Fixme",
 		},
 		{
-			"<leader>sth",
+			"<leader>sC",
 			function()
 				Snacks.picker.colorschemes({ layout = current_layout })
 			end,
