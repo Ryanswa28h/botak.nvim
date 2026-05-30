@@ -3,7 +3,6 @@
 -- Set leader key
 vim.g.mapleader = " "
 vim.g.maplocalleader = " "
-local opener = "xdg-open" -- "xdg-open" on linux, "open" on macOS, "explorer" on Windows
 
 -- Disable the spacebar key's default behavior in Normal and Visual modes
 vim.keymap.set({ "n", "v" }, "<Space>", "<Nop>", { silent = true })
@@ -197,7 +196,7 @@ vim.keymap.set("n", "<leader>fO", function()
 	-- Check if the path exists (it might not in a new, unsaved buffer)
 	if vim.fn.isdirectory(path) > 0 then
 		-- 'jobstart' runs the command in the background so it doesn't freeze Neovim
-		vim.system({ opener, path }, { detach = true })
+		vim.system({ vim.g.explorer, path }, { detach = true })
 	else
 		print("Error: Current buffer has no valid directory path.")
 	end

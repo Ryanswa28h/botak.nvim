@@ -215,6 +215,26 @@ If you don't want to use Supermaven autocomplete, you can disable the spec in th
 
 ## 🗿 Post-Installation
 
+### Set file explorer for `<leader>fO` (Recommended)
+
+The `<leader>fO` keymap opens the operating system's file explorer in the parent directory of the current buffer.
+
+It is set to `xdg-open` on Linux, if you're on other operating systems, like macOS or Windows, you must change it to the supported file explorer by your operating system.
+
+Common file explorers:
+
+| Operating System | File Explorer |
+| ---------------- | ------------- |
+| Linux            | `xdg-open`    |
+| macOS            | `open`        |
+| Windows          | `explorer`    |
+
+To change the file explorer, change the following line to your `init.lua` file:
+
+```lua
+vim.g.opener = "xdg-open"
+```
+
 ### Add More Plugins
 
 To add more plugins, you can add plugin specs to one of the subdirectories in `lua/plugins` (except `lua/plugins/disabled`).
