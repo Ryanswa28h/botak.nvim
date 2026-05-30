@@ -50,6 +50,13 @@ return {
 		keys = {
 			{ "-", open_mini_files, desc = "Open MiniFiles at Current Buffer" },
 			{
+				"<leader>gd",
+				function()
+					require("mini.diff").toggle_overlay()
+				end,
+				desc = "Mini Diff Overlay",
+			},
+			{
 				"<leader>E",
 				function()
 					require("mini.files").open()
@@ -77,6 +84,18 @@ return {
 				require("mini.pairs").setup({})
 				require("mini.indentscope").setup({
 					symbol = "│",
+				})
+				require("mini.diff").setup({
+					view = {
+						-- HACK: Not so clean way to disable the mini.diff signs while still being able to access the diff overlay
+						style = "sign",
+						priority = 0,
+						signs = {
+							add = "",
+							change = "",
+							delete = "",
+						},
+					},
 				})
 				require("mini.git").setup({ job = { timeout = 5000 } })
 				if vim.g.configpreset == "minimal" then
