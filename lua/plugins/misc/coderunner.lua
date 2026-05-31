@@ -133,11 +133,20 @@ local function run_markdown_codeblock()
 	vim.cmd("botright split | terminal " .. cmd)
 end
 
+local function run_smart()
+	if vim.bo.filetype == "markdown" then
+		run_markdown_codeblock()
+	else
+		run_file()
+	end
+end
+
 return {
 	"coderunner",
 	virtual = true,
 	keys = {
-		{ "<leader>r", run_file, desc = "Run current file" },
-		{ "<leader>R", run_markdown_codeblock, desc = "Run markdown code block" },
+		{ "<leader>r", run_smart, desc = "Run current file or markdown code block" },
+		{ "<leader>Rb", run_markdown_codeblock, desc = "Run markdown code block" },
+		{ "<leader>Rf", run_file, desc = "Run current file" },
 	},
 }
