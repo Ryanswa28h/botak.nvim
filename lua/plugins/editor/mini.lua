@@ -99,7 +99,7 @@ return {
 				})
 				require("mini.git").setup({ job = { timeout = 5000 } })
 				if vim.g.configpreset == "minimal" then
-					require("mini.statusline").setup(statusline_opts)
+					-- require("mini.statusline").setup(statusline_opts)
 					require("mini.tabline").setup({})
 				end
 
