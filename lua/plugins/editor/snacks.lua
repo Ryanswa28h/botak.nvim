@@ -9,6 +9,7 @@ return {
 		-- animate = { enabled = true },
 		-- scroll = { enabled = true },
 		debug = { enabled = true },
+		scratch = { enabled = true },
 		quickfile = { enabled = true },
 		zen = { enabled = true },
 		picker = {
@@ -272,13 +273,6 @@ return {
 			desc = "Search Help",
 		},
 		{
-			"<leader>sw",
-			function()
-				Snacks.picker.grep_word({ layout = current_layout })
-			end,
-			desc = "Search current Word",
-		},
-		{
 			"<leader>sg",
 			function()
 				Snacks.picker.grep({ layout = current_layout })
@@ -338,14 +332,6 @@ return {
 			end,
 			desc = "[T]odo Picker",
 		},
-		{
-			"<leader>sT",
-			function()
-				Snacks.picker.todo_comments({ layout = current_layout, keywords = { "TODO", "FIX", "FIXME" } })
-			end,
-			desc = "Todo/Fix/Fixme",
-		},
-
 		-- Specialized Search
 		{
 			"<leader>s/",
@@ -396,25 +382,6 @@ return {
 			end,
 			desc = "Go Search and Replace",
 		},
-		-- Todo Picker (Replaces TodoTelescope)
-		{
-			"<leader>st",
-			function()
-				Snacks.picker.todo_comments({ layout = current_layout })
-			end,
-			desc = "[T]odo Picker",
-		},
-		-- Todo/Fix/Fixme (Replaces TodoTelescope with specific keywords)
-		{
-			"<leader>sT",
-			function()
-				Snacks.picker.todo_comments({
-					layout = current_layout,
-					keywords = { "TODO", "FIX", "FIXME" },
-				})
-			end,
-			desc = "Todo/Fix/Fixme",
-		},
 		{
 			"<leader>sC",
 			function()
@@ -444,11 +411,28 @@ return {
 			desc = "Projects",
 		},
 		{
+			"<leader>sp",
+			function()
+				Snacks.picker.projects({ layout = current_layout })
+			end,
+			desc = "Projects",
+		},
+		{
 			"<leader>e",
 			function()
 				Snacks.picker.explorer()
 			end,
 			desc = "Snacks Explorer",
+		},
+		{
+			"<leader>.",
+			function()
+				Snacks.scratch({
+					ft = "markdown",
+					name = "Notes",
+				})
+			end,
+			desc = "Markdown scratchpad",
 		},
 	},
 }

@@ -4,7 +4,15 @@ return {
 	"saghen/blink.cmp",
 	lazy = false,
 	dependencies = {
-		"rafamadriz/friendly-snippets",
+		{
+			"L3MON4D3/LuaSnip",
+			dependencies = {
+				"rafamadriz/friendly-snippets",
+			},
+			config = function()
+				require("luasnip.loaders.from_vscode").lazy_load()
+			end,
+		},
 		-- {
 		-- 	"zbirenbaum/copilot.lua",
 		-- 	cmd = "Copilot",
@@ -153,7 +161,7 @@ return {
 				snippets = {
 					name = "Snippets",
 					module = "blink.cmp.sources.snippets",
-					score_offset = 120,
+					score_offset = 80,
 				},
 				-- copilot = {
 				-- 	name = "Copilot",
@@ -211,7 +219,7 @@ return {
 				enabled = false, -- Matching your ghost_text = false
 			},
 			trigger = {
-				show_in_snippet = false,
+				show_in_snippet = true,
 			},
 		},
 

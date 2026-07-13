@@ -31,8 +31,7 @@ return {
 		local symbols = { "!", "@", "#", "$", "%", "^", "&", "*", "(" }
 		for i = 1, 9 do
 			table.insert(keys, {
-				"<leader>"
-					.. (vim.g.configpreset == "default" and ({ "!", "@", "#", "$", "%", "^", "&", "*", "(" })[i] or i),
+				"<leader>" .. (vim.g.configpreset == "default" and symbols[i] or i),
 				function()
 					require("harpoon"):list():select(i)
 				end,
