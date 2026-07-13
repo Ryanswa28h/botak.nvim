@@ -144,11 +144,11 @@ vim.keymap.set("n", "<leader>tp", ":tabp<CR>", opts) --  go to previous tab
 -- Markdown
 vim.keymap.set("n", "<leader>mm", "<cmd>RenderMarkdown toggle<CR>", { desc = "Render Markdown Toggle" })
 vim.keymap.set("n", "<leader>mi", require("utils.insert-image").insert_image, { desc = "Insert Image" })
-vim.keymap.set("n", "<leader>meb", function()
+vim.keymap.set("n", "<leader>mE", function()
 	local line = "$$\n\n$$"
 	vim.api.nvim_put(vim.split(line, "\n"), "l", true, true)
 end, { desc = "Insert Equation Block" })
-vim.keymap.set("n", "<leader>mel", "i$$$$<esc>hi", { desc = "Insert Equation Inline" })
+vim.keymap.set("n", "<leader>me", "i$$$$<esc>hi", { desc = "Insert Equation Inline" })
 
 -- Swap
 vim.keymap.set("n", "gz", function()
@@ -157,6 +157,13 @@ end, { desc = "Toggle Boolean/Value" })
 
 -- Toggle line wrapping
 vim.keymap.set("n", "<leader>lw", "<cmd>set wrap!<CR>", opts)
+
+-- Snippet stop
+vim.keymap.set({ "i", "n" }, "<C-c>", function()
+	if vim.snippet.active() then
+		vim.snippet.stop()
+	end
+end)
 
 -- Press jk fast to exit insert mode
 -- vim.keymap.set("i", "jk", "<ESC>", opts)
@@ -225,13 +232,34 @@ vim.keymap.set("n", "]d", function()
 end, { desc = "Go to next diagnostic message" })
 
 vim.keymap.set("n", "<leader>d", vim.diagnostic.open_float, { desc = "Open floating diagnostic message" })
+-- vim.keymap.set("n", "<leader>q", vim.diagnostic.setloclist, { desc = "Open diagnostics list" })
 vim.keymap.set("n", "gl", vim.diagnostic.open_float, { desc = "Open floating diagnostic message" })
-vim.keymap.set("n", "<leader>q", vim.diagnostic.setloclist, { desc = "Open diagnostics list" })
 vim.keymap.set("n", "gL", vim.diagnostic.setloclist, { desc = "Open diagnostics list" })
 
 -- Save and load session
 vim.keymap.set("n", "<leader>ps", ":mksession! .session.vim<CR>", { noremap = true, silent = false })
 vim.keymap.set("n", "<leader>pl", ":source .session.vim<CR>", { noremap = true, silent = false })
+
+local function set_project_root()
+	local root = vim.fs.root(0, {
+		".git",
+		"package.json",
+		"Cargo.toml",
+		"go.mod",
+		"pyproject.toml",
+	})
+
+	root = root or vim.fs.dirname(vim.api.nvim_buf_get_name(0))
+
+	if root then
+		vim.cmd.cd(root)
+		vim.notify("Root: " .. root)
+	end
+end
+
+vim.keymap.set("n", "<leader>a", set_project_root, {
+	desc = "Change root to project",
+})
 
 -- Set K to peek fold or show LSP hover documentation
 vim.keymap.set("n", "K", function()

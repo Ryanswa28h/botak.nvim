@@ -124,6 +124,7 @@ vim.api.nvim_create_autocmd("FileType", {
 		"dockerfile",
 		"toml",
 		"json",
+		"jsonc",
 		"java",
 		"groovy",
 		"go",
