@@ -91,6 +91,10 @@ vim.api.nvim_create_autocmd("ColorScheme", {
 		set_hl(0, "BlinkCmpSourcePath", { fg = "#E0AF68" })
 		-- Set fold color
 		set_fold_hl()
+		-- Set snippet color
+		vim.api.nvim_set_hl(0, "SnippetTabstopActive", {
+			bold = true,
+		})
 	end,
 })
 

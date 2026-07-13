@@ -54,9 +54,9 @@ return {
 			"mode",
 			fmt = function(str)
 				if hide_in_width() then
-					return  --[[ " " .. ]]str
+					return  --[[ " " .. ]]str
 				else
-					return  --[[ " " .. ]]str:sub(1, 1) -- displays only the first character of the mode
+					return  --[[ " " .. ]]str:sub(1, 1) -- displays only the first character of the mode
 				end
 			end,
 		}
