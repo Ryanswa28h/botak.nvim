@@ -48,7 +48,6 @@ return {
 		lazy = false,
 		priority = 1000,
 		keys = {
-			{ "-", open_mini_files, desc = "Open MiniFiles at Current Buffer" },
 			{
 				"<leader>gd",
 				function()
@@ -56,6 +55,14 @@ return {
 				end,
 				desc = "Mini Diff Overlay",
 			},
+			{ "-", open_mini_files, desc = "Open MiniFiles at Current Buffer" },
+			-- {
+			-- 	"-",
+			-- 	function()
+			-- 		require("mini.files").open()
+			-- 	end,
+			-- 	desc = "Open MiniFiles",
+			-- },
 			{
 				"<leader>E",
 				function()
@@ -81,7 +88,7 @@ return {
 				require("mini.operators").setup({})
 				require("mini.bracketed").setup({})
 				require("mini.align").setup({})
-				require("mini.pairs").setup({})
+				-- require("mini.pairs").setup({})
 				require("mini.indentscope").setup({
 					symbol = "│",
 				})
@@ -105,7 +112,7 @@ return {
 
 				local misc = require("mini.misc")
 				misc.setup()
-				misc.setup_auto_root()
+				-- misc.setup_auto_root()
 				misc.setup_restore_cursor()
 
 				vim.keymap.set("n", "<leader>z", misc.zoom, { desc = "Zoom Buffer" })
