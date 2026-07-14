@@ -76,19 +76,19 @@ return {
 
 				vim.keymap.set("n", "gd", function()
 					Snacks.picker.lsp_definitions()
-				end, { desc = "Goto Definition", buffer = bufnr })
+				end, { desc = "Goto Definition", buffer = event.buf })
 				vim.keymap.set("n", "<leader>gr", function()
 					Snacks.picker.lsp_references()
-				end, { desc = "References", buffer = bufnr, nowait = true })
+				end, { desc = "References", buffer = event.buf, nowait = true })
 				vim.keymap.set("n", "gI", function()
 					Snacks.picker.lsp_implementations()
-				end, { desc = "Goto Implementation", buffer = bufnr })
+				end, { desc = "Goto Implementation", buffer = event.buf })
 				vim.keymap.set("n", "gy", function()
 					Snacks.picker.lsp_type_definitions()
-				end, { desc = "Goto T[y]pe Definition", buffer = bufnr })
+				end, { desc = "Goto T[y]pe Definition", buffer = event.buf })
 				-- vim.keymap.set("n", "<leader>ss", function()
 				-- 	Snacks.picker.lsp_symbols()
-				-- end, { desc = "LSP Symbols", buffer = bufnr })
+				-- end, { desc = "LSP Symbols", buffer = event.buf })
 
 				-- WARN: This is not Goto Definition, this is Goto Declaration.
 				--  For example, in C this would take you to the header
@@ -153,7 +153,7 @@ return {
 						format = {
 							enable = false,
 						},
-						telemetery = {
+						telemetry = {
 							enable = false,
 						},
 					},
@@ -169,18 +169,39 @@ return {
 				},
 				filetypes = { "c", "cpp", "objc", "objcpp", "cuda" },
 			},
-			pyright = {
+			-- pyright = {
+			-- 	settings = {
+			-- 		python = {
+			-- 			analysis = {
+			-- 				autoSearchPaths = true,
+			-- 				useLibraryCodeForTypes = true,
+			-- 				diagnosticMode = "workspace",
+			-- 				typeCheckingMode = "basic", -- can also be "strict"
+			--
+			-- 				diagnosticSeverityOverrides = {
+			-- 					reportUnusedImport = "none",
+			-- 					reportUnusedVariable = "none",
+			-- 				},
+			-- 			},
+			-- 		},
+			-- 	},
+			-- },
+			basedpyright = {
 				settings = {
-					python = {
+					basedpyright = {
+						disableOrganizeImports = true,
+
 						analysis = {
 							autoSearchPaths = true,
 							useLibraryCodeForTypes = true,
 							diagnosticMode = "workspace",
-							typeCheckingMode = "basic", -- can also be "strict"
+							typeCheckingMode = "standard",
 
 							diagnosticSeverityOverrides = {
 								reportUnusedImport = "none",
 								reportUnusedVariable = "none",
+								reportDuplicateImport = "none",
+								reportWildcardImportFromLibrary = "none",
 							},
 						},
 					},
@@ -238,7 +259,6 @@ return {
 			"shfmt",
 			"cpplint",
 			"stylua",
-			"ruff",
 			"biome",
 		})
 		require("mason-tool-installer").setup({ ensure_installed = ensure_installed })
