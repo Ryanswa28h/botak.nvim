@@ -7,7 +7,18 @@ return {
 	opts = {
 		bufdelete = { enabled = true },
 		-- animate = { enabled = true },
-		-- scroll = { enabled = true },
+		scroll = {
+			enabled = true,
+			animate = {
+				duration = { step = 5, total = 80 },
+				easing = "linear",
+			},
+			animate_repeat = {
+				delay = 100, -- delay in ms before using the repeat animation
+				duration = { step = 3, total = 30 },
+				easing = "linear",
+			},
+		},
 		debug = { enabled = true },
 		scratch = { enabled = true },
 		quickfile = { enabled = true },

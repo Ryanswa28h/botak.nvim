@@ -2,7 +2,7 @@ local cmp_border = "single" -- "none", "single", "rounded", "double", "solid", "
 
 return {
 	"saghen/blink.cmp",
-	event = "InsertEnter",
+	event = { "InsertEnter", "CmdlineEnter" },
 	dependencies = {
 		{
 			"L3MON4D3/LuaSnip",
